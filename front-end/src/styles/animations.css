@@ -1,0 +1,385 @@
+/* ===================================
+   CALM & RELAXING ANIMATIONS
+   ================================== */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Easing Functions for Natural Motion */
+:root {
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-gentle: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ===================================
+   FLOATING ANIMATIONS
+   ================================== */
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes float-gentle {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.float {
+    animation: float 6s var(--ease-gentle) infinite;
+}
+
+.float-gentle {
+    animation: float-gentle 8s var(--ease-gentle) infinite;
+}
+
+/* ===================================
+   BREATHING ANIMATIONS
+   ================================== */
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes breathe-subtle {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.breathe {
+    animation: breathe 4s var(--ease-gentle) infinite;
+}
+
+.breathe-subtle {
+    animation: breathe-subtle 5s var(--ease-gentle) infinite;
+}
+
+/* ===================================
+   GLOW ANIMATIONS
+   ================================== */
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(81, 39, 49, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(81, 39, 49, 0.2);
+    }
+}
+
+@keyframes glow-soft {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(81, 39, 49, 0.08);
+    }
+
+    50% {
+        box-shadow: 0 8px 30px rgba(81, 39, 49, 0.15);
+    }
+}
+
+.glow {
+    animation: glow 3s var(--ease-gentle) infinite;
+}
+
+.glow-soft {
+    animation: glow-soft 4s var(--ease-gentle) infinite;
+}
+
+/* ===================================
+   FADE ANIMATIONS
+   ================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s var(--ease-smooth) forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s var(--ease-smooth) forwards;
+}
+
+.fade-in-down {
+    animation: fadeInDown 1s var(--ease-smooth) forwards;
+}
+
+/* ===================================
+   PULSE ANIMATIONS
+   ================================== */
+
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(81, 39, 49, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(81, 39, 49, 0);
+    }
+}
+
+.pulse-soft {
+    animation: pulse-soft 3s var(--ease-gentle) infinite;
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s var(--ease-gentle) infinite;
+}
+
+/* ===================================
+   GRADIENT ANIMATIONS
+   ================================== */
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-animate {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s var(--ease-gentle) infinite;
+}
+
+/* ===================================
+   SMOOTH HOVER EFFECTS
+   ================================== */
+
+.hover-lift {
+    transition: transform 0.6s var(--ease-soft), box-shadow 0.6s var(--ease-soft);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.hover-glow {
+    transition: box-shadow 0.6s var(--ease-soft);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 8px 30px rgba(81, 39, 49, 0.15);
+}
+
+.hover-scale {
+    transition: transform 0.6s var(--ease-soft);
+}
+
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* ===================================
+   IMAGE EFFECTS
+   ================================== */
+
+.image-zoom {
+    overflow: hidden;
+}
+
+.image-zoom img {
+    transition: transform 0.8s var(--ease-soft);
+}
+
+.image-zoom:hover img {
+    transform: scale(1.08);
+}
+
+.image-parallax {
+    transition: transform 0.3s var(--ease-smooth);
+}
+
+/* ===================================
+   BUTTON RIPPLE EFFECT
+   ================================== */
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===================================
+   STAGGER ANIMATIONS
+   ================================== */
+
+.stagger-item {
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-smooth) forwards;
+}
+
+.stagger-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stagger-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stagger-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stagger-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.stagger-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.stagger-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* ===================================
+   ACCESSIBILITY - REDUCED MOTION
+   ================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATION
+   ================================== */
+
+.will-animate {
+    will-change: transform, opacity;
+}
+
+.gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}

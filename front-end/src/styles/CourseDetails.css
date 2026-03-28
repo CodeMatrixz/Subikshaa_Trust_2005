@@ -1,0 +1,319 @@
+/* Course Details Page Styles */
+.course-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.course-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+}
+
+.course-hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: white;
+}
+
+.course-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.course-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.course-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+    font-size: 0.95rem;
+}
+
+.course-content-section {
+    padding: 4rem 0;
+}
+
+.course-layout {
+    display: block;
+    /* Removed grid for single column layout */
+}
+
+.course-overview h2,
+.course-syllabus h2,
+.course-benefits h2,
+.course-gallery h2 {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.course-overview p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+.syllabus-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.syllabus-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+    color: #333;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    transition: transform 0.2s;
+}
+
+.syllabus-list li:hover {
+    transform: translateX(5px);
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.check-icon {
+    color: var(--color-primary);
+    min-width: 20px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.benefit-card {
+    background: var(--color-primary);
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.course-sidebar {
+    position: relative;
+}
+
+.sidebar-card {
+    position: sticky;
+    top: 6rem;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+    .course-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .course-hero {
+        height: auto;
+        padding: 6rem 0;
+    }
+
+    .sidebar-card {
+        position: static;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .course-hero-content h1 {
+        font-size: 2.25rem;
+    }
+
+    .course-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* Bottom Application Section */
+.application-section-bottom {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.apply-card-bottom {
+    background: transparent;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    border: none;
+    box-shadow: none;
+}
+
+.apply-card-bottom::before {
+    display: none;
+}
+
+.apply-card-bottom h3 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.apply-card-bottom p {
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Enhanced Button Styling - Reusing consistent style */
+.apply-cta-btn {
+    padding: 1.25rem 3.5rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px -1px rgba(81, 39, 49, 0.2);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.apply-cta-btn:hover {
+    background: #421e27;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(81, 39, 49, 0.3);
+    color: white;
+    letter-spacing: 0.08em;
+}
+
+.apply-cta-btn svg {
+    transition: transform 0.4s ease;
+}
+
+.apply-cta-btn:hover svg {
+    transform: translateX(6px);
+}
+
+@media (max-width: 768px) {
+    .apply-card-bottom {
+        padding: 1rem;
+    }
+
+    .apply-card-bottom h3 {
+        font-size: 2.25rem;
+    }
+
+    .apply-cta-btn {
+        padding: 1rem 2.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+}

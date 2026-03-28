@@ -1,0 +1,174 @@
+/* VoicesStack.css */
+
+.voices-section {
+    position: relative;
+    /* Sufficient height to allow scrolling through the cards */
+    height: 300vh;
+    width: 100%;
+    margin-bottom: 4rem;
+    background-color: var(--color-bg);
+    /* Sync with site theme */
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(81, 39, 49, 0.03) 0%, transparent 70%);
+    /* Subtle depth */
+}
+
+.voices-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+    /* Essential for 3D effect */
+}
+
+.voices-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    z-index: 10;
+    margin-top: -50px;
+    /* Pull up slightly to make room for cards */
+}
+
+.voices-scene {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.voices-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.voices-card-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    /* Default z-Index will be handled by inline styles/reversed mapping */
+}
+
+.voices-card-inner {
+    width: 100%;
+    height: 100%;
+    background: var(--color-white, #ffffff);
+    border-radius: 16px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.voices-image-container {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0.5rem auto 0.5rem;
+    border: 4px solid var(--color-primary-light, rgba(196, 30, 58, 0.1));
+    flex-shrink: 0;
+}
+
+.voices-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.voices-card-inner:hover .voices-img {
+    transform: scale(1.05);
+}
+
+.voices-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary, #C41E3A);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.voices-content {
+    padding: 0.5rem 1.5rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* Center flex items horizontally */
+    text-align: center;
+    /* Center text */
+    background: linear-gradient(to bottom, #ffffff, #fafafa);
+}
+
+.voices-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text, #333);
+    margin-bottom: 0.25rem;
+}
+
+.voices-role {
+    font-size: 0.9rem;
+    color: var(--color-primary, #C41E3A);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.voices-quote {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    position: relative;
+    font-size: 1.1rem;
+    /* Increased size */
+    margin-top: 2rem;
+    /* Move down / separate from top content */
+}
+
+.voices-quote::before {
+    content: '"';
+    font-family: serif;
+    font-size: 3rem;
+    color: var(--color-primary, #C41E3A);
+    opacity: 0.1;
+    position: absolute;
+    top: -1.5rem;
+    left: -0.5rem;
+    line-height: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .voices-scene {
+        max-width: 90%;
+        height: 450px;
+        /* Taller on mobile for text */
+    }
+}

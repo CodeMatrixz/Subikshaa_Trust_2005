@@ -1,0 +1,257 @@
+/* Testimonials.css */
+.testimonials-section-scroll {
+    position: relative;
+    background-color: #fdfdfd;
+    /* Light off-white background */
+    font-family: 'Outfit', sans-serif;
+    /* Height is set inline in JSX (e.g., 350vh) to control scroll length */
+}
+
+.testimonials-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Takes full viewport height */
+    display: flex;
+    align-items: center;
+    /* Vertically center the content */
+    overflow: hidden;
+}
+
+.testimonials-layout {
+    display: grid;
+    grid-template-columns: 1fr 100px 1.5fr;
+    gap: 2rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Column 1: Header --- */
+.t-col-header {
+    text-align: left;
+    padding-right: 2rem;
+}
+
+.quote-mark-large {
+    font-size: 8rem;
+    line-height: 1;
+    color: #e5e7eb;
+    /* Light grey */
+    font-family: serif;
+    margin-bottom: -1rem;
+    margin-left: -5px;
+}
+
+.t-heading-bold {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.t-heading-light {
+    font-weight: 300;
+    color: #94a3b8;
+    /* Lighter grey for 'Say' and 'About Us' */
+}
+
+/* --- Column 2: Navigation --- */
+.t-col-nav {
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.t-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 2;
+}
+
+.t-nav-divider {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #e2e8f0;
+    height: 100%;
+}
+
+.t-nav-item {
+    background: none;
+    border: none;
+    cursor: default;
+    /* Not clickable for scroll version */
+    text-align: right;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+    padding-right: 2rem;
+    /* Space between number and divider */
+}
+
+.t-nav-number {
+    font-size: 1.5rem;
+    /* Increased size */
+    font-weight: 500;
+    color: #cbd5e1;
+    /* Inactive color */
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Active State */
+.t-nav-item.active .t-nav-number {
+    color: var(--color-primary);
+    /* Use site primary color */
+    font-weight: 700;
+    transform: scale(1.2);
+    /* Slightly larger scale */
+    font-size: 2rem;
+    /* Make active number significantly larger like reference */
+}
+
+/* --- Column 3: Content --- */
+.t-col-content {
+    padding-left: 2rem;
+    position: relative;
+}
+
+.t-content-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.t-author-image-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.t-author-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.t-text-content {
+    text-align: left;
+}
+
+.t-author-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.t-author-role {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0.2rem 0 1.5rem 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.t-quote-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #334155;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    max-width: 500px;
+}
+
+.t-rating {
+    display: flex;
+    gap: 4px;
+    color: #fbbf24;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+
+    /* Disable sticky scroll effect on mobile for better UX */
+    .testimonials-section-scroll {
+        height: auto !important;
+        padding: 4rem 0;
+    }
+
+    .testimonials-sticky-wrapper {
+        position: static;
+        height: auto;
+        display: block;
+    }
+
+    .testimonials-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 2rem;
+    }
+
+    .t-col-header {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .quote-mark-large {
+        display: none;
+        /* Hide large quote on mobile to save space */
+    }
+
+    .t-col-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 1.5rem;
+    }
+
+    .t-nav-divider {
+        display: none;
+    }
+
+    .t-nav-list {
+        flex-direction: row;
+        gap: 2rem;
+        padding-right: 0;
+    }
+
+    .t-nav-item {
+        padding-right: 0;
+    }
+
+    .t-nav-number {
+        font-size: 1.2rem;
+    }
+
+    .t-nav-item.active .t-nav-number {
+        font-size: 1.5rem;
+    }
+
+    .t-col-content {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .t-content-card {
+        align-items: center;
+    }
+
+    .t-text-content {
+        text-align: center;
+    }
+
+    .t-quote-text {
+        margin: 0 auto 2rem auto;
+    }
+}

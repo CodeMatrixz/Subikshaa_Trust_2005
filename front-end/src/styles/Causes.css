@@ -1,0 +1,144 @@
+.page-header {
+    background-image: url('/images/assets/unsplash_150.jpg');
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.page-header p {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.causes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.cause-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.cause-card:hover {
+    box-shadow: 0 12px 30px rgba(81, 39, 49, 0.12);
+    transform: translateY(-8px);
+}
+
+.cause-image-wrapper {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.cause-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.cause-card:hover .cause-image {
+    transform: scale(1.08);
+}
+
+.cause-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.cause-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cause-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+.cause-content p {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.cause-progress {
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #E2E8F0;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #EF4444;
+    /* Brand accent */
+    border-radius: var(--radius-full);
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.progress-stats .raised {
+    color: #EF4444;
+}
+
+.progress-stats .goal {
+    color: #94A3B8;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    border-color: #E2E8F0;
+}
+
+.btn-full:hover {
+    border-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 4rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 2.25rem;
+    }
+}

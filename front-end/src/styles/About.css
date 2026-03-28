@@ -1,0 +1,260 @@
+.about-header {
+    background-image: url('/images/assets/unsplash_148.jpg');
+}
+
+
+
+/* Mission & Vision Feature Row Layout */
+.mission-vision-section {
+    padding-bottom: 4rem;
+}
+
+.mv-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.mv-feature-row.reverse {
+    direction: rtl;
+    /* Quick way to swap columns for desktop, need to reset text-align */
+}
+
+.mv-feature-row.reverse .mv-feature-content {
+    direction: ltr;
+    /* Reset text direction */
+}
+
+.mv-feature-image {
+    position: relative;
+    height: 400px;
+    border-radius: 30px;
+    /* Large radius from reference */
+    overflow: visible;
+    /* Allow floating icon overlap */
+}
+
+.mv-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: var(--shadow-xl);
+}
+
+.mv-floating-icon {
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+    /* Floating out */
+    width: 80px;
+    height: 80px;
+    background: white;
+    /* Or light blueish background from reference */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    color: var(--color-primary);
+    z-index: 2;
+}
+
+.mv-feature-row.reverse .mv-floating-icon {
+    right: auto;
+    left: -25px;
+}
+
+.mv-feature-content h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    /* Dark Heading */
+    margin-bottom: 1.5rem;
+}
+
+.mv-main-text {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+/* Highlight Box (Reference Style) */
+.mv-highlight-box {
+    background: #F8FAFC;
+    /* Very light background */
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--color-secondary);
+    /* Green Line (assuming secondary is green or I'll hardcode a nice green) */
+    border-left: 5px solid #10B981;
+    /* Hardcoded Emerald Green for safety to match "green accent" */
+}
+
+.mv-box-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mv-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.mv-check-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.mv-check-list li svg {
+    color: var(--text-dark);
+    /* Use dark color for checkmark or primary */
+    min-width: 20px;
+}
+
+@media (max-width: 992px) {
+
+    .mv-feature-row,
+    .mv-feature-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        direction: ltr;
+        /* Reset direction */
+        margin-bottom: 4rem;
+    }
+
+    .mv-feature-image {
+        height: 300px;
+    }
+
+    .mv-floating-icon {
+        right: 10px;
+        bottom: -20px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .mv-feature-row.reverse .mv-floating-icon {
+        left: auto;
+        right: 10px;
+    }
+}
+
+.bg-light {
+    background-color: #f8fafc;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    color: #EF4444;
+    margin-bottom: 1rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.value-item h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* History */
+.history-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.history-content h2 {
+    margin-bottom: 1.5rem;
+    /* The requested gap */
+}
+
+.history-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #3D2C29;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.history-image img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+}
+
+.stats-row {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat strong {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.stat span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+
+    .mv-grid,
+    .history-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card Hover Effect - Subtle Lift */
+.mv-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}

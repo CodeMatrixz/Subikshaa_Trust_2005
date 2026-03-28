@@ -1,0 +1,15 @@
+{
+    "name": "charity-unified",
+    "version": "1.0.0",
+    "description": "Unified startup for Charity app",
+    "scripts": {
+        "install-all": "npm install && cd back-end && npm install && cd ../front-end && npm install",
+        "dev:backend": "cd back-end && npm run dev",
+        "dev:frontend": "cd front-end && npm run dev",
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "build": "cd front-end && npm install && npm run build"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}

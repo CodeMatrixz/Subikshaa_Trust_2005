@@ -1,0 +1,231 @@
+/* CSR Page Styles */
+.csr-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/assets/unsplash_16.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Compliance Grid */
+.compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.compliance-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.compliance-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-primary);
+}
+
+.check-icon {
+    color: #27ae60;
+    flex-shrink: 0;
+}
+
+.compliance-item span {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+/* CSR Image Card */
+.csr-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.csr-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.csr-image-card:hover img {
+    transform: scale(1.05);
+}
+
+.impact-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+}
+
+.impact-badge strong {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.impact-badge span {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Impact Areas Grid */
+.impact-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.impact-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.impact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-bottom-color: var(--color-primary);
+}
+
+.impact-card .icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: var(--surface-sunken);
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s;
+}
+
+.impact-card:hover .icon-wrapper {
+    background: var(--color-primary);
+    color: white;
+}
+
+.impact-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.impact-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.csr-cta-section {
+    padding: 3rem 0;
+}
+
+.csr-cta-box {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+}
+
+.csr-cta-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.csr-cta-box p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-outline-white {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .csr-header {
+        text-align: center;
+        padding: 6rem 0 4rem;
+    }
+
+    .compliance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-badge {
+        left: 1rem;
+        bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .csr-cta-box {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .csr-cta-box h2 {
+        font-size: 2rem;
+    }
+}
