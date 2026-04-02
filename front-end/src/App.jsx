@@ -61,6 +61,7 @@ import Cookies from './pages/Cookies';
 import Celebrations from './pages/Celebrations';
 import Awards from './pages/Awards';
 import CSR from './pages/CSR';
+import Admin from './pages/Admin';
 
 // const Team = () => <div className="section container"><h1>Team</h1></div>;
 // const Partners = () => <div className="section container"><h1>Partners</h1></div>;
@@ -133,7 +134,10 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <Layout />
+        <Routes>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/*" element={<Layout />} />
+        </Routes>
       </Router>
     </HelmetProvider>
   );

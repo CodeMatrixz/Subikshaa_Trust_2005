@@ -16,6 +16,10 @@ const settingsSchema = new mongoose.Schema({
         name: { type: String, default: 'Subikshaa Trust' },
         description: { type: String, default: '' }
     },
+    tickerVisible: {
+        type: Boolean,
+        default: true
+    },
     updatedAt: {
         type: Date,
         default: Date.now

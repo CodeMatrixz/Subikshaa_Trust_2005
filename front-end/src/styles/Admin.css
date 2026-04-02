@@ -1,0 +1,340 @@
+/* Admin Panel Styles */
+.admin-login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a0a0f 0%, #2d1217 50%, #1a0a0f 100%);
+    font-family: 'Inter', sans-serif;
+}
+
+.admin-login-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.admin-logo {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.admin-login-card h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.admin-login-card p {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.admin-login-card input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.admin-login-card input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-login-card input:focus {
+    border-color: #c8a96e;
+}
+
+.admin-login-card button {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #c8a96e, #b8894e);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 0.5rem;
+}
+
+.admin-login-card button:hover {
+    opacity: 0.9;
+}
+
+.admin-error {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Admin Dashboard */
+.admin-page {
+    min-height: 100vh;
+    background: #0f0508;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-header h1 {
+    font-size: 1.4rem;
+    color: #c8a96e;
+    margin: 0;
+}
+
+.admin-logout-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.admin-logout-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.admin-message {
+    margin: 1rem 2rem 0;
+    padding: 0.8rem 1.2rem;
+    background: rgba(200, 169, 110, 0.15);
+    border: 1px solid rgba(200, 169, 110, 0.3);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #c8a96e;
+}
+
+.admin-card {
+    margin: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.admin-card h2 {
+    font-size: 1.1rem;
+    color: #c8a96e;
+    margin: 0 0 1.2rem;
+}
+
+/* Ticker Toggle */
+.ticker-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.toggle-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-btn.on {
+    background: #22c55e;
+    color: #fff;
+}
+
+.toggle-btn.off {
+    background: #ef4444;
+    color: #fff;
+}
+
+.toggle-btn:hover {
+    opacity: 0.85;
+}
+
+/* Add News Form */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-form input::placeholder,
+.admin-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+    border-color: #c8a96e;
+}
+
+.admin-form select option {
+    background: #1a0a0f;
+}
+
+.admin-form-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.admin-form-row select {
+    flex: 1;
+}
+
+.admin-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-checkbox input {
+    width: auto;
+    accent-color: #c8a96e;
+}
+
+.admin-btn-primary {
+    padding: 0.85rem;
+    background: linear-gradient(135deg, #c8a96e, #b8894e);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.admin-btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* News List */
+.admin-empty {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+
+.admin-news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.admin-news-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    gap: 1rem;
+}
+
+.admin-news-info {
+    flex: 1;
+}
+
+.admin-news-info p {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.admin-badge {
+    display: inline-block;
+    background: #c8a96e;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    margin-right: 0.4rem;
+    font-weight: 600;
+}
+
+.admin-news-cat {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    margin-right: 0.4rem;
+}
+
+.admin-delete-btn {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.admin-delete-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+@media (max-width: 600px) {
+    .admin-card {
+        margin: 1rem;
+        padding: 1.2rem;
+    }
+
+    .admin-header {
+        padding: 1rem;
+    }
+}

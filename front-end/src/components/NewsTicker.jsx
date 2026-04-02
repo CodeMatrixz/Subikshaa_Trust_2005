@@ -4,48 +4,35 @@ import '../styles/NewsTicker.css';
 const NewsTicker = () => {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [tickerVisible, setTickerVisible] = useState(true);
 
-    const fetchNews = async () => {
+    const fetchData = async () => {
         try {
-            const response = await fetch('/api/news');
-            if (!response.ok) {
-                throw new Error('Failed to fetch news');
+            const [newsRes, settingsRes] = await Promise.all([
+                fetch('/api/news'),
+                fetch('/api/settings')
+            ]);
+            const newsData = await newsRes.json();
+            const settingsData = await settingsRes.json();
+            setNews(Array.isArray(newsData) ? newsData : []);
+            if (settingsData?.data?.tickerVisible !== undefined) {
+                setTickerVisible(settingsData.data.tickerVisible);
             }
-            const data = await response.json();
-            setNews(data);
             setLoading(false);
         } catch (err) {
-            console.error('Error fetching news:', err);
-            setError(err.message);
+            console.error('Error fetching ticker data:', err);
             setLoading(false);
         }
     };
 
     useEffect(() => {
-        fetchNews();
-        const interval = setInterval(fetchNews, 60000); // Refresh every 60s
+        fetchData();
+        const interval = setInterval(fetchData, 60000);
         return () => clearInterval(interval);
     }, []);
 
-    if (loading && news.length === 0) {
-        return (
-            <div className="news-ticker-container">
-                <div className="ticker-label">Latest News</div>
-                <div className="ticker-wrap">
-                    <div className="ticker-item">Loading news...</div>
-                </div>
-            </div>
-        );
-    }
+    if (loading || !tickerVisible || news.length === 0) return null;
 
-    if (error && news.length === 0) {
-        return null; // Don't show ticker if there's an error and no news
-    }
-
-    if (news.length === 0) return null;
-
-    // Duplicate news items for a seamless loop
     const tickerItems = [...news, ...news];
 
     return (
