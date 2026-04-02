@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/Admin.css';
+import '../styles/Admin.css';
 
 const Admin = () => {
     const [token, setToken] = useState(localStorage.getItem('adminToken') || '');
