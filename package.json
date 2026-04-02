@@ -7,7 +7,7 @@
         "dev:backend": "cd back-end && npm run dev",
         "dev:frontend": "cd front-end && npm run dev",
         "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-        "build": "cd front-end && npm install && npm run build"
+        "build": "cd front-end && npm install --legacy-peer-deps && npm run build"
     },
     "devDependencies": {
         "concurrently": "^8.2.2"
