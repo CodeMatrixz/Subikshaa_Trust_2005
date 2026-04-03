@@ -1,8 +1,15 @@
 // Vercel catch-all API handler
-// Adds back the /api prefix that Vercel strips, then passes to Express
-const app = require('../back-end/server');
-
-module.exports = (req, res) => {
-    req.url = '/api' + req.url;
-    return app(req, res);
+module.exports = async (req, res) => {
+    try {
+        const app = require('../back-end/server');
+        req.url = '/api' + req.url;
+        return app(req, res);
+    } catch (err) {
+        console.error('API Handler Error:', err);
+        res.status(500).json({ 
+            error: err.message, 
+            type: err.constructor.name,
+            hint: 'Check Vercel function logs for full stack trace'
+        });
+    }
 };
