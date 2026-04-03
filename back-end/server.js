@@ -47,11 +47,15 @@ app.get('/', (req, res) => {
     res.send('Charity Backend API is running');
 });
 
-// Create uploads directory if it doesn't exist
-const fs = require('fs');
-const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
+// Create uploads directory if it doesn't exist (skip on Vercel read-only fs)
+try {
+    const fs = require('fs');
+    const uploadDir = path.join(__dirname, 'uploads');
+    if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir);
+    }
+} catch (e) {
+    console.log('Skipping uploads dir creation (read-only fs):', e.message);
 }
 
 // Export the app for Vercel
