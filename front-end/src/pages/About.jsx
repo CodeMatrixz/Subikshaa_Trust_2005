@@ -186,7 +186,7 @@ const About = () => {
                     {[
                         { icon: <Heart />, title: "Compassion", desc: "We lead with empathy and kindness in everything we do." },
                         { icon: <Users />, title: "Community", desc: "We believe in the power of working together." },
-                        { icon: <Award />, title: "Integrity", desc: "We are transparent, honest, and accountable." },
+                        { icon: <Award />, title: "Integrity", desc: "We are transparent, honest and accountable." },
                         { icon: <History />, title: "Dedication", desc: "We are committed to long-term impact." }
                     ].map((val, i) => (
                         <motion.div
@@ -228,7 +228,7 @@ const About = () => {
                         <span className="sub-heading">Our Story</span>
                         <h2>How It All Started</h2>
                         <p>Founded in 2005, Subikshaa Trust began as a small group of volunteers determined to clear a local river. What started as a monthly cleanup evolved into a comprehensive community support organization.</p>
-                        <p>Over the last decade, we have expanded our reach to over 50 communities, providing not just environmental support but critical aid in education, food security, and healthcare.</p>
+                        <p>Over the last decade, we have expanded our reach to over 50 communities, providing not just environmental support but critical aid in education, food security and healthcare.</p>
 
                         <div className="stats-row">
                             <div className="stat">
