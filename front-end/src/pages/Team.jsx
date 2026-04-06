@@ -6,25 +6,37 @@ import '../styles/Team.css';
 
 const Team = () => {
     const team = [
-        {
-            name: "Sarah Johnson",
-            role: "Executive Director",
-            image: "https://ui-avatars.com/api/?name=Sarah+Johnson&size=300&background=1a237e&color=fff&bold=true",
-            bio: "Sarah has dedicated her life to social justice and community development. Under her leadership, Subikshaa Trust has expanded its reach to over 50 underprivileged communities."
-        },
-        {
-            name: "Michael Chen",
-            role: "Head of Operations",
-            image: "https://ui-avatars.com/api/?name=Michael+Chen&size=300&background=00bcd4&color=fff&bold=true",
-            bio: "With a background in humanitarian logistics, Michael ensures that aid reaches those who need it most efficiently and transparently."
-        },
-        {
-            name: "Emily Rodriguez",
-            role: "Volunteer Coordinator",
-            image: "https://ui-avatars.com/api/?name=Emily+Rodriguez&size=300&background=ff6f00&color=fff&bold=true",
-            bio: "Emily's passion for connecting people drives our volunteer programs. She mentors hundreds of volunteers to create lasting impact in local neighborhoods."
-        }
-    ];
+    {
+        name: "Meena G",
+        role: "Founder & Managing Trustee",
+        image: "https://ui-avatars.com/api/?name=Sarah+Johnson&size=300&background=1a237e&color=fff&bold=true",
+        bio: "Meena G is the Founder and Managing Trustee of the Trust, providing strategic direction and overall governance. With an academic background in History and Community Development, she leads the organization’s mission to promote social equity through sustainable and community-driven initiatives."
+    },
+    {
+        name: "Karuna Sagar",
+        role: "Trustee – Finance & Compliance",
+        image: "https://ui-avatars.com/api/?name=Michael+Chen&size=300&background=00bcd4&color=fff&bold=true",
+        bio: "Karuna Sagar serves as Trustee for Finance and Compliance, responsible for financial oversight, transparency and regulatory adherence. He ensures prudent resource management and accountability in alignment with statutory requirements and the Trust’s objectives."
+    },
+    {
+        name: "Bharathi",
+        role: "Trustee – Programs & Implementation",
+        image: "https://ui-avatars.com/api/?name=Emily+Rodriguez&size=300&background=ff6f00&color=fff&bold=true",
+        bio: "Bharathi serves as Trustee for Programs and Implementation, overseeing the planning and execution of the Trust’s initiatives. With a background in healthcare, she ensures that all programs are delivered effectively, with a strong focus on community welfare and impact."
+    },
+    {
+        name: "Anbazhagan",
+        role: "Legal Advisor",
+        image: "https://ui-avatars.com/api/?name=David+Kumar&size=300&background=4caf50&color=fff&bold=true",
+        bio: "Anbazhagan acts as Legal Advisor to the Trust, providing guidance on legal, regulatory and governance matters. He supports the organization in maintaining compliance with applicable laws while advancing its commitment to social justice and public service."
+    },
+    {
+        name: "Karthikeya",
+        role: "Trustee – Community Outreach & Partnerships",
+        image: "https://ui-avatars.com/api/?name=Sophia+Patel&size=300&background=9c27b0&color=fff&bold=true",
+        bio: "Karthikeya serves as Trustee for Community Outreach and Partnerships, leading stakeholder engagement and collaborative initiatives. She works to strengthen networks and mobilize resources that enhance the Trust’s reach and effectiveness in serving communities."
+    }
+];
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
