@@ -29,103 +29,147 @@ const About = () => {
             </div>
 
 
-            {/* About Our NGO Trust - Introduction */}
-            <Section className="about-intro-section">
-                <div className="container text-center" style={{ maxWidth: '900px' }}>
-                    <span className="sub-heading">Who We Are</span>
-                    <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--color-primary)' }}>
-                        About Our NGO Trust – A Registered Non-Profit Organisation in India
-                    </h2>
-                    <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-                        We are a registered NGO in India committed to social transformation through education, healthcare, women empowerment, child welfare, and community development. As a charitable trust in Tamil Nadu, our mission is to uplift underprivileged communities by addressing root causes of poverty and inequality.
-                    </p>
-                    <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-color)' }}>
-                        Recognised as a genuine charity organisation in India, we work closely with local communities across Madurai and other regions of Tamil Nadu. Our programs are impact-driven, transparent, and aligned with national development goals, making us a trusted NGO in Tamil Nadu for donors, volunteers, and partners.
-                    </p>
+           {/* About Our NGO Trust - Introduction */}
+<Section className="about-intro-section">
+    <div className="container text-center" style={{ maxWidth: '900px' }}>
+        <span className="sub-heading">Who We Are</span>
+        <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--color-primary)' }}>
+            About Our NGO Trust – Leading Registered Non-Profit Organisation in Tamil Nadu, India
+        </h2>
+
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
+            We are a legally registered NGO trust in India dedicated to creating sustainable social impact through education, healthcare services, women empowerment, child welfare, rural development, and poverty alleviation programs. As a trusted charitable organisation in Tamil Nadu, we focus on solving real-world problems by addressing the root causes of inequality, lack of access, and socio-economic challenges faced by underprivileged communities.
+        </p>
+
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
+            Based in Madurai, we actively work across urban and rural regions of Tamil Nadu, delivering high-impact NGO programs that improve lives and empower individuals. Our initiatives include free education support for children, healthcare camps, skill development training, and women self-help empowerment projects designed to create long-term independence and growth.
+        </p>
+
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
+            Recognised as a reliable and transparent NGO in India, we maintain strong accountability, ethical governance, and measurable outcomes in all our projects. Our organisation collaborates with donors, volunteers, CSR partners, and community leaders to build a better and more inclusive society. If you are looking to donate to a genuine NGO in Tamil Nadu or volunteer for social causes, our trust provides meaningful opportunities to make a real difference.
+        </p>
+
+        {/* Global Standards & NGO Definition */}
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
+            As defined by global organisations such as the :contentReference[oaicite:0]{index=0} and :contentReference[oaicite:1]{index=1}, non-governmental organisations (NGOs) play a critical role in advancing sustainable development, protecting human rights, and supporting vulnerable communities worldwide. Inspired by these globally accepted principles, our NGO trust functions as an independent, non-profit organisation committed to inclusive growth, social justice, and community-driven development.
+        </p>
+
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
+            We align our initiatives with internationally recognised frameworks such as the Sustainable Development Goals (SDGs, defined by the :contentReference[oaicite:2]{index=2}), focusing on quality education, accessible healthcare, gender equality, and poverty reduction. By combining global development standards with grassroots action in Tamil Nadu, we ensure our programs are impactful, scalable, and sustainable.
+        </p>
+
+        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-color)' }}>
+            Our work reflects the core values promoted by leading global institutions—transparency, accountability, inclusiveness, and measurable impact. Through ethical governance and strong community participation, we aim to contribute meaningfully to both national development and global humanitarian efforts.
+        </p>
+    </div>
+</Section>
+
+{/* Mission & Vision */}
+<Section className="mission-vision-section">
+    <div className="container">
+
+        {/* Mission Row */}
+        <div className="mv-feature-row">
+            <motion.div
+                className="mv-feature-image"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
+                <img
+                    src="/images/assets/unsplash_1.jpg"
+                    alt="NGO Mission for Education, Healthcare and Community Development in Tamil Nadu"
+                />
+                <div className="mv-floating-icon">
+                    <Target size={32} strokeWidth={1.5} />
                 </div>
-            </Section>
+            </motion.div>
 
-            {/* Mission & Vision */}
-            <Section className="mission-vision-section">
-                <div className="container">
-                    {/* Mission Row */}
-                    <div className="mv-feature-row">
-                        <motion.div
-                            className="mv-feature-image"
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <img
-                                src="/images/assets/unsplash_1.jpg"
-                                alt="Our Mission"
-                            />
-                            <div className="mv-floating-icon">
-                                <Target size={32} strokeWidth={1.5} />
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className="mv-feature-content"
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                        >
-                            <h3>Our Mission</h3>
-                            <p className="mv-main-text">To empower underprivileged communities by providing sustainable resources, education, and healthcare, ensuring every individual has the opportunity to thrive.</p>
+            <motion.div
+                className="mv-feature-content"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+            >
+                <h3>Our Mission</h3>
 
-                            <div className="mv-highlight-box">
-                                <span className="mv-box-label">OUR FOCUS:</span>
-                                <ul className="mv-check-list">
-                                    <li><CheckCircle size={18} /> Provide sustainable community resources</li>
-                                    <li><CheckCircle size={18} /> Ensure accessible education for all</li>
-                                    <li><CheckCircle size={18} /> Deliver critical healthcare support</li>
-                                </ul>
-                            </div>
-                        </motion.div>
-                    </div>
+                <p className="mv-main-text">
+                    Our mission is to empower underprivileged individuals and communities in Tamil Nadu by providing access to quality education, affordable healthcare, sustainable livelihood opportunities, and essential resources.
+                </p>
 
-                    {/* Vision Row */}
-                    <div className="mv-feature-row reverse">
-                        <motion.div
-                            className="mv-feature-image"
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <img
-                                src="/images/assets/unsplash_2.jpg"
-                                alt="Our Vision"
-                            />
-                            <div className="mv-floating-icon">
-                                <Eye size={32} strokeWidth={1.5} />
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className="mv-feature-content"
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                        >
-                            <h3>Our Vision</h3>
-                            <p className="mv-main-text">A world where poverty does not exist, and every person has access to the basic necessities of life, dignity, and a promising future.</p>
+                <p className="mv-sub-text">
+                    Through strategic NGO initiatives, partnerships, and grassroots engagement, we focus on long-term development rather than short-term aid—ensuring lasting social transformation across India.
+                </p>
 
-                            <div className="mv-highlight-box">
-                                <span className="mv-box-label">THE IMPACT:</span>
-                                <ul className="mv-check-list">
-                                    <li><CheckCircle size={18} /> Eradicate extreme poverty globally</li>
-                                    <li><CheckCircle size={18} /> Guarantee dignity and human rights</li>
-                                    <li><CheckCircle size={18} /> Create promising futures for youth</li>
-                                </ul>
-                            </div>
-                        </motion.div>
-                    </div>
+                <div className="mv-highlight-box">
+                    <span className="mv-box-label">OUR CORE FOCUS AREAS:</span>
+                    <ul className="mv-check-list">
+                        <li><CheckCircle size={18} /> Sustainable community development programs</li>
+                        <li><CheckCircle size={18} /> Free and accessible education initiatives for children</li>
+                        <li><CheckCircle size={18} /> Healthcare camps and medical assistance for rural areas</li>
+                        <li><CheckCircle size={18} /> Women empowerment and skill development training</li>
+                        <li><CheckCircle size={18} /> Child welfare, nutrition, and protection programs</li>
+                    </ul>
                 </div>
-            </Section>
+            </motion.div>
+        </div>
 
+        {/* Vision Row */}
+        <div className="mv-feature-row reverse">
+            <motion.div
+                className="mv-feature-image"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
+                <img
+                    src="/images/assets/unsplash_2.jpg"
+                    alt="Vision of NGO for Poverty-Free and Empowered Society in India"
+                />
+                <div className="mv-floating-icon">
+                    <Eye size={32} strokeWidth={1.5} />
+                </div>
+            </motion.div>
+
+            <motion.div
+                className="mv-feature-content"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+            >
+                <h3>Our Vision</h3>
+
+                <p className="mv-main-text">
+                    A world where poverty does not exist, and every person has access to the basic necessities of life, dignity, and a promising future.
+                </p>
+
+                <p className="mv-sub-text">
+                    Our vision is inspired by global frameworks established by the :contentReference[oaicite:3]{index=3} and :contentReference[oaicite:4]{index=4}, focusing on equality, human rights, and sustainable development.
+                </p>
+
+                <p className="mv-sub-text">
+                    By aligning with Sustainable Development Goals (SDGs), we aim to create lasting impact through education, healthcare, and empowerment initiatives.
+                </p>
+
+                <div className="mv-highlight-box">
+                    <span className="mv-box-label">THE IMPACT:</span>
+                    <ul className="mv-check-list">
+                        <li><CheckCircle size={18} /> Eradicate extreme poverty globally</li>
+                        <li><CheckCircle size={18} /> Guarantee dignity and human rights</li>
+                        <li><CheckCircle size={18} /> Create promising futures for youth</li>
+                        <li><CheckCircle size={18} /> Ensure equal access to education and healthcare</li>
+                        <li><CheckCircle size={18} /> Promote sustainable community development</li>
+                    </ul>
+                </div>
+            </motion.div>
+        </div>
+
+    </div>
+</Section>
             {/* Core Values */}
             <Section className="values-section bg-light">
                 <motion.div
