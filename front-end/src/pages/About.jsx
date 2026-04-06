@@ -12,7 +12,7 @@ const About = () => {
         <div className="about-page">
             <SEO
                 title="About Us"
-                description="Learn about Subikshaa Trust's mission, vision, and the team working tirelessly to make a positive impact in the world."
+                description="Learn about Subikshaa Trust's mission, vision and the team working tirelessly to make a positive impact in the world."
             />
             {/* Page Header */}
             <div className="page-header about-header">
@@ -34,28 +34,28 @@ const About = () => {
     <div className="container text-center" style={{ maxWidth: '900px' }}>
         <span className="sub-heading">Who We Are</span>
         <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--color-primary)' }}>
-            About Our NGO Trust – Leading Registered Non-Profit Organisation in Tamil Nadu, India
+            About Our NGO Trust - Leading Registered Non-Profit Organisation in Tamil Nadu, India
         </h2>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            We are a legally registered NGO trust in India dedicated to creating sustainable social impact through education, healthcare services, women empowerment, child welfare, rural development, and poverty alleviation programs. As a trusted charitable organisation in Tamil Nadu, we focus on solving real-world problems by addressing the root causes of inequality, lack of access, and socio-economic challenges faced by underprivileged communities.
+            We are a legally registered NGO trust in India dedicated to creating sustainable social impact through education, healthcare services, women empowerment, child welfare, rural development and poverty alleviation programs. As a trusted charitable organisation in Tamil Nadu, we focus on solving real-world problems by addressing the root causes of inequality, lack of access and socio-economic challenges faced by underprivileged communities.
         </p>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            Based in Madurai, we actively work across urban and rural regions of Tamil Nadu, delivering high-impact NGO programs that improve lives and empower individuals. Our initiatives include free education support for children, healthcare camps, skill development training, and women self-help empowerment projects designed to create long-term independence and growth.
+            Based in Madurai, we actively work across urban and rural regions of Tamil Nadu, delivering high impact NGO programs that improve lives and empower individuals. Our initiatives include free education support for children, healthcare camps, skill development training, and women self-help empowerment projects designed to create long-term independence and growth.
         </p>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            Recognised as a reliable and transparent NGO in India, we maintain strong accountability, ethical governance, and measurable outcomes in all our projects. Our organisation collaborates with donors, volunteers, CSR partners, and community leaders to build a better and more inclusive society. If you are looking to donate to a genuine NGO in Tamil Nadu or volunteer for social causes, our trust provides meaningful opportunities to make a real difference.
+            Recognised as a reliable and transparent NGO in India, we maintain strong accountability, ethical governance and measurable outcomes in all our projects. Our organisation collaborates with donors, volunteers, CSR partners and community leaders to build a better and more inclusive society. If you are looking to donate to a genuine NGO in Tamil Nadu or volunteer for social causes, our trust provides meaningful opportunities to make a real difference.
         </p>
 
         {/* Global Standards & NGO Definition */}
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            As defined by global organisations such as the :contentReference[oaicite:0]{index=0} and :contentReference[oaicite:1]{index=1}, non-governmental organisations (NGOs) play a critical role in advancing sustainable development, protecting human rights, and supporting vulnerable communities worldwide. Inspired by these globally accepted principles, our NGO trust functions as an independent, non-profit organisation committed to inclusive growth, social justice, and community-driven development.
+            As defined by global organisations such as the :contentReference[oaicite:0]{index=0} and :contentReference[oaicite:1]{index=1}, non-governmental organisations (NGOs) play a critical role in advancing sustainable development, protecting human rights and supporting vulnerable communities worldwide. Inspired by these globally accepted principles, our NGO trust functions as an independent, non-profit organisation committed to inclusive growth, social justice and community driven development.
         </p>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            We align our initiatives with internationally recognised frameworks such as the Sustainable Development Goals (SDGs, defined by the :contentReference[oaicite:2]{index=2}), focusing on quality education, accessible healthcare, gender equality, and poverty reduction. By combining global development standards with grassroots action in Tamil Nadu, we ensure our programs are impactful, scalable, and sustainable.
+            We align our initiatives with internationally recognised frameworks such as the Sustainable Development Goals (SDGs, defined by the :contentReference[oaicite:2]{index=2}), focusing on quality education, accessible healthcare, gender equality, and poverty reduction. By combining global development standards with grassroots action in Tamil Nadu, we ensure our programs are impactful, scalable and sustainable.
         </p>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-color)' }}>
@@ -96,11 +96,11 @@ const About = () => {
                 <h3>Our Mission</h3>
 
                 <p className="mv-main-text">
-                    Our mission is to empower underprivileged individuals and communities in Tamil Nadu by providing access to quality education, affordable healthcare, sustainable livelihood opportunities, and essential resources.
+                    Our mission is to empower underprivileged individuals and communities in Tamil Nadu by providing access to quality education, affordable healthcare, sustainable livelihood opportunities and essential resources.
                 </p>
 
                 <p className="mv-sub-text">
-                    Through strategic NGO initiatives, partnerships, and grassroots engagement, we focus on long-term development rather than short-term aid—ensuring lasting social transformation across India.
+                    Through strategic NGO initiatives, partnerships and grassroots engagement, we focus on long-term development rather than short-term aid—ensuring lasting social transformation across India.
                 </p>
 
                 <div className="mv-highlight-box">
@@ -110,7 +110,7 @@ const About = () => {
                         <li><CheckCircle size={18} /> Free and accessible education initiatives for children</li>
                         <li><CheckCircle size={18} /> Healthcare camps and medical assistance for rural areas</li>
                         <li><CheckCircle size={18} /> Women empowerment and skill development training</li>
-                        <li><CheckCircle size={18} /> Child welfare, nutrition, and protection programs</li>
+                        <li><CheckCircle size={18} /> Child welfare, nutrition and protection programs</li>
                     </ul>
                 </div>
             </motion.div>
@@ -144,15 +144,15 @@ const About = () => {
                 <h3>Our Vision</h3>
 
                 <p className="mv-main-text">
-                    A world where poverty does not exist, and every person has access to the basic necessities of life, dignity, and a promising future.
+                    A world where poverty does not exist, and every person has access to the basic necessities of life, dignity and a promising future.
                 </p>
 
                 <p className="mv-sub-text">
-                    Our vision is inspired by global frameworks established by the :contentReference[oaicite:3]{index=3} and :contentReference[oaicite:4]{index=4}, focusing on equality, human rights, and sustainable development.
+                    Our vision is inspired by global frameworks established by the :contentReference[oaicite:3]{index=3} and :contentReference[oaicite:4]{index=4}, focusing on equality, human rights and sustainable development.
                 </p>
 
                 <p className="mv-sub-text">
-                    By aligning with Sustainable Development Goals (SDGs), we aim to create lasting impact through education, healthcare, and empowerment initiatives.
+                    By aligning with Sustainable Development Goals (SDGs), we aim to create lasting impact through education, healthcare and empowerment initiatives.
                 </p>
 
                 <div className="mv-highlight-box">
@@ -186,7 +186,7 @@ const About = () => {
                     {[
                         { icon: <Heart />, title: "Compassion", desc: "We lead with empathy and kindness in everything we do." },
                         { icon: <Users />, title: "Community", desc: "We believe in the power of working together." },
-                        { icon: <Award />, title: "Integrity", desc: "We are transparent, honest, and accountable." },
+                        { icon: <Award />, title: "Integrity", desc: "We are transparent, honest and accountable." },
                         { icon: <History />, title: "Dedication", desc: "We are committed to long-term impact." }
                     ].map((val, i) => (
                         <motion.div
@@ -228,7 +228,7 @@ const About = () => {
                         <span className="sub-heading">Our Story</span>
                         <h2>How It All Started</h2>
                         <p>Founded in 2005, Subikshaa Trust began as a small group of volunteers determined to clear a local river. What started as a monthly cleanup evolved into a comprehensive community support organization.</p>
-                        <p>Over the last decade, we have expanded our reach to over 50 communities, providing not just environmental support but critical aid in education, food security, and healthcare.</p>
+                        <p>Over the last decade, we have expanded our reach to over 50 communities, providing not just environmental support but critical aid in education, food security and healthcare.</p>
 
                         <div className="stats-row">
                             <div className="stat">
