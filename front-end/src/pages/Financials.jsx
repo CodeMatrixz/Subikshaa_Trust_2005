@@ -20,7 +20,7 @@ const Financials = () => {
                     <p>
                         Access our annual reports, audited financial statements, and impact summaries.
                         As a transparent and audited charitable trust in India, we share detailed information on revenue,
-                        program efficiency, and fund utilisation.
+                        program efficiency and fund utilisation.
                     </p>
                 </div>
             </div>
@@ -29,8 +29,8 @@ const Financials = () => {
                 <div className="fin-stats">
                     <div className="fin-stat-box">
                         <div className="icon-wrapper"><IndianRupee /></div>
-                        <h3>₹1.2Cr</h3>
-                        <p>Total Revenue 2025</p>
+                        <h3>125+</h3>
+                        <p>programs Successfully Conducted</p>
                     </div>
                     <div className="fin-stat-box">
                         <div className="icon-wrapper"><TrendingUp /></div>
@@ -43,7 +43,7 @@ const Financials = () => {
                     <h2>2025 Budget Allocation</h2>
                     <p className="section-desc" style={{ maxWidth: '800px', margin: '0 auto 2rem', textAlign: 'center', color: 'var(--text-light)' }}>
                         Our reports reflect our commitment to accountability and the trust placed in us by donors,
-                        volunteers, and partners across Tamil Nadu and India. All financials are independently audited
+                        volunteers and partners across Tamil Nadu and India. All financials are independently audited
                         and available for download to maintain the highest standards of transparency.
                     </p>
 
@@ -52,10 +52,10 @@ const Financials = () => {
                             <span>Programs (80%)</span>
                         </div>
                         <div className="chart-bar warning" style={{ width: '15%', backgroundColor: '#F59E0B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', borderRight: '2px solid white' }}>
-                            <span>Fundraising (15%)</span>
+                            <span>Fundraising (17%)</span>
                         </div>
                         <div className="chart-bar danger" style={{ width: '5%', backgroundColor: '#EF4444', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', fontSize: '0.75rem' }} title="Management (5%)">
-                            <span>Mgmt (5%)</span>
+                            <span>Mgmt (3%)</span>
                         </div>
                     </div>
                 </div>
