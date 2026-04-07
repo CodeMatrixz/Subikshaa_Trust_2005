@@ -17,15 +17,22 @@
     gap: 1.5rem;
 }
 
+.hero-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 0.5rem;
+}
+
 .hero-trust-name {
     display: block;
     font-size: 4rem;
     font-weight: 800;
     line-height: 1;
     color: #C5A059;
-    /* Elegant Metallic Gold */
-    margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    margin-bottom: 0;
 }
 
 .hero-label {
@@ -35,6 +42,8 @@
     font-size: 0.9rem;
     color: var(--color-primary);
     opacity: 0.7;
+    margin-top: -0.2rem;
+    /* Pull it slightly closer to the trust name */
 }
 
 .hero-content h1 {
@@ -383,6 +392,11 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 3rem;
+    }
+
+    .hero-branding {
+        align-items: center;
+        margin-bottom: 0.5rem;
     }
 
     .hero-trust-name {
