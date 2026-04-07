@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const getStripe = () => {
+    if (!process.env.STRIPE_SECRET_KEY) {
+        throw new Error('Stripe API Key is missing. Please add it to your environment variables.');
+    }
+    return require('stripe')(process.env.STRIPE_SECRET_KEY);
+};
 
 // POST /api/payment/create-payment-intent
 router.post('/create-payment-intent', async (req, res) => {
@@ -12,6 +17,7 @@ router.post('/create-payment-intent', async (req, res) => {
         }
 
         // Create a PaymentIntent with the order amount and currency
+        const stripe = getStripe();
         const paymentIntent = await stripe.paymentIntents.create({
             amount: amount * 100, // Stripe expects amount in cents
             currency: 'usd',

@@ -51,11 +51,11 @@ const About = () => {
 
         {/* Global Standards & NGO Definition */}
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            As defined by global organisations such as the :contentReference[oaicite:0]{index=0} and :contentReference[oaicite:1]{index=1}, non-governmental organisations (NGOs) play a critical role in advancing sustainable development, protecting human rights and supporting vulnerable communities worldwide. Inspired by these globally accepted principles, our NGO trust functions as an independent, non-profit organisation committed to inclusive growth, social justice and community driven development.
+            As defined by global organisations such as the UN and WHO, non-governmental organisations (NGOs) play a critical role in advancing sustainable development, protecting human rights and supporting vulnerable communities worldwide. Inspired by these globally accepted principles, our NGO trust functions as an independent, non-profit organisation committed to inclusive growth, social justice and community driven development.
         </p>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: 'var(--text-color)' }}>
-            We align our initiatives with internationally recognised frameworks such as the Sustainable Development Goals (SDGs, defined by the :contentReference[oaicite:2]{index=2}), focusing on quality education, accessible healthcare, gender equality, and poverty reduction. By combining global development standards with grassroots action in Tamil Nadu, we ensure our programs are impactful, scalable and sustainable.
+            We align our initiatives with internationally recognised frameworks such as the Sustainable Development Goals (SDGs), focusing on quality education, accessible healthcare, gender equality, and poverty reduction. By combining global development standards with grassroots action in Tamil Nadu, we ensure our programs are impactful, scalable and sustainable.
         </p>
 
         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-color)' }}>
@@ -148,7 +148,7 @@ const About = () => {
                 </p>
 
                 <p className="mv-sub-text">
-                    Our vision is inspired by global frameworks established by the :contentReference[oaicite:3]{index=3} and :contentReference[oaicite:4]{index=4}, focusing on equality, human rights and sustainable development.
+                    Our vision is inspired by global frameworks established by leading international organizations, focusing on equality, human rights and sustainable development.
                 </p>
 
                 <p className="mv-sub-text">
