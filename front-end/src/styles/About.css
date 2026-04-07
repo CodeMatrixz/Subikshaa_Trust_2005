@@ -10,7 +10,7 @@
 }
 
 .mv-feature-row {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
@@ -18,22 +18,27 @@
 }
 
 .mv-feature-row.reverse {
-    direction: rtl;
-    /* Quick way to swap columns for desktop, need to reset text-align */
+    flex-direction: row-reverse;
 }
 
-.mv-feature-row.reverse .mv-feature-content {
-    direction: ltr;
-    /* Reset text direction */
+.mv-feature-content .mv-sub-text {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
 .mv-feature-image {
+    flex: 1;
     position: relative;
     height: 400px;
     border-radius: 30px;
-    /* Large radius from reference */
     overflow: visible;
-    /* Allow floating icon overlap */
+}
+
+.mv-feature-content {
+    flex: 1;
 }
 
 .mv-feature-image img {
