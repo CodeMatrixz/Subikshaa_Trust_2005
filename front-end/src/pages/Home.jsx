@@ -51,6 +51,7 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
+                        <span className="hero-trust-name">Subikshaa Trust</span>
                         <span className="hero-label">A Trust For Socio Economic Development</span>
                         <h1>Providing Happiness and Healing for Everyone.</h1>
                         <p>
