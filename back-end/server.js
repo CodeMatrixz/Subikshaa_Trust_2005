@@ -34,6 +34,7 @@ mongoose.connect(process.env.MONGO_URI || '')
 // Routes
 const donationRoutes = require('./routes/donationRoutes');
 const applicationRoutes = require('./routes/applicationRoutes');
+const adminRoutes = require('./routes/adminRoutes').router;
 
 app.use('/api/donations', donationRoutes);
 app.use('/api/applications', applicationRoutes);
@@ -41,7 +42,11 @@ app.use('/api/settings', require('./routes/settingsRoutes'));
 app.use('/api/payment', require('./routes/paymentRoutes'));
 app.use('/api/news', require('./routes/newsRoutes'));
 app.use('/api/event-registrations', require('./routes/eventRegistrationRoutes'));
-app.use('/api/admin', require('./routes/adminRoutes').router);
+app.use('/api/admin', adminRoutes);
+
+app.all('/api/*', (req, res) => {
+    res.status(404).json({ success: false, message: 'API Route match failed in Express', url: req.url });
+});
 
 app.get('/', (req, res) => {
     res.send('Charity Backend API is running');
