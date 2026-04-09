@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { UserPlus, Mail, MessageSquare, Heart, Target } from 'lucide-react';
+import { UserPlus, Mail, MessageSquare, Heart, Target, Phone } from 'lucide-react';
 import '../styles/MembershipForm.css';
 
 const MembershipForm = () => {
