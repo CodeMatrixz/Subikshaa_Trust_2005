@@ -44,7 +44,7 @@ app.use('/api/news', require('./routes/newsRoutes'));
 app.use('/api/event-registrations', require('./routes/eventRegistrationRoutes'));
 app.use('/api/auth', adminRoutes);
 
-app.all('/api/*', (req, res) => {
+app.all('/api/:path*', (req, res) => {
     res.status(404).json({ success: false, message: 'API Route match failed in Express', url: req.url });
 });
 
