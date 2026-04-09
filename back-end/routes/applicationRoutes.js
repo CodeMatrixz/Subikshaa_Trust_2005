@@ -57,7 +57,7 @@ router.post('/', upload.single('photo'), async (req, res) => {
 
             // Notify Admin
             await sendEmail({
-                to: 'admin@charity.org',
+                to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
                 subject: 'New Application Submitted',
                 html: `<p>New application from ${fullName} for ${course}.</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`
             });

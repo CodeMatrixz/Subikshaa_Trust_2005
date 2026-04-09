@@ -6,11 +6,42 @@ import '../styles/MembershipForm.css';
 const MembershipForm = () => {
     const [formStatus, setFormStatus] = useState(null);
 
-    const handleSubmit = (e) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        phone: '',
+        interest: '',
+        message: ''
+    });
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setFormStatus('success');
-        // Simulate form submission
-        setTimeout(() => setFormStatus(null), 3000);
+        setIsLoading(true);
+        try {
+            const res = await fetch('/api/applications', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fullName: formData.fullName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    course: formData.interest || 'Membership',
+                    message: formData.message
+                })
+            });
+            if (res.ok) {
+                setFormStatus('success');
+                setTimeout(() => setFormStatus(null), 5000);
+            } else {
+                alert('Submission failed. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Something went wrong. Please check your connection.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -66,21 +97,50 @@ const MembershipForm = () => {
                                 <label>Full Name</label>
                                 <div className="input-wrapper">
                                     <UserPlus size={18} />
-                                    <input type="text" placeholder="Your Name" required />
+                                    <input
+                                        type="text"
+                                        placeholder="Your Name"
+                                        value={formData.fullName}
+                                        onChange={e => setFormData({ ...formData, fullName: e.target.value })}
+                                        required
+                                    />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label>Email Address</label>
                                 <div className="input-wrapper">
                                     <Mail size={18} />
-                                    <input type="email" placeholder="email@example.com" required />
+                                    <input
+                                        type="email"
+                                        placeholder="email@example.com"
+                                        value={formData.email}
+                                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label>Phone Number</label>
+                                <div className="input-wrapper">
+                                    <Phone size={18} />
+                                    <input
+                                        type="tel"
+                                        placeholder="+91 00000 00000"
+                                        value={formData.phone}
+                                        onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                                        required
+                                    />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label>Area of Interest</label>
                                 <div className="input-wrapper">
                                     <Target size={18} />
-                                    <select required>
+                                    <select
+                                        value={formData.interest}
+                                        onChange={e => setFormData({ ...formData, interest: e.target.value })}
+                                        required
+                                    >
                                         <option value="">Select an interest...</option>
                                         <option value="volunteering">Volunteering</option>
                                         <option value="donations">Contributions & Fundraising</option>
@@ -91,10 +151,15 @@ const MembershipForm = () => {
                             </div>
                             <div className="form-group full">
                                 <label>Tell us about yourself</label>
-                                <textarea rows="3" placeholder="Why do you want to give a hand?"></textarea>
+                                <textarea
+                                    rows="3"
+                                    placeholder="Why do you want to give a hand?"
+                                    value={formData.message}
+                                    onChange={e => setFormData({ ...formData, message: e.target.value })}
+                                ></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary btn-block">
-                                Join the moment
+                            <button type="submit" className="btn btn-primary btn-block" disabled={isLoading}>
+                                {isLoading ? 'Sending...' : 'Join the moment'}
                             </button>
                         </form>
                     )}

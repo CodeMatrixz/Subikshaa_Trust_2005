@@ -6,9 +6,11 @@ const Admin = () => {
     const [loginForm, setLoginForm] = useState({ username: '', password: '' });
     const [loginError, setLoginError] = useState('');
     const [news, setNews] = useState([]);
+    const [applications, setApplications] = useState([]);
     const [newForm, setNewForm] = useState({ title: '', description: '', category: 'General', isBreaking: false });
     const [tickerVisible, setTickerVisible] = useState(true);
     const [message, setMessage] = useState('');
+    const [activeTab, setActiveTab] = useState('news'); // 'news' or 'apps'
 
     const categories = ['General', 'Health', 'Education', 'Environment', 'Celebration', 'Community'];
 
@@ -26,8 +28,18 @@ const Admin = () => {
         if (data?.data?.tickerVisible !== undefined) setTickerVisible(data.data.tickerVisible);
     };
 
+    const fetchApplications = async () => {
+        const res = await fetch('/api/applications');
+        const data = await res.json();
+        setApplications(data.success ? data.data : []);
+    };
+
     useEffect(() => {
-        if (token) { fetchNews(); fetchSettings(); }
+        if (token) {
+            fetchNews();
+            fetchSettings();
+            fetchApplications();
+        }
     }, [token]);
 
     const handleLogin = async (e) => {
@@ -128,74 +140,117 @@ const Admin = () => {
 
             {message && <div className="admin-message">{message}</div>}
 
-            {/* Ticker Toggle */}
-            <div className="admin-card">
-                <h2>📢 News Ticker</h2>
-                <div className="ticker-toggle-row">
-                    <span>Show news ticker on homepage</span>
-                    <button
-                        className={`toggle-btn ${tickerVisible ? 'on' : 'off'}`}
-                        onClick={handleTickerToggle}
-                    >
-                        {tickerVisible ? '✅ ON' : '❌ OFF'}
-                    </button>
-                </div>
+            <div className="admin-tabs">
+                <button
+                    className={`tab-btn ${activeTab === 'news' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('news')}
+                >
+                    📰 News & Ticker
+                </button>
+                <button
+                    className={`tab-btn ${activeTab === 'apps' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('apps')}
+                >
+                    📩 Applications ({applications.length})
+                </button>
             </div>
 
-            {/* Add News */}
-            <div className="admin-card">
-                <h2>➕ Add News</h2>
-                <form onSubmit={handleAddNews} className="admin-form">
-                    <input
-                        type="text"
-                        placeholder="News Title *"
-                        value={newForm.title}
-                        onChange={e => setNewForm({ ...newForm, title: e.target.value })}
-                        required
-                    />
-                    <textarea
-                        placeholder="Short description (optional)"
-                        value={newForm.description}
-                        onChange={e => setNewForm({ ...newForm, description: e.target.value })}
-                        rows={2}
-                    />
-                    <div className="admin-form-row">
-                        <select value={newForm.category} onChange={e => setNewForm({ ...newForm, category: e.target.value })}>
-                            {categories.map(c => <option key={c}>{c}</option>)}
-                        </select>
-                        <label className="admin-checkbox">
+            {activeTab === 'news' ? (
+                <>
+                    {/* Ticker Toggle */}
+                    <div className="admin-card">
+                        <h2>📢 News Ticker</h2>
+                        <div className="ticker-toggle-row">
+                            <span>Show news ticker on homepage</span>
+                            <button
+                                className={`toggle-btn ${tickerVisible ? 'on' : 'off'}`}
+                                onClick={handleTickerToggle}
+                            >
+                                {tickerVisible ? '✅ ON' : '❌ OFF'}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Add News */}
+                    <div className="admin-card">
+                        <h2>➕ Add News</h2>
+                        <form onSubmit={handleAddNews} className="admin-form">
                             <input
-                                type="checkbox"
-                                checked={newForm.isBreaking}
-                                onChange={e => setNewForm({ ...newForm, isBreaking: e.target.checked })}
+                                type="text"
+                                placeholder="News Title *"
+                                value={newForm.title}
+                                onChange={e => setNewForm({ ...newForm, title: e.target.value })}
+                                required
                             />
-                            Mark as Spotlight
-                        </label>
-                    </div>
-                    <button type="submit" className="admin-btn-primary">Add News</button>
-                </form>
-            </div>
-
-            {/* News List */}
-            <div className="admin-card">
-                <h2>📰 Current News ({news.length})</h2>
-                {news.length === 0 ? (
-                    <p className="admin-empty">No news yet. Add some above!</p>
-                ) : (
-                    <div className="admin-news-list">
-                        {news.map(item => (
-                            <div key={item._id} className="admin-news-item">
-                                <div className="admin-news-info">
-                                    {item.isBreaking && <span className="admin-badge">Spotlight</span>}
-                                    <span className="admin-news-cat">{item.category}</span>
-                                    <p>{item.title}</p>
-                                </div>
-                                <button className="admin-delete-btn" onClick={() => handleDeleteNews(item._id)}>🗑️</button>
+                            <textarea
+                                placeholder="Short description (optional)"
+                                value={newForm.description}
+                                onChange={e => setNewForm({ ...newForm, description: e.target.value })}
+                                rows={2}
+                            />
+                            <div className="admin-form-row">
+                                <select value={newForm.category} onChange={e => setNewForm({ ...newForm, category: e.target.value })}>
+                                    {categories.map(c => <option key={c}>{c}</option>)}
+                                </select>
+                                <label className="admin-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        checked={newForm.isBreaking}
+                                        onChange={e => setNewForm({ ...newForm, isBreaking: e.target.checked })}
+                                    />
+                                    Mark as Spotlight
+                                </label>
                             </div>
-                        ))}
+                            <button type="submit" className="admin-btn-primary">Add News</button>
+                        </form>
                     </div>
-                )}
-            </div>
+
+                    {/* News List */}
+                    <div className="admin-card">
+                        <h2>📰 Current News ({news.length})</h2>
+                        {news.length === 0 ? (
+                            <p className="admin-empty">No news yet. Add some above!</p>
+                        ) : (
+                            <div className="admin-news-list">
+                                {news.map(item => (
+                                    <div key={item._id} className="admin-news-item">
+                                        <div className="admin-news-info">
+                                            {item.isBreaking && <span className="admin-badge">Spotlight</span>}
+                                            <span className="admin-news-cat">{item.category}</span>
+                                            <p>{item.title}</p>
+                                        </div>
+                                        <button className="admin-delete-btn" onClick={() => handleDeleteNews(item._id)}>🗑️</button>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </>
+            ) : (
+                <div className="admin-card">
+                    <h2>📥 Submitted Applications</h2>
+                    {applications.length === 0 ? (
+                        <p className="admin-empty">No applications yet.</p>
+                    ) : (
+                        <div className="admin-app-list">
+                            {applications.map(app => (
+                                <div key={app._id} className="admin-app-item">
+                                    <div className="admin-app-header">
+                                        <h3>{app.fullName}</h3>
+                                        <span className="admin-app-date">{new Date(app.createdAt).toLocaleDateString()}</span>
+                                    </div>
+                                    <div className="admin-app-details">
+                                        <p><strong>Email:</strong> {app.email}</p>
+                                        <p><strong>Phone:</strong> {app.phone}</p>
+                                        <p><strong>Interest/Course:</strong> {app.course}</p>
+                                        {app.message && <p className="admin-app-msg"><strong>Message:</strong> {app.message}</p>}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
