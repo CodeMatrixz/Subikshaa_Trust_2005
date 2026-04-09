@@ -45,7 +45,7 @@ const Admin = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoginError('');
-        const res = await fetch('/api/auth/login', {
+        const res = await fetch('/api/admin/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(loginForm)
