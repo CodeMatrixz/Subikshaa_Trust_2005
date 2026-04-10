@@ -5,10 +5,6 @@
   "outputDirectory": "front-end/dist",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/handler.js"
-    },
-    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }

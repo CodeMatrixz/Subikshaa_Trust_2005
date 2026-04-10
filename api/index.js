@@ -4,8 +4,8 @@ module.exports = async (req, res) => {
         // Ensure we are requiring the server correctly
         const app = require('../back-end/server');
         
-        // Vercel strips the /api prefix, so we add it back for Express routing
-        const originalUrl = req.url;
+        // Ensure the URL reflects the path Express expects
+        // Vercel might pass /admin/login or /api/admin/login
         if (!req.url.startsWith('/api')) {
             req.url = '/api' + (req.url.startsWith('/') ? '' : '/') + req.url;
         }
