@@ -17,7 +17,7 @@ const Navbar = () => {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-content">
                 <Link to="/" className="logo">
-                    <img src="/images/assets/logo.jpg" alt="Subikshaa Trust Logo" />
+                    <img src="/images/assets/logo_v2.jpg" alt="Subikshaa Trust Logo" />
                 </Link>
 
                 {/* Desktop Menu */}

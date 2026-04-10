@@ -118,7 +118,7 @@ const WomenSkillDev = () => {
                             marginTop: '-1rem'
                         }}>
                             <img
-                                src="/images/assets/logo.jpg"
+                                src="/images/assets/logo_v2.jpg"
                                 alt="Subikshaa Trust Logo"
                                 style={{
                                     height: '180px',
