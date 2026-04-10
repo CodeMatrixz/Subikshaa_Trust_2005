@@ -15,9 +15,16 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URI || '')
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err.message));
+    .then(() => {
+        console.log('MongoDB connected');
+        global.dbConnected = true;
+    })
+    .catch(err => {
+        console.error('MongoDB connection error:', err.message);
+        global.dbConnected = false;
+    });
 
 // Routes
 app.use('/api/donations', require('./routes/donationRoutes'));
