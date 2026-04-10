@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const sendEmail = require('../utils/emailService');
 
 // In-memory fallback store when DB is not connected
 const mockRegistrations = [];
@@ -34,11 +35,34 @@ router.post('/', async (req, res) => {
         if (global.dbConnected && EventRegistration) {
             const registration = new EventRegistration({ name, email, phone, eventTitle, message });
             await registration.save();
+            
+            // Send email to user
+            await sendEmail({
+                to: email,
+                subject: `Registration Confirmed: ${eventTitle}`,
+                html: `<p>Hi ${name},</p><p>You have successfully registered for <strong>${eventTitle}</strong>. We look forward to seeing you there!</p>`
+            });
+
+            // Notify Admin
+            await sendEmail({
+                to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
+                subject: `New Event Registration: ${eventTitle}`,
+                html: `<p>New registration for <strong>${eventTitle}</strong>.</p><p>Name: ${name}</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Note: ${message || 'None'}</p>`
+            });
+
             return res.status(201).json({ success: true, message: 'Registration successful!', data: registration });
         } else {
             // Fallback mock store
             const entry = { id: Date.now(), name, email, phone, eventTitle, message, createdAt: new Date() };
             mockRegistrations.push(entry);
+            
+            // Mock notification
+            await sendEmail({
+                to: 'subikshaatrust.org@gmail.com',
+                subject: `[MOCK] New Event Registration: ${eventTitle}`,
+                html: `<p>MOCK registration for ${eventTitle}. Name: ${name}</p>`
+            });
+
             console.log('Event Registration (Mock):', entry);
             return res.status(201).json({ success: true, message: 'Registration successful! (mock)', data: entry });
         }

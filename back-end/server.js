@@ -26,6 +26,7 @@ app.use('/api/settings', require('./routes/settingsRoutes'));
 app.use('/api/payment', require('./routes/paymentRoutes'));
 app.use('/api/news', require('./routes/newsRoutes'));
 app.use('/api/event-registrations', require('./routes/eventRegistrationRoutes'));
+app.use('/api/contacts', require('./routes/contactRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes').router);
 
 app.get('/', (req, res) => {

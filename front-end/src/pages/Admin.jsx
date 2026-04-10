@@ -7,10 +7,13 @@ const Admin = () => {
     const [loginError, setLoginError] = useState('');
     const [news, setNews] = useState([]);
     const [applications, setApplications] = useState([]);
+    const [contacts, setContacts] = useState([]);
+    const [registrations, setRegistrations] = useState([]);
     const [newForm, setNewForm] = useState({ title: '', description: '', category: 'General', isBreaking: false });
     const [tickerVisible, setTickerVisible] = useState(true);
     const [message, setMessage] = useState('');
-    const [activeTab, setActiveTab] = useState('news'); // 'news' or 'apps'
+    const [activeTab, setActiveTab] = useState('news'); // 'news' or 'inquiries'
+    const [subTab, setSubTab] = useState('apps'); // 'apps', 'contacts', 'events'
 
     const categories = ['General', 'Health', 'Education', 'Environment', 'Celebration', 'Community'];
 
@@ -34,11 +37,29 @@ const Admin = () => {
         setApplications(data.success ? data.data : []);
     };
 
+    const fetchContacts = async () => {
+        const res = await fetch('/api/contacts');
+        const data = await res.json();
+        setContacts(data.success ? data.data : []);
+    };
+
+    const fetchRegistrations = async () => {
+        const res = await fetch('/api/event-registrations');
+        const data = await res.json();
+        setRegistrations(data.success ? data.data : []);
+    };
+
+    const refreshData = () => {
+        fetchNews();
+        fetchSettings();
+        fetchApplications();
+        fetchContacts();
+        fetchRegistrations();
+    };
+
     useEffect(() => {
         if (token) {
-            fetchNews();
-            fetchSettings();
-            fetchApplications();
+            refreshData();
         }
     }, [token]);
 
@@ -148,10 +169,10 @@ const Admin = () => {
                     📰 News & Ticker
                 </button>
                 <button
-                    className={`tab-btn ${activeTab === 'apps' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('apps')}
+                    className={`tab-btn ${activeTab === 'inquiries' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('inquiries')}
                 >
-                    📩 Applications ({applications.length})
+                    📩 Inquiries ({applications.length + contacts.length + registrations.length})
                 </button>
             </div>
 
@@ -216,7 +237,7 @@ const Admin = () => {
                                     <div key={item._id} className="admin-news-item">
                                         <div className="admin-news-info">
                                             {item.isBreaking && <span className="admin-badge">Spotlight</span>}
-                                            <span className="admin-news-cat">{item.category}</span>
+                                            <span className="admin-badge-cat">{item.category}</span>
                                             <p>{item.title}</p>
                                         </div>
                                         <button className="admin-delete-btn" onClick={() => handleDeleteNews(item._id)}>🗑️</button>
@@ -227,28 +248,83 @@ const Admin = () => {
                     </div>
                 </>
             ) : (
-                <div className="admin-card">
-                    <h2>📥 Submitted Applications</h2>
-                    {applications.length === 0 ? (
-                        <p className="admin-empty">No applications yet.</p>
-                    ) : (
-                        <div className="admin-app-list">
-                            {applications.map(app => (
-                                <div key={app._id} className="admin-app-item">
-                                    <div className="admin-app-header">
-                                        <h3>{app.fullName}</h3>
-                                        <span className="admin-app-date">{new Date(app.createdAt).toLocaleDateString()}</span>
+                <div className="admin-inquiries-container">
+                    <div className="admin-sub-tabs">
+                        <button className={`sub-tab ${subTab === 'apps' ? 'active' : ''}`} onClick={() => setSubTab('apps')}>
+                            Applications ({applications.length})
+                        </button>
+                        <button className={`sub-tab ${subTab === 'events' ? 'active' : ''}`} onClick={() => setSubTab('events')}>
+                            Event Reg ({registrations.length})
+                        </button>
+                        <button className={`sub-tab ${subTab === 'contacts' ? 'active' : ''}`} onClick={() => setSubTab('contacts')}>
+                            Contact Us ({contacts.length})
+                        </button>
+                    </div>
+
+                    <div className="admin-card">
+                        {subTab === 'apps' && (
+                            <>
+                                <h2>📥 Membership & Volunteer Applications</h2>
+                                {applications.length === 0 ? <p className="admin-empty">No applications yet.</p> : (
+                                    <div className="admin-list">
+                                        {applications.map(app => (
+                                            <div key={app._id} className="admin-item">
+                                                <div className="admin-item-header">
+                                                    <h3>{app.fullName}</h3>
+                                                    <span className="admin-date">{new Date(app.createdAt).toLocaleDateString()}</span>
+                                                </div>
+                                                <p><strong>Email:</strong> {app.email} | <strong>Phone:</strong> {app.phone}</p>
+                                                <p><strong>Interest:</strong> {app.course}</p>
+                                                {app.message && <div className="admin-item-msg">{app.message}</div>}
+                                            </div>
+                                        ))}
                                     </div>
-                                    <div className="admin-app-details">
-                                        <p><strong>Email:</strong> {app.email}</p>
-                                        <p><strong>Phone:</strong> {app.phone}</p>
-                                        <p><strong>Interest/Course:</strong> {app.course}</p>
-                                        {app.message && <p className="admin-app-msg"><strong>Message:</strong> {app.message}</p>}
+                                )}
+                            </>
+                        )}
+
+                        {subTab === 'events' && (
+                            <>
+                                <h2>🎟️ Event Registrations</h2>
+                                {registrations.length === 0 ? <p className="admin-empty">No event registrations yet.</p> : (
+                                    <div className="admin-list">
+                                        {registrations.map(reg => (
+                                            <div key={reg._id} className="admin-item">
+                                                <div className="admin-item-header">
+                                                    <h3>{reg.name}</h3>
+                                                    <span className="admin-date">{new Date(reg.createdAt).toLocaleDateString()}</span>
+                                                </div>
+                                                <p><strong>Event:</strong> {reg.eventTitle}</p>
+                                                <p><strong>Email:</strong> {reg.email} | <strong>Phone:</strong> {reg.phone}</p>
+                                                {reg.message && <div className="admin-item-msg">{reg.message}</div>}
+                                            </div>
+                                        ))}
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                                )}
+                            </>
+                        )}
+
+                        {subTab === 'contacts' && (
+                            <>
+                                <h2>✉️ Contact Form Messages</h2>
+                                {contacts.length === 0 ? <p className="admin-empty">No contact messages yet.</p> : (
+                                    <div className="admin-list">
+                                        {contacts.map(msg => (
+                                            <div key={msg._id} className="admin-item">
+                                                <div className="admin-item-header">
+                                                    <h3>{msg.firstName} {msg.lastName}</h3>
+                                                    <span className="admin-date">{new Date(msg.createdAt).toLocaleDateString()}</span>
+                                                </div>
+                                                <p><strong>Subject:</strong> {msg.subject}</p>
+                                                <p><strong>Email:</strong> {msg.email}</p>
+                                                <div className="admin-item-msg">{msg.message}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </div>
                 </div>
             )}
         </div>
