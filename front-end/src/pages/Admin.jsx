@@ -1,10 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { 
+    ShieldCheck, 
+    Lock, 
+    User, 
+    LogOut, 
+    Newspaper, 
+    Inbox, 
+    FileText, 
+    Calendar, 
+    Mail, 
+    Plus, 
+    Trash2, 
+    ToggleRight, 
+    ToggleLeft,
+    CheckCircle2,
+    Search,
+    ChevronRight,
+    LayoutDashboard,
+    MessageSquare,
+    Users
+} from 'lucide-react';
 import '../styles/Admin.css';
 
 const Admin = () => {
     const [token, setToken] = useState(localStorage.getItem('adminToken') || '');
     const [loginForm, setLoginForm] = useState({ username: '', password: '' });
     const [loginError, setLoginError] = useState('');
+    const [isLoggingIn, setIsLoggingIn] = useState(false);
+    const [loginSuccess, setLoginSuccess] = useState(false);
     const [news, setNews] = useState([]);
     const [applications, setApplications] = useState([]);
     const [contacts, setContacts] = useState([]);
@@ -12,8 +35,7 @@ const Admin = () => {
     const [newForm, setNewForm] = useState({ title: '', description: '', category: 'General', isBreaking: false });
     const [tickerVisible, setTickerVisible] = useState(true);
     const [message, setMessage] = useState('');
-    const [activeTab, setActiveTab] = useState('news'); // 'news' or 'inquiries'
-    const [subTab, setSubTab] = useState('apps'); // 'apps', 'contacts', 'events'
+    const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'news', 'apps', 'events', 'contacts'
 
     const categories = ['General', 'Health', 'Education', 'Environment', 'Celebration', 'Community'];
 
@@ -66,17 +88,32 @@ const Admin = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoginError('');
-        const res = await fetch('/api/admin/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(loginForm)
-        });
-        const data = await res.json();
-        if (data.success) {
-            localStorage.setItem('adminToken', data.token);
-            setToken(data.token);
-        } else {
-            setLoginError(data.message || 'Invalid credentials');
+        setIsLoggingIn(true);
+        
+        try {
+            const res = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(loginForm)
+            });
+            const data = await res.json();
+            
+            if (data.success) {
+                setLoginSuccess(true);
+                // Artificial delay for professional feedback "Success"
+                setTimeout(() => {
+                    localStorage.setItem('adminToken', data.token);
+                    setToken(data.token);
+                    setIsLoggingIn(false);
+                    setLoginSuccess(false);
+                }, 1500);
+            } else {
+                setLoginError(data.message || 'Invalid credentials');
+                setIsLoggingIn(false);
+            }
+        } catch (err) {
+            setLoginError('Server connection failed');
+            setIsLoggingIn(false);
         }
     };
 
@@ -126,207 +163,347 @@ const Admin = () => {
         return (
             <div className="admin-login-page">
                 <div className="admin-login-card">
-                    <div className="admin-logo">🔐</div>
-                    <h1>Admin Login</h1>
-                    <p>Subikshaa Trust Admin Panel</p>
-                    <form onSubmit={handleLogin}>
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            value={loginForm.username}
-                            onChange={e => setLoginForm({ ...loginForm, username: e.target.value })}
-                            required
-                        />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={loginForm.password}
-                            onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
-                            required
-                        />
-                        {loginError && <p className="admin-error">{loginError}</p>}
-                        <button type="submit">Login</button>
-                    </form>
+                    <div className="admin-login-logo">
+                        <div className="logo-circle">
+                            {loginSuccess ? <CheckCircle2 size={48} color="#10b981" /> : <ShieldCheck size={48} color="#2563eb" />}
+                        </div>
+                    </div>
+                    <h1>{loginSuccess ? 'Access Granted' : 'Admin Portal'}</h1>
+                    <p>{loginSuccess ? 'Welcome back, Administrator' : 'Enter your credentials to manage the trust'}</p>
+                    
+                    {!loginSuccess && (
+                        <form onSubmit={handleLogin}>
+                            <div className="input-group">
+                                <User size={18} />
+                                <input
+                                    type="text"
+                                    placeholder="Username"
+                                    value={loginForm.username}
+                                    onChange={e => setLoginForm({ ...loginForm, username: e.target.value })}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <Lock size={18} />
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    value={loginForm.password}
+                                    onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
+                                    required
+                                />
+                            </div>
+                            {loginError && <p className="admin-error">{loginError}</p>}
+                            <button type="submit" disabled={isLoggingIn}>
+                                {isLoggingIn ? 'Authenticating...' : 'Sign In'}
+                            </button>
+                        </form>
+                    )}
+                    
+                    {loginSuccess && (
+                        <div className="login-success-animation">
+                            <div className="success-bar"></div>
+                            <p className="success-msg">Login Successful. Redirecting...</p>
+                        </div>
+                    )}
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="admin-page">
-            <div className="admin-header">
-                <h1>🛡️ Admin Panel</h1>
-                <button className="admin-logout-btn" onClick={handleLogout}>Logout</button>
-            </div>
-
-            {message && <div className="admin-message">{message}</div>}
-
-            <div className="admin-tabs">
-                <button
-                    className={`tab-btn ${activeTab === 'news' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('news')}
-                >
-                    📰 News & Ticker
-                </button>
-                <button
-                    className={`tab-btn ${activeTab === 'inquiries' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('inquiries')}
-                >
-                    📩 Inquiries ({applications.length + contacts.length + registrations.length})
-                </button>
-            </div>
-
-            {activeTab === 'news' ? (
-                <>
-                    {/* Ticker Toggle */}
-                    <div className="admin-card">
-                        <h2>📢 News Ticker</h2>
-                        <div className="ticker-toggle-row">
-                            <span>Show news ticker on homepage</span>
-                            <button
-                                className={`toggle-btn ${tickerVisible ? 'on' : 'off'}`}
-                                onClick={handleTickerToggle}
-                            >
-                                {tickerVisible ? '✅ ON' : '❌ OFF'}
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Add News */}
-                    <div className="admin-card">
-                        <h2>➕ Add News</h2>
-                        <form onSubmit={handleAddNews} className="admin-form">
-                            <input
-                                type="text"
-                                placeholder="News Title *"
-                                value={newForm.title}
-                                onChange={e => setNewForm({ ...newForm, title: e.target.value })}
-                                required
-                            />
-                            <textarea
-                                placeholder="Short description (optional)"
-                                value={newForm.description}
-                                onChange={e => setNewForm({ ...newForm, description: e.target.value })}
-                                rows={2}
-                            />
-                            <div className="admin-form-row">
-                                <select value={newForm.category} onChange={e => setNewForm({ ...newForm, category: e.target.value })}>
-                                    {categories.map(c => <option key={c}>{c}</option>)}
-                                </select>
-                                <label className="admin-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        checked={newForm.isBreaking}
-                                        onChange={e => setNewForm({ ...newForm, isBreaking: e.target.checked })}
-                                    />
-                                    Mark as Spotlight
-                                </label>
-                            </div>
-                            <button type="submit" className="admin-btn-primary">Add News</button>
-                        </form>
-                    </div>
-
-                    {/* News List */}
-                    <div className="admin-card">
-                        <h2>📰 Current News ({news.length})</h2>
-                        {news.length === 0 ? (
-                            <p className="admin-empty">No news yet. Add some above!</p>
-                        ) : (
-                            <div className="admin-news-list">
-                                {news.map(item => (
-                                    <div key={item._id} className="admin-news-item">
-                                        <div className="admin-news-info">
-                                            {item.isBreaking && <span className="admin-badge">Spotlight</span>}
-                                            <span className="admin-badge-cat">{item.category}</span>
-                                            <p>{item.title}</p>
-                                        </div>
-                                        <button className="admin-delete-btn" onClick={() => handleDeleteNews(item._id)}>🗑️</button>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </>
-            ) : (
-                <div className="admin-inquiries-container">
-                    <div className="admin-sub-tabs">
-                        <button className={`sub-tab ${subTab === 'apps' ? 'active' : ''}`} onClick={() => setSubTab('apps')}>
-                            Applications ({applications.length})
-                        </button>
-                        <button className={`sub-tab ${subTab === 'events' ? 'active' : ''}`} onClick={() => setSubTab('events')}>
-                            Event Reg ({registrations.length})
-                        </button>
-                        <button className={`sub-tab ${subTab === 'contacts' ? 'active' : ''}`} onClick={() => setSubTab('contacts')}>
-                            Contact Us ({contacts.length})
-                        </button>
-                    </div>
-
-                    <div className="admin-card">
-                        {subTab === 'apps' && (
-                            <>
-                                <h2>📥 Membership & Volunteer Applications</h2>
-                                {applications.length === 0 ? <p className="admin-empty">No applications yet.</p> : (
-                                    <div className="admin-list">
-                                        {applications.map(app => (
-                                            <div key={app._id} className="admin-item">
-                                                <div className="admin-item-header">
-                                                    <h3>{app.fullName}</h3>
-                                                    <span className="admin-date">{new Date(app.createdAt).toLocaleDateString()}</span>
-                                                </div>
-                                                <p><strong>Email:</strong> {app.email} | <strong>Phone:</strong> {app.phone}</p>
-                                                <p><strong>Interest:</strong> {app.course}</p>
-                                                {app.message && <div className="admin-item-msg">{app.message}</div>}
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </>
-                        )}
-
-                        {subTab === 'events' && (
-                            <>
-                                <h2>🎟️ Event Registrations</h2>
-                                {registrations.length === 0 ? <p className="admin-empty">No event registrations yet.</p> : (
-                                    <div className="admin-list">
-                                        {registrations.map(reg => (
-                                            <div key={reg._id} className="admin-item">
-                                                <div className="admin-item-header">
-                                                    <h3>{reg.name}</h3>
-                                                    <span className="admin-date">{new Date(reg.createdAt).toLocaleDateString()}</span>
-                                                </div>
-                                                <p><strong>Event:</strong> {reg.eventTitle}</p>
-                                                <p><strong>Email:</strong> {reg.email} | <strong>Phone:</strong> {reg.phone}</p>
-                                                {reg.message && <div className="admin-item-msg">{reg.message}</div>}
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </>
-                        )}
-
-                        {subTab === 'contacts' && (
-                            <>
-                                <h2>✉️ Contact Form Messages</h2>
-                                {contacts.length === 0 ? <p className="admin-empty">No contact messages yet.</p> : (
-                                    <div className="admin-list">
-                                        {contacts.map(msg => (
-                                            <div key={msg._id} className="admin-item">
-                                                <div className="admin-item-header">
-                                                    <h3>{msg.firstName} {msg.lastName}</h3>
-                                                    <span className="admin-date">{new Date(msg.createdAt).toLocaleDateString()}</span>
-                                                </div>
-                                                <p><strong>Subject:</strong> {msg.subject}</p>
-                                                <p><strong>Email:</strong> {msg.email}</p>
-                                                <div className="admin-item-msg">{msg.message}</div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </>
-                        )}
+        <div className="admin-dashboard-container">
+            {/* Professional Sidebar */}
+            <aside className="admin-sidebar">
+                <div className="sidebar-brand">
+                    <img src="/images/assets/logo_v2.jpg" alt="Logo" className="sidebar-logo" />
+                    <div className="brand-text">
+                        <h3>Subikshaa</h3>
+                        <span>Admin Panel</span>
                     </div>
                 </div>
-            )}
+
+                <nav className="sidebar-nav">
+                    <button className={activeTab === 'dashboard' ? 'active' : ''} onClick={() => setActiveTab('dashboard')}>
+                        <LayoutDashboard size={20} /> Dashboard
+                    </button>
+                    <button className={activeTab === 'news' ? 'active' : ''} onClick={() => setActiveTab('news')}>
+                        <Newspaper size={20} /> News & Ticker
+                    </button>
+                    <div className="nav-divider">Management</div>
+                    <button className={activeTab === 'apps' ? 'active' : ''} onClick={() => setActiveTab('apps')}>
+                        <FileText size={20} /> Applications 
+                        {applications.length > 0 && <span className="sidebar-count">{applications.length}</span>}
+                    </button>
+                    <button className={activeTab === 'events' ? 'active' : ''} onClick={() => setActiveTab('events')}>
+                        <Calendar size={20} /> Event Registrations
+                        {registrations.length > 0 && <span className="sidebar-count">{registrations.length}</span>}
+                    </button>
+                    <button className={activeTab === 'contacts' ? 'active' : ''} onClick={() => setActiveTab('contacts')}>
+                        <Mail size={20} /> Contact Messages
+                        {contacts.length > 0 && <span className="sidebar-count">{contacts.length}</span>}
+                    </button>
+                </nav>
+
+                <div className="sidebar-footer">
+                    <button onClick={handleLogout} className="sidebar-logout">
+                        <LogOut size={18} /> Logout
+                    </button>
+                </div>
+            </aside>
+
+            {/* Main Content Area */}
+            <main className="admin-main">
+                <header className="main-header">
+                    <div className="header-left">
+                        <h1>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h1>
+                    </div>
+                    <div className="header-right">
+                        <span className="last-sync">Last updated: {new Date().toLocaleTimeString()}</span>
+                        <div className="admin-profile">
+                            <div className="avatar">K</div>
+                            <span className="admin-name">Administrator</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div className="content-body">
+                    {message && <div className="admin-alert-toast"><CheckCircle2 size={16} /> {message}</div>}
+
+                    {activeTab === 'dashboard' && (
+                        <div className="dashboard-grid">
+                            <div className="stat-card">
+                                <div className="stat-icon blue"><Users size={24} /></div>
+                                <div className="stat-info">
+                                    <h4>Total Applications</h4>
+                                    <p>{applications.length}</p>
+                                </div>
+                            </div>
+                            <div className="stat-card">
+                                <div className="stat-icon gold"><Calendar size={24} /></div>
+                                <div className="stat-info">
+                                    <h4>Event Regs</h4>
+                                    <p>{registrations.length}</p>
+                                </div>
+                            </div>
+                            <div className="stat-card">
+                                <div className="stat-icon green"><MessageSquare size={24} /></div>
+                                <div className="stat-info">
+                                    <h4>Contact Inbox</h4>
+                                    <p>{contacts.length}</p>
+                                </div>
+                            </div>
+                            <div className="stat-card news-card">
+                                <div className="stat-icon purple"><Newspaper size={24} /></div>
+                                <div className="stat-info">
+                                    <h4>Active News</h4>
+                                    <p>{news.length}</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeTab === 'news' && (
+                        <div className="news-management">
+                            <div className="admin-card">
+                                <div className="card-header">
+                                    <ToggleRight size={20} />
+                                    <h2>Homepage Ticker Settings</h2>
+                                </div>
+                                <div className="ticker-toggle-row">
+                                    <div className="toggle-info">
+                                        <p>Display scrolling headlines on the landing page</p>
+                                        <span className="status-tag">{tickerVisible ? 'Currently Active' : 'Hidden'}</span>
+                                    </div>
+                                    <button
+                                        className={`professional-toggle ${tickerVisible ? 'on' : 'off'}`}
+                                        onClick={handleTickerToggle}
+                                    >
+                                        <div className="toggle-knob"></div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="admin-card">
+                                <div className="card-header">
+                                    <Plus size={20} />
+                                    <h2>Publish New Bulletin</h2>
+                                </div>
+                                <form onSubmit={handleAddNews} className="professional-form">
+                                    <input
+                                        type="text"
+                                        placeholder="Headline *"
+                                        value={newForm.title}
+                                        onChange={e => setNewForm({ ...newForm, title: e.target.value })}
+                                        required
+                                    />
+                                    <textarea
+                                        placeholder="Detailed Summary (Optional)"
+                                        value={newForm.description}
+                                        onChange={e => setNewForm({ ...newForm, description: e.target.value })}
+                                        rows={3}
+                                    />
+                                    <div className="form-grid">
+                                        <div className="select-container">
+                                            <label>Category</label>
+                                            <select value={newForm.category} onChange={e => setNewForm({ ...newForm, category: e.target.value })}>
+                                                {categories.map(c => <option key={c}>{c}</option>)}
+                                            </select>
+                                        </div>
+                                        <label className="checkbox-control">
+                                            <input
+                                                type="checkbox"
+                                                checked={newForm.isBreaking}
+                                                onChange={e => setNewForm({ ...newForm, isBreaking: e.target.checked })}
+                                            />
+                                            <span>Mark as Spotlight Content</span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" className="btn-primary">
+                                        <Plus size={18} /> Publish to Website
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div className="admin-card">
+                                <div className="card-header">
+                                    <Newspaper size={20} />
+                                    <h2>Editorial History</h2>
+                                </div>
+                                {news.length === 0 ? (
+                                    <p className="empty-state">No published news found.</p>
+                                ) : (
+                                    <div className="modern-list">
+                                        {news.map(item => (
+                                            <div key={item._id} className="modern-list-item">
+                                                <div className="item-content">
+                                                    <div className="item-meta">
+                                                        {item.isBreaking && <span className="premium-badge-spotlight">Spotlight</span>}
+                                                        <span className="premium-badge-cat">{item.category}</span>
+                                                    </div>
+                                                    <h3>{item.title}</h3>
+                                                </div>
+                                                <button className="btn-icon-delete" onClick={() => handleDeleteNews(item._id)}>
+                                                    <Trash2 size={16} />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+
+                    {activeTab === 'apps' && (
+                        <div className="admin-card full-card">
+                            <div className="card-header">
+                                <FileText size={20} />
+                                <h2>Membership & Volunteer Applications</h2>
+                            </div>
+                            {applications.length === 0 ? <p className="empty-state">No new applications.</p> : (
+                                <div className="modern-grid-list">
+                                    {applications.map(app => (
+                                        <div key={app._id} className="professional-item">
+                                            <div className="item-header">
+                                                <div className="user-info">
+                                                    <div className="user-avatar">{app.fullName.charAt(0)}</div>
+                                                    <div>
+                                                        <h3>{app.fullName}</h3>
+                                                        <span className="app-course">{app.course}</span>
+                                                    </div>
+                                                </div>
+                                                <span className="timestamp">{new Date(app.createdAt).toLocaleDateString()}</span>
+                                            </div>
+                                            <div className="item-details">
+                                                <p><Mail size={14} /> {app.email}</p>
+                                                <p><Phone size={14} /> {app.phone}</p>
+                                            </div>
+                                            {app.message && <div className="item-memo">{app.message}</div>}
+                                            <div className="item-actions">
+                                                <button className="btn-outline">View Full Details</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {activeTab === 'events' && (
+                        <div className="admin-card full-card">
+                            <div className="card-header">
+                                <Calendar size={20} />
+                                <h2>Recent Event Registrations</h2>
+                            </div>
+                            {registrations.length === 0 ? <p className="empty-state">No event registrations.</p> : (
+                                <div className="modern-table-container">
+                                    <table className="modern-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Participant</th>
+                                                <th>Event Name</th>
+                                                <th>Contact Info</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {registrations.map(reg => (
+                                                <tr key={reg._id}>
+                                                    <td>
+                                                        <div className="table-user">
+                                                            <strong>{reg.name}</strong>
+                                                        </div>
+                                                    </td>
+                                                    <td><span className="event-tag">{reg.eventTitle}</span></td>
+                                                    <td>
+                                                        <div className="table-contact">
+                                                            <span>{reg.email}</span>
+                                                            <small>{reg.phone}</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>{new Date(reg.createdAt).toLocaleDateString()}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {activeTab === 'contacts' && (
+                        <div className="admin-card full-card">
+                            <div className="card-header">
+                                <Inbox size={20} />
+                                <h2>Support Inbox</h2>
+                            </div>
+                            {contacts.length === 0 ? <p className="empty-state">Inbox is empty.</p> : (
+                                <div className="modern-list">
+                                    {contacts.map(msg => (
+                                        <div key={msg._id} className="inbox-item">
+                                            <div className="inbox-header">
+                                                <div className="sender-info">
+                                                    <strong>{msg.firstName} {msg.lastName}</strong>
+                                                    <span>{msg.email}</span>
+                                                </div>
+                                                <div className="inbox-meta">
+                                                    <span className="subject-badge">{msg.subject}</span>
+                                                    <span className="timestamp">{new Date(msg.createdAt).toLocaleDateString()}</span>
+                                                </div>
+                                            </div>
+                                            <div className="inbox-body">{msg.message}</div>
+                                            <div className="inbox-footer">
+                                                <button className="btn-link">Mark as Read</button>
+                                                <button className="btn-link reply">Reply via Email</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </main>
         </div>
     );
 };
