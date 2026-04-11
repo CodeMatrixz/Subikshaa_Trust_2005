@@ -41,25 +41,23 @@ const mockNews = [
 // GET /api/news - Fetch latest 10 news items
 router.get('/', async (req, res) => {
     try {
-        let news = await News.find()
+        const dbNews = await News.find()
             .sort({ createdAt: -1 })
             .limit(10);
         
-        // If empty, seed the DB with mock data so they are "already there" permanently
-        if (news.length === 0) {
-            console.log('Seeding initial news items into database...');
-            const seedData = mockNews.map(item => {
-                const { _id, ...rest } = item; // Remove mock IDs to let Mongo generate real ones
-                return rest;
-            });
-            await News.insertMany(seedData);
-            news = await News.find().sort({ createdAt: -1 }).limit(10);
-        }
+        // Ensure mock news items are always mixed in if they aren't in the DB yet
+        const dbTitles = dbNews.map(n => n.title);
+        const missingMockNews = mockNews.filter(m => !dbTitles.includes(m.title));
         
-        res.json(news);
+        // Combine and limit to latest 10
+        const combined = [...dbNews, ...missingMockNews]
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            .slice(0, 10);
+        
+        res.json(combined);
     } catch (err) {
         console.error('Database error in news route:', err.message);
-        res.json(mockNews); // Extreme fallback
+        res.json(mockNews);
     }
 });
 
