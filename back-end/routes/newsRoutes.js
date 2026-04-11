@@ -44,10 +44,17 @@ router.get('/', async (req, res) => {
         const news = await News.find()
             .sort({ createdAt: -1 })
             .limit(10);
+        
+        // Fallback to mock data if DB is empty
+        if (news.length === 0) {
+            return res.json(mockNews);
+        }
+        
         res.json(news);
     } catch (err) {
         console.error('Database error in news route:', err.message);
-        res.status(500).json({ success: false, message: 'Database error.' });
+        // Fallback on error to ensure ticker always works
+        res.json(mockNews);
     }
 });
 
