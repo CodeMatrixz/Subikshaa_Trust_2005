@@ -9,44 +9,23 @@ router.post('/', async (req, res) => {
     try {
         const { amount, type, paymentMethod, transactionId } = req.body;
 
-        if (global.dbConnected) {
-            const newDonation = new Donation({
-                amount,
-                type,
-                paymentMethod,
-                transactionId,
-                status: 'completed'
-            });
-            const savedDonation = await newDonation.save();
+        const newDonation = new Donation({
+            amount,
+            type,
+            paymentMethod,
+            transactionId,
+            status: 'completed'
+        });
+        const savedDonation = await newDonation.save();
 
-            // Send email notification
-            await sendEmail({
-                to: 'subikshaatrust.org@gmail.com', // Updated to official trust email
-                subject: 'New Donation Received',
-                html: `<p>A new donation of $${amount} has been received.</p><p>Type: ${type}</p><p>Payment Method: ${paymentMethod}</p>`
-            });
+        // Send email notification
+        await sendEmail({
+            to: 'subikshaatrust.org@gmail.com',
+            subject: 'New Donation Received',
+            html: `<p>A new donation of $${amount} has been received.</p><p>Type: ${type}</p><p>Payment Method: ${paymentMethod}</p>`
+        });
 
-            res.status(201).json({ success: true, data: savedDonation });
-        } else {
-            const mockDonation = {
-                amount,
-                type,
-                paymentMethod,
-                status: 'completed',
-                _id: 'mock_id_' + Date.now(),
-                createdAt: new Date()
-            };
-            console.log('[MOCK DB] Donation received:', mockDonation);
-
-            // Send email notification (Mock)
-            await sendEmail({
-                to: 'subikshaatrust.org@gmail.com',
-                subject: 'New Donation Received (Mock)',
-                html: `<p>A new donation of $${amount} has been received.</p><p>Type: ${type}</p><p>Payment Method: ${paymentMethod}</p>`
-            });
-
-            res.status(201).json({ success: true, data: mockDonation, message: 'Saved to mock DB' });
-        }
+        res.status(201).json({ success: true, data: savedDonation });
     } catch (error) {
         console.error('Donation Error:', error);
         res.status(500).json({ success: false, message: 'Server Error' });

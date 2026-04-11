@@ -37,69 +37,39 @@ router.post('/', upload.single('photo'), async (req, res) => {
         const { fullName, email, phone, course, message } = req.body;
         const photoPath = req.file ? req.file.path : null;
 
-        if (global.dbConnected) {
-            const newApplication = new Application({
-                fullName,
-                email,
-                phone,
-                course,
-                message,
-                photoPath
-            });
-            const savedApplication = await newApplication.save();
+        const newApplication = new Application({
+            fullName,
+            email,
+            phone,
+            course,
+            message,
+            photoPath
+        });
+        const savedApplication = await newApplication.save();
 
-            // Send email notification
-            await sendEmail({
-                to: email,
-                subject: 'Application Received',
-                html: `<p>Hi ${fullName},</p><p>Thank you for applying to ${course}. We will review your application and get back to you shortly.</p>`
-            });
+        // Send email notification to User
+        await sendEmail({
+            to: email,
+            subject: 'Application Received',
+            html: `<p>Hi ${fullName},</p><p>Thank you for applying to ${course}. We will review your application and get back to you shortly.</p>`
+        });
 
-            // Notify Admin
-            const adminUrl = process.env.ADMIN_URL || 'https://subikshaa-trust-2005.vercel.app/admin';
-            await sendEmail({
-                to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
-                subject: 'New Application Submitted',
-                html: `
-                    <p>New application from <strong>${fullName}</strong> for <strong>${course}</strong>.</p>
-                    <p>Email: ${email}</p>
-                    <p>Phone: ${phone}</p>
-                    <p>Message: ${message}</p>
-                    <hr/>
-                    <p><a href="${adminUrl}" style="color: #2563eb; font-weight: bold; text-decoration: none;">🔗 View in Admin Panel</a></p>
-                `
-            });
+        // Notify Admin
+        const adminUrl = process.env.ADMIN_URL || 'https://subikshaa-trust-2005.vercel.app/admin';
+        await sendEmail({
+            to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
+            subject: 'New Application Submitted',
+            html: `
+                <p>New application from <strong>${fullName}</strong> for <strong>${course}</strong>.</p>
+                <p>Email: ${email}</p>
+                <p>Phone: ${phone}</p>
+                <p>Message: ${message}</p>
+                <hr/>
+                <p><a href="${adminUrl}" style="color: #2563eb; font-weight: bold; text-decoration: none;">🔗 View in Admin Panel</a></p>
+            `
+        });
 
-            res.status(201).json({ success: true, message: 'Application submitted successfully', data: savedApplication });
-        } else {
-            const mockApplication = {
-                fullName,
-                email,
-                phone,
-                course,
-                message,
-                photoPath,
-                _id: 'mock_app_id_' + Date.now(),
-                createdAt: new Date()
-            };
-            console.log('[MOCK DB] Application received:', mockApplication);
-
-            // Send email notification (Mock)
-            await sendEmail({
-                to: email,
-                subject: 'Application Received (Mock)',
-                html: `<p>Hi ${fullName},</p><p>Thank you for applying to ${course}. We will review your application and get back to you shortly.</p>`
-            });
-
-            // Notify Admin (Mock)
-            await sendEmail({
-                to: 'subikshaatrust.org@gmail.com',
-                subject: 'New Application Submitted (Mock)',
-                html: `<p>New application from ${fullName} for ${course}.</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`
-            });
-
-            res.status(201).json({ success: true, message: 'Application submitted successfully (Mock)', data: mockApplication });
-        }
+        res.status(201).json({ success: true, message: 'Application submitted successfully', data: savedApplication });
     } catch (error) {
         console.error('Application Submit Error:', error);
         res.status(500).json({ success: false, message: 'Server Error' });

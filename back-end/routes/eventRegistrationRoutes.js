@@ -32,49 +32,33 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        if (global.dbConnected && EventRegistration) {
-            const registration = new EventRegistration({ name, email, phone, eventTitle, message });
-            await registration.save();
-            
-            // Send email to user
-            await sendEmail({
-                to: email,
-                subject: `Registration Confirmed: ${eventTitle}`,
-                html: `<p>Hi ${name},</p><p>You have successfully registered for <strong>${eventTitle}</strong>. We look forward to seeing you there!</p>`
-            });
+        const registration = new EventRegistration({ name, email, phone, eventTitle, message });
+        await registration.save();
+        
+        // Send email to user
+        await sendEmail({
+            to: email,
+            subject: `Registration Confirmed: ${eventTitle}`,
+            html: `<p>Hi ${name},</p><p>You have successfully registered for <strong>${eventTitle}</strong>. We look forward to seeing you there!</p>`
+        });
 
-            // Notify Admin
-            const adminUrl = process.env.ADMIN_URL || 'https://subikshaa-trust-2005.vercel.app/admin';
-            await sendEmail({
-                to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
-                subject: `New Event Registration: ${eventTitle}`,
-                html: `
-                    <p>New registration for <strong>${eventTitle}</strong>.</p>
-                    <p>Name: ${name}</p>
-                    <p>Email: ${email}</p>
-                    <p>Phone: ${phone}</p>
-                    <p>Note: ${message || 'None'}</p>
-                    <hr/>
-                    <p><a href="${adminUrl}" style="color: #2563eb; font-weight: bold; text-decoration: none;">🔗 View in Admin Panel</a></p>
-                `
-            });
+        // Notify Admin
+        const adminUrl = process.env.ADMIN_URL || 'https://subikshaa-trust-2005.vercel.app/admin';
+        await sendEmail({
+            to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
+            subject: `New Event Registration: ${eventTitle}`,
+            html: `
+                <p>New registration for <strong>${eventTitle}</strong>.</p>
+                <p>Name: ${name}</p>
+                <p>Email: ${email}</p>
+                <p>Phone: ${phone}</p>
+                <p>Note: ${message || 'None'}</p>
+                <hr/>
+                <p><a href="${adminUrl}" style="color: #2563eb; font-weight: bold; text-decoration: none;">🔗 View in Admin Panel</a></p>
+            `
+        });
 
-            return res.status(201).json({ success: true, message: 'Registration successful!', data: registration });
-        } else {
-            // Fallback mock store
-            const entry = { id: Date.now(), name, email, phone, eventTitle, message, createdAt: new Date() };
-            mockRegistrations.push(entry);
-            
-            // Mock notification
-            await sendEmail({
-                to: 'subikshaatrust.org@gmail.com',
-                subject: `[MOCK] New Event Registration: ${eventTitle}`,
-                html: `<p>MOCK registration for ${eventTitle}. Name: ${name}</p>`
-            });
-
-            console.log('Event Registration (Mock):', entry);
-            return res.status(201).json({ success: true, message: 'Registration successful! (mock)', data: entry });
-        }
+        return res.status(201).json({ success: true, message: 'Registration successful!', data: registration });
     } catch (err) {
         console.error('Event registration error:', err.message);
         return res.status(500).json({ success: false, message: 'Server error. Please try again.' });
@@ -84,12 +68,8 @@ router.post('/', async (req, res) => {
 // GET /api/event-registrations  (admin view)
 router.get('/', async (req, res) => {
     try {
-        if (global.dbConnected && EventRegistration) {
-            const registrations = await EventRegistration.find().sort({ createdAt: -1 });
-            return res.json({ success: true, data: registrations });
-        } else {
-            return res.json({ success: true, data: mockRegistrations });
-        }
+        const registrations = await EventRegistration.find().sort({ createdAt: -1 });
+        return res.json({ success: true, data: registrations });
     } catch (err) {
         return res.status(500).json({ success: false, message: 'Server error.' });
     }

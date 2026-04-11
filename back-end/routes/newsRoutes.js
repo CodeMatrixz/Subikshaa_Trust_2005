@@ -41,25 +41,18 @@ const mockNews = [
 // GET /api/news - Fetch latest 10 news items
 router.get('/', async (req, res) => {
     try {
-        if (!global.dbConnected) {
-            return res.json(mockNews);
-        }
         const news = await News.find()
             .sort({ createdAt: -1 })
             .limit(10);
         res.json(news);
     } catch (err) {
-        // Even if DB fails during call, fallback to mock if possible
         console.error('Database error in news route:', err.message);
-        res.json(mockNews);
+        res.status(500).json({ success: false, message: 'Database error.' });
     }
 });
 
 // POST /api/news - Add news item
 router.post('/', async (req, res) => {
-    if (!global.dbConnected) {
-        return res.status(200).json({ message: 'Running in mock mode, data not saved' });
-    }
     const news = new News({
         title: req.body.title,
         description: req.body.description,

@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const connectDB = require('./config/db');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -15,19 +16,28 @@ app.use(cors());
 
 
 app.use(express.json());
+
+// Global database connection middleware for serverless reliability
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (err) {
+        console.error('Database middleware error:', err.message);
+        // Only return error for API routes
+        if (req.url.startsWith('/api')) {
+            return res.status(503).json({ 
+                success: false, 
+                message: 'Database connection failed. Please try again in a moment.' 
+            });
+        }
+        next();
+    }
+});
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Connect to MongoDB
-mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGO_URI || '')
-    .then(() => {
-        console.log('MongoDB connected');
-        global.dbConnected = true;
-    })
-    .catch(err => {
-        console.error('MongoDB connection error:', err.message);
-        global.dbConnected = false;
-    });
+// Initial connection (background for hot startup)
+connectDB().catch(err => console.error('Initial DB connect failed:', err.message));
 
 // Routes
 app.use('/api/donations', require('./routes/donationRoutes'));
