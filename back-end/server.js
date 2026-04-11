@@ -11,10 +11,12 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Security Middleware
+// Security Middleware (Temporarily disabled for diagnostics)
+/*
 app.use(helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
+*/
 
 const corsOptions = {
     origin: [
@@ -29,6 +31,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Global Rate Limiting (Prevent DDoS)
+/*
 const globalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 200, // Limit each IP to 200 requests per window
@@ -37,6 +40,7 @@ const globalLimiter = rateLimit({
     legacyHeaders: false,
 });
 app.use('/api', globalLimiter);
+*/
 
 app.use(express.json({ limit: '10kb' })); // Body parser with size limit (security best practice)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
