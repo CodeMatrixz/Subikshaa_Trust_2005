@@ -16,7 +16,8 @@ import {
     LayoutDashboard,
     MessageSquare,
     Users,
-    Phone
+    Phone,
+    Eye
 } from 'lucide-react';
 import '../styles/Admin.css';
 
@@ -438,7 +439,9 @@ const Admin = () => {
                                             </div>
                                             {app.message && <div className="item-memo">{app.message}</div>}
                                             <div className="item-actions">
-                                                <button className="admin-btn-outline" onClick={() => setSelectedApp(app)}>View Full Details</button>
+                                                <button className="admin-btn-premium-view" onClick={() => setSelectedApp(app)}>
+                                                    <Eye size={16} /> View Full Details
+                                                </button>
                                                 <button className="admin-btn-delete-link" onClick={() => handleDeleteApplication(app._id)}>
                                                     <Trash2 size={16} /> Delete
                                                 </button>
