@@ -41,20 +41,25 @@ const mockNews = [
 // GET /api/news - Fetch latest 10 news items
 router.get('/', async (req, res) => {
     try {
-        const news = await News.find()
+        let news = await News.find()
             .sort({ createdAt: -1 })
             .limit(10);
         
-        // Fallback to mock data if DB is empty
+        // If empty, seed the DB with mock data so they are "already there" permanently
         if (news.length === 0) {
-            return res.json(mockNews);
+            console.log('Seeding initial news items into database...');
+            const seedData = mockNews.map(item => {
+                const { _id, ...rest } = item; // Remove mock IDs to let Mongo generate real ones
+                return rest;
+            });
+            await News.insertMany(seedData);
+            news = await News.find().sort({ createdAt: -1 }).limit(10);
         }
         
         res.json(news);
     } catch (err) {
         console.error('Database error in news route:', err.message);
-        // Fallback on error to ensure ticker always works
-        res.json(mockNews);
+        res.json(mockNews); // Extreme fallback
     }
 });
 
