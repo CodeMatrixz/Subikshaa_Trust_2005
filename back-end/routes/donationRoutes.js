@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 
             // Send email notification
             await sendEmail({
-                to: 'admin@charity.org', // Replace with admin email
+                to: 'subikshaatrust.org@gmail.com', // Updated to official trust email
                 subject: 'New Donation Received',
                 html: `<p>A new donation of $${amount} has been received.</p><p>Type: ${type}</p><p>Payment Method: ${paymentMethod}</p>`
             });
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 
             // Send email notification (Mock)
             await sendEmail({
-                to: 'admin@charity.org',
+                to: 'subikshaatrust.org@gmail.com',
                 subject: 'New Donation Received (Mock)',
                 html: `<p>A new donation of $${amount} has been received.</p><p>Type: ${type}</p><p>Payment Method: ${paymentMethod}</p>`
             });
