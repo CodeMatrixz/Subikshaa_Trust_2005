@@ -263,7 +263,7 @@ const Admin = () => {
                     <div className="header-right">
                         <span className="last-sync">Last updated: {new Date().toLocaleTimeString()}</span>
                         <div className="admin-profile">
-                            <div className="admin-avatar">K</div>
+                            <div className="admin-avatar">KV</div>
                             <span className="admin-name">Administrator</span>
                         </div>
                     </div>
