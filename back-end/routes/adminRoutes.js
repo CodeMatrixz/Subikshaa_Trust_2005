@@ -1,17 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const rateLimit = require('express-rate-limit');
 
-/*
-const loginLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, 
-    max: 5, 
-    message: { success: false, message: 'Too many login attempts, please try again after 15 minutes' },
-    standardHeaders: true,
-    legacyHeaders: false,
-});
-*/
 
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'SubikshaaTrust@2005';
