@@ -803,6 +803,27 @@
     padding: 1rem;
     border-bottom: 1px solid var(--admin-border);
     font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.table-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--admin-text-muted);
+    white-space: nowrap;
+}
+
+.contact-item svg {
+    color: var(--admin-primary);
+    opacity: 0.8;
 }
 
 .event-tag {

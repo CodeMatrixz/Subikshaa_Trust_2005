@@ -527,8 +527,8 @@ const Admin = () => {
                                                     <td><span className="event-tag">{reg.eventTitle}</span></td>
                                                     <td>
                                                         <div className="table-contact">
-                                                            <span>{reg.email}</span>
-                                                            <small>{reg.phone}</small>
+                                                            <div className="contact-item"><Mail size={12} /> {reg.email}</div>
+                                                            <div className="contact-item"><Phone size={12} /> {reg.phone}</div>
                                                         </div>
                                                     </td>
                                                     <td>{new Date(reg.createdAt).toLocaleDateString()}</td>
