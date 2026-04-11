@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { 
-    ShieldCheck, 
-    Lock, 
-    User, 
-    LogOut, 
-    Newspaper, 
-    Inbox, 
-    FileText, 
-    Calendar, 
-    Mail, 
-    Plus, 
-    Trash2, 
-    ToggleRight, 
+import {
+    ShieldCheck,
+    Lock,
+    User,
+    LogOut,
+    Newspaper,
+    Inbox,
+    FileText,
+    Calendar,
+    Mail,
+    Plus,
+    Trash2,
+    ToggleRight,
     ToggleLeft,
     CheckCircle2,
     Search,
     ChevronRight,
     LayoutDashboard,
     MessageSquare,
-    Users
+    Users,
+    Phone
 } from 'lucide-react';
 import '../styles/Admin.css';
 
@@ -89,7 +90,7 @@ const Admin = () => {
         e.preventDefault();
         setLoginError('');
         setIsLoggingIn(true);
-        
+
         try {
             const res = await fetch('/api/admin/login', {
                 method: 'POST',
@@ -97,7 +98,7 @@ const Admin = () => {
                 body: JSON.stringify(loginForm)
             });
             const data = await res.json();
-            
+
             if (data.success) {
                 setLoginSuccess(true);
                 // Artificial delay for professional feedback "Success"
@@ -174,7 +175,7 @@ const Admin = () => {
                     </div>
                     <h1>{loginSuccess ? 'Access Granted' : 'Admin Portal'}</h1>
                     <p>{loginSuccess ? 'Welcome back, Administrator' : 'Enter your credentials to manage the trust'}</p>
-                    
+
                     {!loginSuccess && (
                         <form onSubmit={handleLogin}>
                             <div className="input-group">
@@ -203,7 +204,7 @@ const Admin = () => {
                             </button>
                         </form>
                     )}
-                    
+
                     {loginSuccess && (
                         <div className="login-success-animation">
                             <div className="success-bar"></div>
@@ -222,7 +223,7 @@ const Admin = () => {
                 <div className="sidebar-brand">
                     <img src="/images/assets/logo_v2.jpg" alt="Logo" className="sidebar-logo" />
                     <div className="brand-text">
-                        <h3>Subikshaa</h3>
+                        <h3>Subikshaa Trust</h3>
                         <span>Admin Panel</span>
                     </div>
                 </div>
@@ -236,7 +237,7 @@ const Admin = () => {
                     </button>
                     <div className="nav-divider">Management</div>
                     <button className={activeTab === 'apps' ? 'active' : ''} onClick={() => setActiveTab('apps')}>
-                        <FileText size={20} /> Applications 
+                        <FileText size={20} /> Applications
                         {applications.length > 0 && <span className="sidebar-count">{applications.length}</span>}
                     </button>
                     <button className={activeTab === 'events' ? 'active' : ''} onClick={() => setActiveTab('events')}>
