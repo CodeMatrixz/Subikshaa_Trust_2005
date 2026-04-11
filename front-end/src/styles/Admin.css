@@ -202,7 +202,7 @@
     gap: 0.8rem;
 }
 
-.avatar {
+.admin-avatar {
     width: 32px;
     height: 32px;
     background-color: var(--admin-primary);
@@ -309,7 +309,7 @@
     margin-bottom: 1.5rem;
 }
 
-.card-header {
+.admin-card-header {
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -433,7 +433,7 @@
     accent-color: var(--admin-primary);
 }
 
-.btn-primary {
+.admin-btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -449,7 +449,7 @@
     transition: background 0.2s;
 }
 
-.btn-primary:hover {
+.admin-btn-primary:hover {
     background-color: var(--admin-primary-hover);
 }
 
@@ -591,7 +591,7 @@
     border-left: 3px solid var(--admin-primary);
 }
 
-.btn-outline {
+.admin-btn-outline {
     width: 100%;
     background-color: transparent;
     border: 1px solid var(--admin-border);
@@ -602,7 +602,7 @@
     cursor: pointer;
 }
 
-.btn-outline:hover {
+.admin-btn-outline:hover {
     background-color: #f1f5f9;
 }
 
@@ -778,12 +778,12 @@
     margin-bottom: 2.5rem;
 }
 
-.input-group {
+.admin-input-group {
     position: relative;
     margin-bottom: 1.25rem;
 }
 
-.input-group svg {
+.admin-input-group svg {
     position: absolute;
     left: 12px;
     top: 50%;
@@ -791,7 +791,7 @@
     color: #94a3b8;
 }
 
-.input-group input {
+.admin-input-group input {
     width: 100%;
     padding: 0.85rem 1rem 0.85rem 2.5rem;
     border-radius: 12px;
@@ -802,7 +802,7 @@
     transition: all 0.2s;
 }
 
-.input-group input:focus {
+.admin-input-group input:focus {
     outline: none;
     border-color: var(--admin-primary);
     background-color: #fff;

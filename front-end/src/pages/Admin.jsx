@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-    ShieldCheck,
     Lock,
     User,
     LogOut,
@@ -14,8 +13,6 @@ import {
     ToggleRight,
     ToggleLeft,
     CheckCircle2,
-    Search,
-    ChevronRight,
     LayoutDashboard,
     MessageSquare,
     Users,
@@ -178,7 +175,7 @@ const Admin = () => {
 
                     {!loginSuccess && (
                         <form onSubmit={handleLogin}>
-                            <div className="input-group">
+                            <div className="admin-input-group">
                                 <User size={18} />
                                 <input
                                     type="text"
@@ -188,7 +185,7 @@ const Admin = () => {
                                     required
                                 />
                             </div>
-                            <div className="input-group">
+                            <div className="admin-input-group">
                                 <Lock size={18} />
                                 <input
                                     type="password"
@@ -266,7 +263,7 @@ const Admin = () => {
                     <div className="header-right">
                         <span className="last-sync">Last updated: {new Date().toLocaleTimeString()}</span>
                         <div className="admin-profile">
-                            <div className="avatar">K</div>
+                            <div className="admin-avatar">K</div>
                             <span className="admin-name">Administrator</span>
                         </div>
                     </div>
@@ -330,7 +327,7 @@ const Admin = () => {
                             </div>
 
                             <div className="admin-card">
-                                <div className="card-header">
+                                <div className="admin-card-header">
                                     <Plus size={20} />
                                     <h2>Publish New Bulletin</h2>
                                 </div>
@@ -364,14 +361,14 @@ const Admin = () => {
                                             <span>Mark as Spotlight Content</span>
                                         </label>
                                     </div>
-                                    <button type="submit" className="btn-primary">
+                                    <button type="submit" className="admin-btn-primary">
                                         <Plus size={18} /> Publish to Website
                                     </button>
                                 </form>
                             </div>
 
                             <div className="admin-card">
-                                <div className="card-header">
+                                <div className="admin-card-header">
                                     <Newspaper size={20} />
                                     <h2>Editorial History</h2>
                                 </div>
@@ -401,7 +398,7 @@ const Admin = () => {
 
                     {activeTab === 'apps' && (
                         <div className="admin-card full-card">
-                            <div className="card-header">
+                            <div className="admin-card-header">
                                 <FileText size={20} />
                                 <h2>Membership & Volunteer Applications</h2>
                             </div>
@@ -411,7 +408,7 @@ const Admin = () => {
                                         <div key={app._id} className="professional-item">
                                             <div className="item-header">
                                                 <div className="user-info">
-                                                    <div className="user-avatar">{app.fullName.charAt(0)}</div>
+                                                    <div className="user-avatar">{app.fullName ? app.fullName.charAt(0) : '?'}</div>
                                                     <div>
                                                         <h3>{app.fullName}</h3>
                                                         <span className="app-course">{app.course}</span>
@@ -425,7 +422,7 @@ const Admin = () => {
                                             </div>
                                             {app.message && <div className="item-memo">{app.message}</div>}
                                             <div className="item-actions">
-                                                <button className="btn-outline">View Full Details</button>
+                                                <button className="admin-btn-outline">View Full Details</button>
                                             </div>
                                         </div>
                                     ))}
@@ -436,7 +433,7 @@ const Admin = () => {
 
                     {activeTab === 'events' && (
                         <div className="admin-card full-card">
-                            <div className="card-header">
+                            <div className="admin-card-header">
                                 <Calendar size={20} />
                                 <h2>Recent Event Registrations</h2>
                             </div>
@@ -478,7 +475,7 @@ const Admin = () => {
 
                     {activeTab === 'contacts' && (
                         <div className="admin-card full-card">
-                            <div className="card-header">
+                            <div className="admin-card-header">
                                 <Inbox size={20} />
                                 <h2>Support Inbox</h2>
                             </div>
