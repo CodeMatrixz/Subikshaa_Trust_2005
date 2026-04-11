@@ -2,9 +2,18 @@ const express = require('express');
 const router = express.Router();
 const Donation = require('../models/Donation');
 const sendEmail = require('../utils/emailService');
+const rateLimit = require('express-rate-limit');
+
+const donationLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 20, // Limit each IP to 20 donation attempts per hour
+    message: { success: false, message: 'Too many donation attempts, please try again after an hour' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
 
 // POST /api/donations - Create a new donation intent
-router.post('/', async (req, res) => {
+router.post('/', donationLimiter, async (req, res) => {
     console.log('Donation Request Body:', req.body);
     try {
         const { amount, type, paymentMethod, transactionId } = req.body;

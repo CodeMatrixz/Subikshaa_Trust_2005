@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 
 dotenv.config({ path: path.join(__dirname, '.env') });
@@ -9,9 +11,34 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// Security Middleware
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
+
+const corsOptions = {
+    origin: [
+        'http://localhost:5173', 
+        'https://subikshaa-trust-2005.vercel.app',
+        /\.vercel\.app$/ // Allow all vercel preview deployments
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
+
+// Global Rate Limiting (Prevent DDoS)
+const globalLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 200, // Limit each IP to 200 requests per window
+    message: 'Too many requests from this IP, please try again after 15 minutes',
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+app.use('/api', globalLimiter);
+
+app.use(express.json({ limit: '10kb' })); // Body parser with size limit (security best practice)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
