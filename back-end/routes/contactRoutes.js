@@ -55,4 +55,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+// DELETE /api/contacts/:id
+router.delete('/:id', async (req, res) => {
+    try {
+        await ContactMessage.findByIdAndDelete(req.params.id);
+        res.json({ success: true, message: 'Message deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
 module.exports = router;

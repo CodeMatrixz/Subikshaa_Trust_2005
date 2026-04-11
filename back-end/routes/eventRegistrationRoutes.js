@@ -75,4 +75,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+// DELETE /api/event-registrations/:id
+router.delete('/:id', async (req, res) => {
+    try {
+        await EventRegistration.findByIdAndDelete(req.params.id);
+        res.json({ success: true, message: 'Registration deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
 module.exports = router;

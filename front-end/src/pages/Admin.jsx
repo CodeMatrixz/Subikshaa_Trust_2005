@@ -160,6 +160,30 @@ const Admin = () => {
         }
     };
 
+    const handleDeleteRegistration = async (id) => {
+        if (!window.confirm('Delete this event registration permanently?')) return;
+        try {
+            const res = await fetch(`/api/event-registrations/${id}`, { method: 'DELETE', headers: authHeaders });
+            if (res.ok) {
+                setMessage('🗑️ Registration deleted.');
+                fetchRegistrations();
+                setTimeout(() => setMessage(''), 3000);
+            }
+        } catch (err) { console.error('Delete error:', err); }
+    };
+
+    const handleDeleteContact = async (id) => {
+        if (!window.confirm('Delete this contact message permanently?')) return;
+        try {
+            const res = await fetch(`/api/contacts/${id}`, { method: 'DELETE', headers: authHeaders });
+            if (res.ok) {
+                setMessage('🗑️ Message deleted.');
+                fetchContacts();
+                setTimeout(() => setMessage(''), 3000);
+            }
+        } catch (err) { console.error('Delete error:', err); }
+    };
+
     const handleTickerToggle = async () => {
         const newVal = !tickerVisible;
         const res = await fetch('/api/settings/ticker', {
@@ -514,6 +538,7 @@ const Admin = () => {
                                                 <th>Event Name</th>
                                                 <th>Contact Info</th>
                                                 <th>Date</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -532,6 +557,11 @@ const Admin = () => {
                                                         </div>
                                                     </td>
                                                     <td>{new Date(reg.createdAt).toLocaleDateString()}</td>
+                                                    <td>
+                                                        <button className="btn-icon-delete" onClick={() => handleDeleteRegistration(reg._id)}>
+                                                            <Trash2 size={16} />
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -563,8 +593,15 @@ const Admin = () => {
                                             </div>
                                             <div className="inbox-body">{msg.message}</div>
                                             <div className="inbox-footer">
-                                                <button className="btn-link">Mark as Read</button>
-                                                <button className="btn-link reply">Reply via Email</button>
+                                                <button className="btn-link" onClick={() => handleDeleteContact(msg._id)}>
+                                                    <Trash2 size={14} /> Delete
+                                                </button>
+                                                <a 
+                                                    href={`mailto:${msg.email}?subject=Re: ${msg.subject}`} 
+                                                    className="btn-link reply"
+                                                >
+                                                    <Mail size={14} /> Reply via Email
+                                                </a>
                                             </div>
                                         </div>
                                     ))}
