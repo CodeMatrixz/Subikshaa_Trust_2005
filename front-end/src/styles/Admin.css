@@ -642,6 +642,88 @@
     border-radius: 20px;
 }
 
+/* Inbox & Contact Messages */
+.inbox-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    transition: background 0.2s;
+}
+
+.inbox-item:hover {
+    background-color: #f8fafc;
+}
+
+.inbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.sender-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sender-info strong {
+    font-size: 0.95rem;
+    color: var(--admin-text-main);
+}
+
+.sender-info span {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
+}
+
+.inbox-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.subject-badge {
+    background-color: #dcfce7;
+    color: #166534;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.inbox-body {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #334155;
+    margin-bottom: 1.25rem;
+    white-space: pre-wrap;
+}
+
+.inbox-footer {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--admin-primary);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+.btn-link.reply {
+    color: var(--admin-success);
+}
+
 /* Login Page Professional Styles */
 .admin-login-page {
     min-height: 100vh;
