@@ -28,7 +28,7 @@ app.use(async (req, res, next) => {
         if (req.url.startsWith('/api')) {
             return res.status(503).json({ 
                 success: false, 
-                message: 'Database connection failed. Please try again in a moment.' 
+                message: 'Database connection failed: ' + err.message 
             });
         }
         next();
