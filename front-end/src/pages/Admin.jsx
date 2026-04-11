@@ -34,6 +34,7 @@ const Admin = () => {
     const [tickerVisible, setTickerVisible] = useState(true);
     const [message, setMessage] = useState('');
     const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'news', 'apps', 'events', 'contacts'
+    const [selectedApp, setSelectedApp] = useState(null);
 
     const categories = ['General', 'Health', 'Education', 'Environment', 'Celebration', 'Community'];
 
@@ -141,6 +142,21 @@ const Admin = () => {
         setMessage('🗑️ News deleted.');
         fetchNews();
         setTimeout(() => setMessage(''), 3000);
+    };
+
+    const handleDeleteApplication = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this application permanently?')) return;
+        try {
+            const res = await fetch(`/api/applications/${id}`, { method: 'DELETE', headers: authHeaders });
+            if (res.ok) {
+                setMessage('🗑️ Application deleted successfully.');
+                fetchApplications();
+                setSelectedApp(null);
+                setTimeout(() => setMessage(''), 3000);
+            }
+        } catch (err) {
+            console.error('Delete error:', err);
+        }
     };
 
     const handleTickerToggle = async () => {
@@ -402,7 +418,7 @@ const Admin = () => {
                                 <FileText size={20} />
                                 <h2>Membership & Volunteer Applications</h2>
                             </div>
-                            {applications.length === 0 ? <p className="empty-state">No new applications.</p> : (
+                            {applications.length === 0 ? <p className="empty-state">No new applications found.</p> : (
                                 <div className="modern-grid-list">
                                     {applications.map(app => (
                                         <div key={app._id} className="professional-item">
@@ -422,10 +438,59 @@ const Admin = () => {
                                             </div>
                                             {app.message && <div className="item-memo">{app.message}</div>}
                                             <div className="item-actions">
-                                                <button className="admin-btn-outline">View Full Details</button>
+                                                <button className="admin-btn-outline" onClick={() => setSelectedApp(app)}>View Full Details</button>
+                                                <button className="admin-btn-delete-link" onClick={() => handleDeleteApplication(app._id)}>
+                                                    <Trash2 size={16} /> Delete
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+                            )}
+
+                            {/* Detail Modal */}
+                            {selectedApp && (
+                                <div className="admin-modal-overlay">
+                                    <div className="admin-modal-card animate-scale-in">
+                                        <div className="modal-header">
+                                            <h2>Application Details</h2>
+                                            <button className="close-btn" onClick={() => setSelectedApp(null)}>&times;</button>
+                                        </div>
+                                        <div className="modal-body">
+                                            <div className="detail-section">
+                                                <label>Full Name</label>
+                                                <p>{selectedApp.fullName}</p>
+                                            </div>
+                                            <div className="detail-grid">
+                                                <div className="detail-section">
+                                                    <label>Email Address</label>
+                                                    <p>{selectedApp.email}</p>
+                                                </div>
+                                                <div className="detail-section">
+                                                    <label>Phone Number</label>
+                                                    <p>{selectedApp.phone}</p>
+                                                </div>
+                                            </div>
+                                            <div className="detail-section">
+                                                <label>Applied For / Course</label>
+                                                <p className="highlight-text">{selectedApp.course}</p>
+                                            </div>
+                                            <div className="detail-section">
+                                                <label>Motivation / Message</label>
+                                                <div className="detail-box">{selectedApp.message || 'No message provided.'}</div>
+                                            </div>
+                                            <div className="detail-section">
+                                                <label>Submission Date</label>
+                                                <p>{new Date(selectedApp.createdAt).toLocaleString()}</p>
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button className="admin-btn-danger" onClick={() => handleDeleteApplication(selectedApp._id)}>
+                                                Delete Application
+                                            </button>
+                                            <button className="admin-btn-secondary" onClick={() => setSelectedApp(null)}>Close</button>
+                                        </div>
+                                    </div>
                                 </div>
                             )}
                         </div>

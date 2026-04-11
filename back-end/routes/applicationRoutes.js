@@ -86,4 +86,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+// DELETE /api/applications/:id - Delete an application
+router.delete('/:id', async (req, res) => {
+    try {
+        await Application.findByIdAndDelete(req.params.id);
+        res.json({ success: true, message: 'Application deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server Error' });
+    }
+});
+
 module.exports = router;
