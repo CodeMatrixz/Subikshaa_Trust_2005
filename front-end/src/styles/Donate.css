@@ -158,18 +158,137 @@
     margin-bottom: 1rem;
 }
 
-.radio-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    font-weight: 500;
-}
-
 .payment-options {
     display: flex;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.payment-option {
+    flex: 1;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.25rem 0.75rem;
+    border: 1.5px solid #F1F5F9;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    background-color: #fafafa;
+}
+
+.payment-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.payment-option span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #64748B;
+}
+
+.payment-option:hover {
+    border-color: var(--color-primary);
+    background-color: white;
+}
+
+.payment-option.active {
+    border-color: var(--color-primary);
+    background-color: var(--color-accent-blue);
+    box-shadow: 0 4px 12px rgba(81, 39, 49, 0.05);
+}
+
+.payment-option.active span {
+    color: var(--color-primary);
+}
+
+/* UPI Details Section */
+.upi-details-container {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.upi-qr-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.qr-placeholder {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.qr-placeholder img {
+    max-width: 150px;
+    height: auto;
+}
+
+.upi-id-text {
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.upi-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-upi-app {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: white;
+}
+
+.btn-upi-app:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.txn-input-box input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.txn-input-box input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(81, 39, 49, 0.05);
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Contribute button sits in its own bottom section */

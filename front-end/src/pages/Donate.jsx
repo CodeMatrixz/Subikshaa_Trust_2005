@@ -8,6 +8,9 @@ const Donate = () => {
     const [giveType, setGiveType] = useState('once'); // once, monthly
     const [amount, setAmount] = useState(500);
     const [customAmount, setCustomAmount] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState('credit_card');
+    const [transactionId, setTransactionId] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const amounts = [100, 250, 500, 1000, 2500];
 
@@ -23,6 +26,7 @@ const Donate = () => {
             return;
         }
 
+        setIsSubmitting(true);
         try {
             const response = await fetch('/api/donations', {
                 method: 'POST',
@@ -32,20 +36,31 @@ const Donate = () => {
                 body: JSON.stringify({
                     amount: finalAmount,
                     type: giveType,
-                    paymentMethod: 'credit_card', // Defaulting since we can't easily read the radio without state or refs, assuming credit_card for now or I will add state for payment method
+                    paymentMethod: paymentMethod,
+                    transactionId: transactionId || `TXN-${Date.now()}`
                 }),
             });
 
             const result = await response.json();
             if (result.success) {
-                alert('Thank you for your donation!');
+                alert('Thank you for your donation! We have received your contribution intent.');
+                setTransactionId('');
             } else {
-                alert('Donation failed. Please try again.');
+                alert(result.message || 'Donation failed. Please try again.');
             }
         } catch (error) {
             console.error('Donation error:', error);
             alert('An error occurred. Please try again.');
+        } finally {
+            setIsSubmitting(false);
         }
+    };
+
+    const getUpiLink = () => {
+        const finalAmount = customAmount || amount;
+        const upiId = "subikshaatrust@upi"; // Placeholder
+        const name = "Subikshaa Trust";
+        return `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${finalAmount}&cu=INR`;
     };
 
     return (
@@ -110,16 +125,72 @@ const Donate = () => {
                         <div className="payment-details">
                             <h3>Payment Method</h3>
                             <div className="payment-options">
-                                <label className="radio-label">
-                                    <input type="radio" name="payment" defaultChecked /> Credit Card
+                                <label className={`payment-option ${paymentMethod === 'credit_card' ? 'active' : ''}`}>
+                                    <input 
+                                        type="radio" 
+                                        name="payment" 
+                                        value="credit_card"
+                                        checked={paymentMethod === 'credit_card'}
+                                        onChange={(e) => setPaymentMethod(e.target.value)}
+                                    /> 
+                                    <span>Credit Card</span>
                                 </label>
-                                <label className="radio-label">
-                                    <input type="radio" name="payment" /> PayPal
+                                <label className={`payment-option ${paymentMethod === 'paypal' ? 'active' : ''}`}>
+                                    <input 
+                                        type="radio" 
+                                        name="payment" 
+                                        value="paypal"
+                                        checked={paymentMethod === 'paypal'}
+                                        onChange={(e) => setPaymentMethod(e.target.value)}
+                                    /> 
+                                    <span>PayPal</span>
+                                </label>
+                                <label className={`payment-option ${paymentMethod === 'upi' ? 'active' : ''}`}>
+                                    <input 
+                                        type="radio" 
+                                        name="payment" 
+                                        value="upi"
+                                        checked={paymentMethod === 'upi'}
+                                        onChange={(e) => setPaymentMethod(e.target.value)}
+                                    /> 
+                                    <span>UPI</span>
                                 </label>
                             </div>
 
-                            <button className="btn btn-primary btn-block btn-lg" onClick={handleDonate}>
-                                Contribute ₹{customAmount || amount} {giveType === 'monthly' ? '/ month' : ''}
+                            {paymentMethod === 'upi' && (
+                                <div className="upi-details-container animate-fade-in">
+                                    <div className="upi-qr-box">
+                                        <div className="qr-placeholder">
+                                            {/* Pre-generating a dynamic QR for better UX */}
+                                            <img 
+                                                src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(getUpiLink())}`} 
+                                                alt="UPI QR Code" 
+                                            />
+                                        </div>
+                                        <p className="upi-id-text">UPI ID: <strong>subikshaatrust@upi</strong></p>
+                                    </div>
+                                    <div className="upi-actions">
+                                        <a href={getUpiLink()} className="btn btn-outline btn-upi-app">
+                                            Pay via UPI App
+                                        </a>
+                                        <div className="txn-input-box">
+                                            <input 
+                                                type="text" 
+                                                placeholder="Enter Transaction ID (Optional)" 
+                                                value={transactionId}
+                                                onChange={(e) => setTransactionId(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            <button 
+                                className="btn btn-primary btn-block btn-lg" 
+                                onClick={handleDonate}
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? 'Processing...' : `Contribute ₹${customAmount || amount} ${giveType === 'monthly' ? '/ month' : ''}`}
                             </button>
                             <p className="secure-note">
                                 <CreditCard size={14} /> Secure Payment Processing

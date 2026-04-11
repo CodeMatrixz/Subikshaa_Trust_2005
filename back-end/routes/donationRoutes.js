@@ -21,8 +21,16 @@ router.post('/', async (req, res) => {
         // Send email notification
         await sendEmail({
             to: 'subikshaatrust.org@gmail.com',
-            subject: 'New Donation Received',
-            html: `<p>A new donation of $${amount} has been received.</p><p>Type: ${type}</p><p>Payment Method: ${paymentMethod}</p>`
+            subject: `New Donation Received: ₹${amount}`,
+            html: `
+                <h3>New Contribution Received</h3>
+                <p><strong>Amount:</strong> ₹${amount}</p>
+                <p><strong>Frequency:</strong> ${type}</p>
+                <p><strong>Payment Method:</strong> ${paymentMethod.toUpperCase()}</p>
+                <p><strong>Transaction ID:</strong> ${transactionId || 'Generated Automatically'}</p>
+                <hr/>
+                <p>Please log in to the Admin Panel to verify this transaction.</p>
+            `
         });
 
         res.status(201).json({ success: true, data: savedDonation });
