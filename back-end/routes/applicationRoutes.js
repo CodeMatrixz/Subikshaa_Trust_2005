@@ -56,10 +56,18 @@ router.post('/', upload.single('photo'), async (req, res) => {
             });
 
             // Notify Admin
+            const adminUrl = process.env.ADMIN_URL || 'https://subikshaa-trust-2005.vercel.app/admin';
             await sendEmail({
                 to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
                 subject: 'New Application Submitted',
-                html: `<p>New application from ${fullName} for ${course}.</p><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`
+                html: `
+                    <p>New application from <strong>${fullName}</strong> for <strong>${course}</strong>.</p>
+                    <p>Email: ${email}</p>
+                    <p>Phone: ${phone}</p>
+                    <p>Message: ${message}</p>
+                    <hr/>
+                    <p><a href="${adminUrl}" style="color: #2563eb; font-weight: bold; text-decoration: none;">🔗 View in Admin Panel</a></p>
+                `
             });
 
             res.status(201).json({ success: true, message: 'Application submitted successfully', data: savedApplication });

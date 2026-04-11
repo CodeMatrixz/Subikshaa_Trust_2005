@@ -25,10 +25,18 @@ router.post('/', async (req, res) => {
             await newMessage.save();
 
             // Send notification to Admin
+            const adminUrl = process.env.ADMIN_URL || 'https://subikshaa-trust-2005.vercel.app/admin';
             await sendEmail({
                 to: process.env.EMAIL_USER || 'subikshaatrust.org@gmail.com',
                 subject: `New Contact Message: ${subject}`,
-                html: `<p>New message from ${firstName} ${lastName}.</p><p>Email: ${email}</p><p>Subject: ${subject}</p><p>Message: ${message}</p>`
+                html: `
+                    <p>New message from <strong>${firstName} ${lastName}</strong>.</p>
+                    <p>Email: ${email}</p>
+                    <p>Subject: ${subject}</p>
+                    <p>Message: ${message}</p>
+                    <hr/>
+                    <p><a href="${adminUrl}" style="color: #2563eb; font-weight: bold; text-decoration: none;">🔗 View in Admin Panel</a></p>
+                `
             });
 
             return res.status(201).json({ success: true, message: 'Message sent successfully!', data: newMessage });
