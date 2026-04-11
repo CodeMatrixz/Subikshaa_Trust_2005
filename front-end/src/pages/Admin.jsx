@@ -164,8 +164,12 @@ const Admin = () => {
             <div className="admin-login-page">
                 <div className="admin-login-card">
                     <div className="admin-login-logo">
-                        <div className="logo-circle">
-                            {loginSuccess ? <CheckCircle2 size={48} color="#10b981" /> : <ShieldCheck size={48} color="#2563eb" />}
+                        <div className="logo-outer-circle">
+                            {loginSuccess ? (
+                                <CheckCircle2 size={48} color="#10b981" />
+                            ) : (
+                                <img src="/images/assets/logo_v2.jpg" alt="Subikshaa Trust" className="login-brand-logo" />
+                            )}
                         </div>
                     </div>
                     <h1>{loginSuccess ? 'Access Granted' : 'Admin Portal'}</h1>
