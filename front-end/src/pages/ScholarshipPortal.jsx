@@ -71,25 +71,51 @@ const ScholarshipPortal = () => {
 
     const validateCurrentStep = () => {
         if (currentStep === 1) {
-            return formData.studentName && formData.dateOfBirth && formData.gender && 
-                   formData.aadhaarNumber && formData.contactNumber && formData.email && formData.address;
+            if (!formData.studentName || !formData.dateOfBirth || !formData.gender || !formData.address) return { valid: false, msg: 'Please fill in all personal details.' };
+            
+            const emailRegex = /^\S+@\S+\.\S+$/;
+            if (!emailRegex.test(formData.email)) return { valid: false, msg: 'Please enter a valid email address.' };
+            
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(formData.contactNumber)) return { valid: false, msg: 'Contact number must be exactly 10 digits.' };
+            
+            const aadhaarRegex = /^\d{12}$/;
+            if (!aadhaarRegex.test(formData.aadhaarNumber)) return { valid: false, msg: 'Aadhaar number must be exactly 12 digits.' };
+            
+            return { valid: true };
         }
         if (currentStep === 2) {
-            return formData.institutionName && formData.currentGradeOrCourse && formData.previousYearMarks && formData.ambition;
+            if (!formData.institutionName || !formData.currentGradeOrCourse || !formData.previousYearMarks || !formData.ambition) {
+                return { valid: false, msg: 'Please fill in all academic details.' };
+            }
+            if (isNaN(formData.previousYearMarks) || formData.previousYearMarks < 0 || formData.previousYearMarks > 100) {
+                return { valid: false, msg: 'Please enter a valid percentage for marks (0-100).' };
+            }
+            return { valid: true };
         }
         if (currentStep === 3) {
-            return formData.guardianName && formData.guardianOccupation && formData.annualFamilyIncome && formData.needStatement;
+            if (!formData.guardianName || !formData.guardianOccupation || !formData.annualFamilyIncome || !formData.needStatement) {
+                return { valid: false, msg: 'Please fill in all financial details.' };
+            }
+            if (isNaN(formData.annualFamilyIncome) || formData.annualFamilyIncome < 0) {
+                return { valid: false, msg: 'Please enter a valid annual family income.' };
+            }
+            return { valid: true };
         }
         if (currentStep === 4) {
-            return files.photo && files.incomeCertificate && files.gradeSheet && files.idProof;
+            if (!files.photo || !files.incomeCertificate || !files.gradeSheet || !files.idProof) {
+                return { valid: false, msg: 'Please upload all 4 strictly mandatory documents.' };
+            }
+            return { valid: true };
         }
-        return true;
+        return { valid: true };
     };
 
     const saveStepProgress = async (stage) => {
-        if (!validateCurrentStep()) {
-            setMessage({ type: 'error', text: '⚠️ Please fill in all required fields before proceeding.' });
-            setTimeout(() => setMessage({ type: '', text: '' }), 3000);
+        const validation = validateCurrentStep();
+        if (!validation.valid) {
+            setMessage({ type: 'error', text: `⚠️ ${validation.msg}` });
+            setTimeout(() => setMessage({ type: '', text: '' }), 5000);
             return;
         }
         setIsSubmitting(true);
