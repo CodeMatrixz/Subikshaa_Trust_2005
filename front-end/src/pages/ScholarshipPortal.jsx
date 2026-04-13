@@ -4,7 +4,7 @@ import {
     User, BookOpen, GraduationCap, IndianRupee, FileText, CheckCircle, 
     ChevronRight, ChevronLeft, Upload, AlertCircle, Loader2, 
     ArrowRightCircle, Award, Target, Shield, Users, Zap, Search, ClipboardCheck, Megaphone,
-    ArrowRight, Info, Brain, UserCheck, Wallet, ShieldCheck, School
+    ArrowRight, Info, Brain, UserCheck, Wallet, ShieldCheck, School, Heart
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Section from '../components/Section';
@@ -254,11 +254,16 @@ const ScholarshipPortal = () => {
                         <h4>Verification</h4>
                         <p>Valid Aadhaar card and identity proof are mandatory for all applicants.</p>
                     </div>
+                    <div className="eligibility-card">
+                        <div className="eligibility-icon-box"><Heart size={24} /></div>
+                        <h4>Conduct & Ethics</h4>
+                        <p>Applicant should maintain good moral character and discipline throughout the program.</p>
+                    </div>
                 </div>
 
                 <div className="landing-cta">
                     <h3>Ready to transform your future?</h3>
-                    <p>Apply for the Subikshaa Trust Scholarship 2025-26 today.</p>
+                    <p>Apply for the Subikshaa Trust Scholarship 2026-27 today.</p>
                     <button className="btn btn-primary btn-xl" onClick={() => setView('apply')}>
                         Start My Application <ArrowRight size={20} style={{ marginLeft: '10px' }} />
                     </button>
