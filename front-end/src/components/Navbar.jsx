@@ -55,6 +55,7 @@ const Navbar = () => {
                         <Link to="/csr" onClick={() => setIsOpen(false)}>CSR</Link>
                         <Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
                         <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+                        <div className="mobile-actions">
                             <Link to="/volunteer" className="btn btn-outline" onClick={() => setIsOpen(false)}>Volunteer</Link>
                             <Link to="/donate" className="btn btn-primary" onClick={() => setIsOpen(false)}>Contribute</Link>
                         </div>
