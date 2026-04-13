@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     User, BookOpen, GraduationCap, IndianRupee, FileText, CheckCircle, 
-    ChevronRight, ChevronLeft, Upload, AlertCircle, Loader2 
+    ChevronRight, ChevronLeft, Upload, AlertCircle, Loader2, 
+    ArrowRightCircle, Award, Target, Shield, Users, Zap, Search, ClipboardCheck, Megaphone,
+    ArrowRight, Info
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Section from '../components/Section';
@@ -17,6 +19,7 @@ const STEPS = [
 ];
 
 const ScholarshipPortal = () => {
+    const [view, setView] = useState('landing');
     const [currentStep, setCurrentStep] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [applicationId, setApplicationId] = useState(null);
@@ -49,10 +52,10 @@ const ScholarshipPortal = () => {
         idProof: null
     });
 
-    // Auto-scroll to top on step change
+    // Auto-scroll to top on step change/view change
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentStep]);
+    }, [currentStep, view]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -142,6 +145,145 @@ const ScholarshipPortal = () => {
         await saveStepProgress(5);
         setMessage({ type: 'success', text: '✨ Application Submitted Professionally! You will receive a confirmation email shortly.' });
     };
+
+    const renderLandingContent = () => (
+        <div className="portal-landing-view">
+            <Section className="landing-section">
+                <h2>Scholarship Features</h2>
+                <div className="features-grid">
+                    <div className="feature-item">
+                        <ArrowRightCircle className="feature-icon" size={24} />
+                        <p>Support meritorious students from all corners of the country with an undergraduate college education</p>
+                    </div>
+                    <div className="feature-item">
+                        <ArrowRightCircle className="feature-icon" size={24} />
+                        <p>For <strong>first year students</strong> studying any stream of their choice</p>
+                    </div>
+                    <div className="feature-item">
+                        <ArrowRightCircle className="feature-icon" size={24} />
+                        <p>Awarded on a merit-cum-means basis to meritorious students</p>
+                    </div>
+                    <div className="feature-item">
+                        <ArrowRightCircle className="feature-icon" size={24} />
+                        <p>Up to 5,000 undergraduate scholars will be selected</p>
+                    </div>
+                    <div className="feature-item">
+                        <ArrowRightCircle className="feature-icon" size={24} />
+                        <p>The total amount of scholarship available over the duration of the degree programme, will be up to Rs/INR 2 Lakhs</p>
+                    </div>
+                    <div className="feature-item">
+                        <ArrowRightCircle className="feature-icon" size={24} />
+                        <p>Scholarship will go beyond financial support, with students automatically gaining networking opportunities</p>
+                    </div>
+                </div>
+            </Section>
+
+            <Section className="landing-section" style={{ backgroundColor: '#fdfdfb' }}>
+                <h2>Scholarship Values</h2>
+                <div className="values-grid">
+                    <div className="value-card">
+                        <div className="value-icon-circle"><GraduationCap size={32} /></div>
+                        <div className="value-content">
+                            <h4>Excellence</h4>
+                            <p>Scholars who are committed to excellence, in spirit and action, in everything they pursue, both academic and non-academic.</p>
+                        </div>
+                    </div>
+                    <div className="value-card">
+                        <div className="value-icon-circle"><Award size={32} /></div>
+                        <div className="value-content">
+                            <h4>Leadership Potential</h4>
+                            <p>Scholars who have the potential and ambition to become India's and the World's Leaders of Tomorrow.</p>
+                        </div>
+                    </div>
+                    <div className="value-card">
+                        <div className="value-icon-circle"><Shield size={32} /></div>
+                        <div className="value-content">
+                            <h4>Integrity</h4>
+                            <p>Scholars who strive to be honest and forthright. They take accountability and responsibility for their actions.</p>
+                        </div>
+                    </div>
+                    <div className="value-card">
+                        <div className="value-icon-circle"><Users size={32} /></div>
+                        <div className="value-content">
+                            <h4>Community Commitment</h4>
+                            <p>Scholars who show a moral force of character and instinct to lead in their communities for advancement.</p>
+                        </div>
+                    </div>
+                    <div className="value-card">
+                        <div className="value-icon-circle"><Zap size={32} /></div>
+                        <div className="value-content">
+                            <h4>Growth Mindset</h4>
+                            <p>We are looking for scholars that dream big and have an ever-evolving spirit and a love for learning.</p>
+                        </div>
+                    </div>
+                    <div className="value-card">
+                        <div className="value-icon-circle"><Target size={32} /></div>
+                        <div className="value-content">
+                            <h4>Courage</h4>
+                            <p>Scholars who are resilient, patient, and tenacious. Students who embrace challenges with passion.</p>
+                        </div>
+                    </div>
+                </div>
+            </Section>
+
+            <Section className="landing-section">
+                <h2>Application and Selection Process</h2>
+                <div className="process-roadmap">
+                    <div className="process-step-card">
+                        <div className="step-header">
+                            <div className="step-icon-bg"><FileText size={20} /></div>
+                            <h4>Application Form</h4>
+                        </div>
+                        <div className="step-body">
+                            <p>Students will start the application process by clicking on the link given below.</p>
+                            <ul className="step-components">
+                                <li>Personal and Contact Info</li>
+                                <li>Academic Info</li>
+                                <li>Achievements and awards</li>
+                                <li>Supporting Documents</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="process-step-card">
+                        <div className="step-header">
+                            <div className="step-icon-bg"><Brain size={20} /></div>
+                            <h4>Aptitude Test</h4>
+                        </div>
+                        <div className="step-body">
+                            <p>The online Aptitude test is mandatory for all applicants.</p>
+                            <p>Test duration will be 60 mins and will contain 60 Multiple Choice Questions.</p>
+                        </div>
+                    </div>
+                    <div className="process-step-card">
+                        <div className="step-header">
+                            <div className="step-icon-bg"><Search size={20} /></div>
+                            <h4>Initial Selection</h4>
+                        </div>
+                        <div className="step-body">
+                            <p>First Level Selection based on aptitude test score, academic and personal information.</p>
+                        </div>
+                    </div>
+                    <div className="process-step-card">
+                        <div className="step-header">
+                            <div className="step-icon-bg"><Megaphone size={20} /></div>
+                            <h4>Announcement</h4>
+                        </div>
+                        <div className="step-body">
+                            <p>Announcement of Scholars - Up to 5,000 scholars will be evaluated on the basis of merit cum means.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="landing-cta">
+                    <h3>Ready to transform your future?</h3>
+                    <p>Apply for the Subikshaa Trust Scholarship 2025-26 today.</p>
+                    <button className="btn btn-primary btn-xl" onClick={() => setView('apply')}>
+                        Start My Application <ArrowRight size={20} style={{ marginLeft: '10px' }} />
+                    </button>
+                </div>
+            </Section>
+        </div>
+    );
 
     const renderProgress = () => (
         <div className="portal-progress">
@@ -342,41 +484,48 @@ const ScholarshipPortal = () => {
                 </div>
             </div>
 
-            <Section>
-                <div className="container">
-                    <div className="portal-card">
-                        {renderProgress()}
-                        
-                        <div className="portal-form-content">
-                            {message.text && (
-                                <div className={`alert alert-${message.type}`}>
-                                    {message.text}
-                                </div>
-                            )}
+            {view === 'landing' ? (
+                renderLandingContent()
+            ) : (
+                <Section>
+                    <div className="container">
+                        <div className="portal-card">
+                            <button className="back-to-info" onClick={() => setView('landing')}>
+                                <Info size={14} /> View Information & Process
+                            </button>
+                            {renderProgress()}
                             
-                            {renderStepContent()}
+                            <div className="portal-form-content">
+                                {message.text && (
+                                    <div className={`alert alert-${message.type}`}>
+                                        {message.text}
+                                    </div>
+                                )}
+                                
+                                {renderStepContent()}
 
-                            <div className="portal-actions">
-                                {currentStep > 1 && (
-                                    <button className="btn btn-outline" onClick={() => setCurrentStep(prev => prev - 1)} disabled={isSubmitting}>
-                                        <ChevronLeft size={18} /> Previous
-                                    </button>
-                                )}
-                                <div style={{ flex: 1 }}></div>
-                                {currentStep < 5 ? (
-                                    <button className="btn btn-primary" onClick={() => saveStepProgress(currentStep)} disabled={isSubmitting}>
-                                        {isSubmitting ? <Loader2 className="spinner" /> : <>Next Step <ChevronRight size={18} /></>}
-                                    </button>
-                                ) : (
-                                    <button className="btn btn-success" onClick={handleFinalSubmit} disabled={isSubmitting}>
-                                        {isSubmitting ? <Loader2 className="spinner" /> : <>Final Submit <CheckCircle size={18} /></>}
-                                    </button>
-                                )}
+                                <div className="portal-actions">
+                                    {currentStep > 1 && (
+                                        <button className="btn btn-outline" onClick={() => setCurrentStep(prev => prev - 1)} disabled={isSubmitting}>
+                                            <ChevronLeft size={18} /> Previous
+                                        </button>
+                                    )}
+                                    <div style={{ flex: 1 }}></div>
+                                    {currentStep < 5 ? (
+                                        <button className="btn btn-primary" onClick={() => saveStepProgress(currentStep)} disabled={isSubmitting}>
+                                            {isSubmitting ? <Loader2 className="spinner" /> : <>Next Step <ChevronRight size={18} /></>}
+                                        </button>
+                                    ) : (
+                                        <button className="btn btn-success" onClick={handleFinalSubmit} disabled={isSubmitting}>
+                                            {isSubmitting ? <Loader2 className="spinner" /> : <>Final Submit <CheckCircle size={18} /></>}
+                                        </button>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </Section>
+                </Section>
+            )}
         </div>
     );
 };

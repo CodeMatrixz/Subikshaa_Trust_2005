@@ -289,17 +289,234 @@
     to { transform: rotate(360deg); }
 }
 
+/* Responsive landing view styles */
+.portal-landing-view {
+    padding-bottom: 80px;
+}
+
+.landing-section {
+    margin-bottom: 80px;
+}
+
+.landing-section h2 {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.landing-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.feature-item .feature-icon {
+    color: #10b981; /* Success Green for the Arrow as requested */
+    flex-shrink: 0;
+}
+
+.feature-item p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Values Grid */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.value-card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: #f8fafc;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.value-icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #e2c08d; /* Professional gold/tan icon background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.value-content h4 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.value-content p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Process Roadmap */
+.process-roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.process-step-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.process-step-card:hover {
+    transform: scale(1.02);
+}
+
+.step-header {
+    background: #10b981; /* Green header from screenshot */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.step-icon-bg {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+}
+
+.step-header h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-body {
+    padding: 24px;
+    min-height: 200px;
+}
+
+.step-body p {
+    font-size: 0.95rem;
+    color: #475569;
+    margin-bottom: 15px;
+}
+
+.step-components {
+    text-align: left;
+    font-size: 0.85rem;
+    color: #64748b;
+    padding-left: 15px;
+}
+
+.step-components li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.step-components li::before {
+    content: '•';
+    position: absolute;
+    left: -15px;
+    color: #10b981;
+}
+
+/* Landing Actions */
+.landing-cta {
+    text-align: center;
+    margin-top: 60px;
+    padding: 60px;
+    background: linear-gradient(rgba(81, 39, 49, 0.05), rgba(81, 39, 49, 0.02));
+    border-radius: 30px;
+}
+
+.landing-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.landing-cta p {
+    margin-bottom: 30px;
+    color: #64748b;
+}
+
+.btn-xl {
+    padding: 18px 48px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 15px 30px rgba(81, 39, 49, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .process-roadmap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .portal-progress {
-        padding: 20px;
+    .features-grid {
+        grid-template-columns: 1fr;
     }
-    .portal-progress span {
-        display: none;
+    .process-roadmap {
+        grid-template-columns: 1fr;
     }
-    .portal-form-content {
-        padding: 30px 20px;
-    }
-    .portal-header h1 {
+    .landing-section h2 {
         font-size: 1.8rem;
+    }
+    .landing-cta {
+        padding: 40px 20px;
     }
 }
