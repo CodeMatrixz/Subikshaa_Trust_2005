@@ -62,6 +62,7 @@ import Celebrations from './pages/Celebrations';
 import Awards from './pages/Awards';
 import CSR from './pages/CSR';
 import Admin from './pages/Admin';
+import ScholarshipPortal from './pages/ScholarshipPortal';
 
 // const Team = () => <div className="section container"><h1>Team</h1></div>;
 // const Partners = () => <div className="section container"><h1>Partners</h1></div>;
@@ -101,6 +102,7 @@ function AnimatedRoutes() {
         <Route path="/programs/women-skill-dev/:courseId" element={<PageTransition><CourseDetails /></PageTransition>} />
         <Route path="/programs/:programId" element={<PageTransition><GeneralProgramDetails /></PageTransition>} />
         <Route path="/registration" element={<PageTransition><Registration /></PageTransition>} />
+        <Route path="/scholarship" element={<PageTransition><ScholarshipPortal /></PageTransition>} />
 
         {/* Legal Pages */}
         <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />

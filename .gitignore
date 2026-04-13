@@ -17,3 +17,8 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Storage
+uploads/
+back-end/uploads/
+front-end/public/uploads/

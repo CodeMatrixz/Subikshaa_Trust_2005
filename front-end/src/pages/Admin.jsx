@@ -17,7 +17,9 @@ import {
     MessageSquare,
     Users,
     Phone,
-    Eye
+    Eye,
+    GraduationCap,
+    Download
 } from 'lucide-react';
 import '../styles/Admin.css';
 
@@ -31,11 +33,13 @@ const Admin = () => {
     const [applications, setApplications] = useState([]);
     const [contacts, setContacts] = useState([]);
     const [registrations, setRegistrations] = useState([]);
+    const [scholarships, setScholarships] = useState([]);
     const [newForm, setNewForm] = useState({ title: '', description: '', category: 'General', isBreaking: false });
     const [tickerVisible, setTickerVisible] = useState(true);
     const [message, setMessage] = useState('');
-    const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'news', 'apps', 'events', 'contacts'
+    const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'news', 'apps', 'events', 'contacts', 'scholarships'
     const [selectedApp, setSelectedApp] = useState(null);
+    const [selectedScholarship, setSelectedScholarship] = useState(null);
 
     const categories = ['General', 'Health', 'Education', 'Environment', 'Celebration', 'Community'];
 
@@ -71,12 +75,19 @@ const Admin = () => {
         setRegistrations(data.success ? data.data : []);
     };
 
+    const fetchScholarships = async () => {
+        const res = await fetch('/api/scholarships');
+        const data = await res.json();
+        setScholarships(data.success ? data.data : []);
+    };
+
     const refreshData = () => {
         fetchNews();
         fetchSettings();
         fetchApplications();
         fetchContacts();
         fetchRegistrations();
+        fetchScholarships();
     };
 
     useEffect(() => {
@@ -184,6 +195,14 @@ const Admin = () => {
         } catch (err) { console.error('Delete error:', err); }
     };
 
+    const handleDeleteScholarship = async (id) => {
+        if (!window.confirm('Delete this scholarship application?')) return;
+        await fetch(`/api/scholarships/${id}`, { method: 'DELETE', headers: authHeaders });
+        setMessage('🗑️ Scholarship record removed.');
+        fetchScholarships();
+        setTimeout(() => setMessage(''), 3000);
+    };
+
     const handleTickerToggle = async () => {
         const newVal = !tickerVisible;
         const res = await fetch('/api/settings/ticker', {
@@ -286,6 +305,10 @@ const Admin = () => {
                         <Mail size={20} /> Contact Messages
                         {contacts.length > 0 && <span className="sidebar-count">{contacts.length}</span>}
                     </button>
+                    <button className={activeTab === 'scholarships' ? 'active' : ''} onClick={() => setActiveTab('scholarships')}>
+                        <GraduationCap size={20} /> Scholarship Portal
+                        {scholarships.length > 0 && <span className="sidebar-count">{scholarships.length}</span>}
+                    </button>
                 </nav>
 
                 <div className="sidebar-footer">
@@ -341,6 +364,13 @@ const Admin = () => {
                                 <div className="stat-info">
                                     <h4>Active News</h4>
                                     <p>{news.length}</p>
+                                </div>
+                            </div>
+                            <div className="stat-card scholarship-stat">
+                                <div className="stat-icon red"><GraduationCap size={24} /></div>
+                                <div className="stat-info">
+                                    <h4>Scholarships</h4>
+                                    <p>{scholarships.length}</p>
                                 </div>
                             </div>
                         </div>
@@ -605,6 +635,141 @@ const Admin = () => {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {activeTab === 'scholarships' && (
+                        <div className="admin-card full-card">
+                            <div className="admin-card-header">
+                                <GraduationCap size={20} />
+                                <h2>Scholarship Applications (School & College)</h2>
+                            </div>
+                            {scholarships.length === 0 ? <p className="empty-state">No scholarship applications found.</p> : (
+                                <div className="modern-grid-list">
+                                    {scholarships.map(s => (
+                                        <div key={s._id} className="professional-item">
+                                            <div className="item-header">
+                                                <div className="user-info">
+                                                    <div className="user-avatar">{s.studentName.charAt(0)}</div>
+                                                    <div>
+                                                        <h3>{s.studentName}</h3>
+                                                        <span className={`status-pill ${s.status.toLowerCase()}`}>{s.status}</span>
+                                                    </div>
+                                                </div>
+                                                <span className="timestamp">{new Date(s.createdAt).toLocaleDateString()}</span>
+                                            </div>
+                                            <div className="item-details">
+                                                <p><strong>Category:</strong> {s.scholarshipCategory}</p>
+                                                <p><strong>Type:</strong> {s.studentType}</p>
+                                                <p><strong>Institution:</strong> {s.institutionName}</p>
+                                            </div>
+                                            <div className="item-actions">
+                                                <button className="admin-btn-premium-view" onClick={() => setSelectedScholarship(s)}>
+                                                    <Eye size={16} /> Review Portal Data
+                                                </button>
+                                                <button className="admin-btn-delete-link" onClick={() => handleDeleteScholarship(s._id)}>
+                                                    <Trash2 size={16} /> Remove
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Scholarship Detail Modal */}
+                            {selectedScholarship && (
+                                <div className="admin-modal-overlay">
+                                    <div className="admin-modal-card scholarship-modal animate-scale-in">
+                                        <div className="modal-header">
+                                            <h2>Scholarship Application: {selectedScholarship.studentName}</h2>
+                                            <button className="close-btn" onClick={() => setSelectedScholarship(null)}>&times;</button>
+                                        </div>
+                                        <div className="modal-body">
+                                            <div className="modal-grid-3">
+                                                <div className="detail-section">
+                                                    <label>DOB</label>
+                                                    <p>{selectedScholarship.dateOfBirth}</p>
+                                                </div>
+                                                <div className="detail-section">
+                                                    <label>Gender</label>
+                                                    <p>{selectedScholarship.gender}</p>
+                                                </div>
+                                                <div className="detail-section">
+                                                    <label>Aadhaar Number</label>
+                                                    <p>{selectedScholarship.aadhaarNumber}</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="detail-section">
+                                                <label>Residential Address</label>
+                                                <p className="item-memo">{selectedScholarship.address || 'Not Provided'}</p>
+                                            </div>
+
+                                            <div className="admin-section-title">Academic & Need Records</div>
+                                            <div className="detail-grid">
+                                                <div className="detail-section">
+                                                    <label>Grade / Course</label>
+                                                    <p>{selectedScholarship.currentGradeOrCourse}</p>
+                                                </div>
+                                                <div className="detail-section">
+                                                    <label>Prev Marks (%)</label>
+                                                    <p className="highlight-text">{selectedScholarship.previousYearMarks}%</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="detail-section">
+                                                <label>Institution Name</label>
+                                                <p className="institution-highlight">{selectedScholarship.institutionName || 'Not Provided'}</p>
+                                            </div>
+
+                                            <div className="detail-section">
+                                                <label>Ambition</label>
+                                                <p className="item-memo">{selectedScholarship.ambition}</p>
+                                            </div>
+
+                                            <div className="admin-section-title">Document Verification</div>
+                                            <div className="document-links">
+                                                {/* Helper function to ensure URL works regardless of OS separator */}
+                                                {(() => {
+                                                    const getUrl = (path) => {
+                                                        if (!path) return null;
+                                                        const cleanPath = path.replace(/\\/g, '/');
+                                                        return `http://localhost:5000/${cleanPath}`;
+                                                    };
+
+                                                    return (
+                                                        <>
+                                                            {selectedScholarship.photo && (
+                                                                <a href={getUrl(selectedScholarship.photo)} target="_blank" rel="noreferrer" className="doc-link">
+                                                                    <Eye size={14} /> View Student Photo
+                                                                </a>
+                                                            )}
+                                                            {selectedScholarship.idProof && (
+                                                                <a href={getUrl(selectedScholarship.idProof)} target="_blank" rel="noreferrer" className="doc-link">
+                                                                    <FileText size={14} /> Aadhaar / ID Proof
+                                                                </a>
+                                                            )}
+                                                            {selectedScholarship.incomeCertificate && (
+                                                                <a href={getUrl(selectedScholarship.incomeCertificate)} target="_blank" rel="noreferrer" className="doc-link">
+                                                                    <Download size={14} /> Income Certificate
+                                                                </a>
+                                                            )}
+                                                            {selectedScholarship.gradeSheet && (
+                                                                <a href={getUrl(selectedScholarship.gradeSheet)} target="_blank" rel="noreferrer" className="doc-link">
+                                                                    <Download size={14} /> Academic Grade Sheet
+                                                                </a>
+                                                            )}
+                                                        </>
+                                                    );
+                                                })()}
+                                            </div>
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button className="admin-btn-secondary" onClick={() => setSelectedScholarship(null)}>Close Review</button>
+                                        </div>
+                                    </div>
                                 </div>
                             )}
                         </div>

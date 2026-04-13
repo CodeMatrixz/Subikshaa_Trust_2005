@@ -30,6 +30,7 @@ const Navbar = () => {
                     <Link to="/csr" className="nav-item-csr">CSR</Link>
                     <Link to="/blog">Blog</Link>
                     <Link to="/contact">Contact</Link>
+                    <Link to="/scholarship" className="nav-item-scholarship" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Scholarship</Link>
                 </div>
 
                 <div className="nav-actions desktop-only">
@@ -54,6 +55,7 @@ const Navbar = () => {
                         <Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
                         <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
                         <div className="mobile-actions">
+                            <Link to="/scholarship" className="btn btn-outline" onClick={() => setIsOpen(false)} style={{ borderColor: 'var(--primary-color)', color: 'var(--primary-color)' }}>Scholarship Portal</Link>
                             <Link to="/volunteer" className="btn btn-outline" onClick={() => setIsOpen(false)}>Volunteer</Link>
                             <Link to="/donate" className="btn btn-primary" onClick={() => setIsOpen(false)}>Contribute</Link>
                         </div>
