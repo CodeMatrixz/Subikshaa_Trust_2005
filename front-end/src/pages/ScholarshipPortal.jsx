@@ -80,6 +80,9 @@ const ScholarshipPortal = () => {
         if (currentStep === 3) {
             return formData.guardianName && formData.guardianOccupation && formData.annualFamilyIncome && formData.needStatement;
         }
+        if (currentStep === 4) {
+            return files.photo && files.incomeCertificate && files.gradeSheet && files.idProof;
+        }
         return true;
     };
 
@@ -294,15 +297,15 @@ const ScholarshipPortal = () => {
                         <h3>Personal Profile</h3>
                         <div className="input-grid">
                             <div className="form-group">
-                                <label>Full Name (as per Aadhaar)</label>
+                                <label>Full Name (as per Aadhaar) <span className="required-star">*</span></label>
                                 <input type="text" name="studentName" value={formData.studentName} onChange={handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label>Date of Birth</label>
+                                <label>Date of Birth <span className="required-star">*</span></label>
                                 <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label>Gender</label>
+                                <label>Gender <span className="required-star">*</span></label>
                                 <select name="gender" value={formData.gender} onChange={handleInputChange}>
                                     <option value="">Select</option>
                                     <option value="Male">Male</option>
@@ -311,20 +314,20 @@ const ScholarshipPortal = () => {
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label>Aadhaar Number</label>
+                                <label>Aadhaar Number <span className="required-star">*</span></label>
                                 <input type="text" name="aadhaarNumber" value={formData.aadhaarNumber} onChange={handleInputChange} placeholder="12-digit UID" required />
                             </div>
                             <div className="form-group">
-                                <label>Email Address</label>
+                                <label>Email Address <span className="required-star">*</span></label>
                                 <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label>Contact Number</label>
+                                <label>Contact Number <span className="required-star">*</span></label>
                                 <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleInputChange} required />
                             </div>
                         </div>
                         <div className="form-group full-width">
-                            <label>Residential Address</label>
+                            <label>Residential Address <span className="required-star">*</span></label>
                             <textarea name="address" value={formData.address} onChange={handleInputChange} rows="3"></textarea>
                         </div>
                     </motion.div>
@@ -335,14 +338,14 @@ const ScholarshipPortal = () => {
                         <h3>Academics & Merit</h3>
                         <div className="input-grid">
                             <div className="form-group">
-                                <label>Student Type</label>
+                                <label>Student Type <span className="required-star">*</span></label>
                                 <select name="studentType" value={formData.studentType} onChange={handleInputChange}>
                                     <option value="School">School Student</option>
                                     <option value="College">College Student</option>
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label>Scholarship Category</label>
+                                <label>Scholarship Category <span className="required-star">*</span></label>
                                 <select name="scholarshipCategory" value={formData.scholarshipCategory} onChange={handleInputChange}>
                                     <option value="Merit-based">Merit-based</option>
                                     <option value="Need-based">Need-based</option>
@@ -351,20 +354,20 @@ const ScholarshipPortal = () => {
                                 </select>
                             </div>
                             <div className="form-group">
-                                <label>Institution Name</label>
+                                <label>Institution Name <span className="required-star">*</span></label>
                                 <input type="text" name="institutionName" value={formData.institutionName} onChange={handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label>{formData.studentType === 'School' ? 'Current Standard' : 'Course & Year'}</label>
+                                <label>{formData.studentType === 'School' ? 'Current Standard' : 'Course & Year'} <span className="required-star">*</span></label>
                                 <input type="text" name="currentGradeOrCourse" value={formData.currentGradeOrCourse} onChange={handleInputChange} placeholder="e.g. 10th Std or B.Tech 2nd Year" required />
                             </div>
                             <div className="form-group">
-                                <label>Previous Year Marks (%)</label>
+                                <label>Previous Year Marks (%) <span className="required-star">*</span></label>
                                 <input type="number" name="previousYearMarks" value={formData.previousYearMarks} onChange={handleInputChange} required />
                             </div>
                         </div>
                         <div className="form-group full-width">
-                            <label>What is your Future Ambition?</label>
+                            <label>What is your Future Ambition? <span className="required-star">*</span></label>
                             <textarea name="ambition" value={formData.ambition} onChange={handleInputChange} rows="2" placeholder="e.g. To become a doctor and serve the community"></textarea>
                         </div>
                     </motion.div>
@@ -375,20 +378,20 @@ const ScholarshipPortal = () => {
                         <h3>Family & Financials</h3>
                         <div className="input-grid">
                             <div className="form-group">
-                                <label>Parent/Guardian Name</label>
+                                <label>Parent/Guardian Name <span className="required-star">*</span></label>
                                 <input type="text" name="guardianName" value={formData.guardianName} onChange={handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label>Guardian Occupation</label>
+                                <label>Guardian Occupation <span className="required-star">*</span></label>
                                 <input type="text" name="guardianOccupation" value={formData.guardianOccupation} onChange={handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label>Annual Family Income (₹)</label>
+                                <label>Annual Family Income (₹) <span className="required-star">*</span></label>
                                 <input type="number" name="annualFamilyIncome" value={formData.annualFamilyIncome} onChange={handleInputChange} required />
                             </div>
                         </div>
                         <div className="form-group full-width">
-                            <label>Why do you need this scholarship? (Need Statement)</label>
+                            <label>Why do you need this scholarship? (Need Statement) <span className="required-star">*</span></label>
                             <textarea name="needStatement" value={formData.needStatement} onChange={handleInputChange} rows="4"></textarea>
                         </div>
                     </motion.div>
@@ -400,22 +403,22 @@ const ScholarshipPortal = () => {
                         <p className="step-info"><AlertCircle size={14} /> Please upload clear files in PDF or JPG format (Max 2MB).</p>
                         <div className="upload-grid">
                             <div className="upload-box">
-                                <label><GraduationCap size={18} /> Student Photo</label>
+                                <label><GraduationCap size={18} /> Student Photo <span className="required-star">*</span></label>
                                 <input type="file" name="photo" onChange={handleFileChange} accept=".jpg,.jpeg,.png" />
                                 {files.photo && <span className="file-name">{files.photo.name}</span>}
                             </div>
                             <div className="upload-box">
-                                <label><IndianRupee size={18} /> Income Certificate</label>
+                                <label><IndianRupee size={18} /> Income Certificate <span className="required-star">*</span></label>
                                 <input type="file" name="incomeCertificate" onChange={handleFileChange} accept=".pdf,.jpg,.jpeg" />
                                 {files.incomeCertificate && <span className="file-name">{files.incomeCertificate.name}</span>}
                             </div>
                             <div className="upload-box">
-                                <label><FileText size={18} /> Previous Grade Sheet</label>
+                                <label><FileText size={18} /> Previous Grade Sheet <span className="required-star">*</span></label>
                                 <input type="file" name="gradeSheet" onChange={handleFileChange} accept=".pdf,.jpg,.jpeg" />
                                 {files.gradeSheet && <span className="file-name">{files.gradeSheet.name}</span>}
                             </div>
                             <div className="upload-box">
-                                <label><User size={18} /> ID Proof (Aadhaar)</label>
+                                <label><User size={18} /> ID Proof (Aadhaar) <span className="required-star">*</span></label>
                                 <input type="file" name="idProof" onChange={handleFileChange} accept=".pdf,.jpg,.jpeg" />
                                 {files.idProof && <span className="file-name">{files.idProof.name}</span>}
                             </div>
