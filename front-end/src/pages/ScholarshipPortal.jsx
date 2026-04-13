@@ -4,7 +4,7 @@ import {
     User, BookOpen, GraduationCap, IndianRupee, FileText, CheckCircle, 
     ChevronRight, ChevronLeft, Upload, AlertCircle, Loader2, 
     ArrowRightCircle, Award, Target, Shield, Users, Zap, Search, ClipboardCheck, Megaphone,
-    ArrowRight, Info
+    ArrowRight, Info, Brain
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Section from '../components/Section';
