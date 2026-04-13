@@ -26,11 +26,11 @@ const Navbar = () => {
                     <Link to="/causes">Causes</Link>
                     <Link to="/programs" className="nav-item-programs">Programs</Link>
                     <Link to="/events">Events</Link>
+                    <Link to="/scholarship">Scholarship</Link>
                     <Link to="/gallery">Gallery</Link>
                     <Link to="/csr" className="nav-item-csr">CSR</Link>
                     <Link to="/blog">Blog</Link>
                     <Link to="/contact">Contact</Link>
-                    <Link to="/scholarship">Scholarship</Link>
                 </div>
 
                 <div className="nav-actions desktop-only">
@@ -50,12 +50,11 @@ const Navbar = () => {
                         <Link to="/causes" onClick={() => setIsOpen(false)}>Causes</Link>
                         <Link to="/programs" onClick={() => setIsOpen(false)}>Programs</Link>
                         <Link to="/events" onClick={() => setIsOpen(false)}>Events</Link>
+                        <Link to="/scholarship" onClick={() => setIsOpen(false)}>Scholarship</Link>
                         <Link to="/gallery" onClick={() => setIsOpen(false)}>Gallery</Link>
                         <Link to="/csr" onClick={() => setIsOpen(false)}>CSR</Link>
                         <Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
                         <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
-                        <div className="mobile-actions">
-                            <Link to="/scholarship" className="btn btn-outline" onClick={() => setIsOpen(false)}>Scholarship Portal</Link>
                             <Link to="/volunteer" className="btn btn-outline" onClick={() => setIsOpen(false)}>Volunteer</Link>
                             <Link to="/donate" className="btn btn-primary" onClick={() => setIsOpen(false)}>Contribute</Link>
                         </div>
