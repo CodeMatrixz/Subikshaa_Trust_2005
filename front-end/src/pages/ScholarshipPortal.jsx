@@ -293,7 +293,7 @@ const ScholarshipPortal = () => {
                 <div className="landing-cta">
                     <h3>Ready to transform your future?</h3>
                     <p>Apply for the Subikshaa Trust Scholarship 2026-27 today.</p>
-                    <button className="btn btn-primary btn-xl" onClick={() => setView('apply')}>
+                    <button className="btn btn-primary btn-xl" onClick={() => { setView('apply'); setCurrentStep(1); }}>
                         Start My Application <ArrowRight size={20} style={{ marginLeft: '10px' }} />
                     </button>
                 </div>
@@ -341,7 +341,7 @@ const ScholarshipPortal = () => {
                             </div>
                             <div className="form-group">
                                 <label>Aadhaar Number <span className="required-star">*</span></label>
-                                <input type="text" name="aadhaarNumber" value={formData.aadhaarNumber} onChange={handleInputChange} placeholder="12-digit UID" required />
+                                <input type="text" name="aadhaarNumber" value={formData.aadhaarNumber} onChange={handleInputChange} placeholder="12-digit UID" maxLength={12} required />
                             </div>
                             <div className="form-group">
                                 <label>Email Address <span className="required-star">*</span></label>
@@ -349,7 +349,7 @@ const ScholarshipPortal = () => {
                             </div>
                             <div className="form-group">
                                 <label>Contact Number <span className="required-star">*</span></label>
-                                <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleInputChange} required />
+                                <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleInputChange} maxLength={10} required />
                             </div>
                         </div>
                         <div className="form-group full-width">
