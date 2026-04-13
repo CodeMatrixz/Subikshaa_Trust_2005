@@ -152,28 +152,28 @@ const ScholarshipPortal = () => {
                 <h2>Scholarship Features</h2>
                 <div className="features-grid">
                     <div className="feature-item">
-                        <ArrowRightCircle className="feature-icon" size={24} />
-                        <p>Support meritorious students from all corners of the country with an undergraduate college education</p>
+                        <CheckCircle className="feature-icon" size={24} />
+                        <p>Support meritorious students from all backgrounds with financial assistance for their education.</p>
                     </div>
                     <div className="feature-item">
-                        <ArrowRightCircle className="feature-icon" size={24} />
-                        <p>For <strong>first year students</strong> studying any stream of their choice</p>
+                        <CheckCircle className="feature-icon" size={24} />
+                        <p>Open for all students studying in any stream or current grade/degree.</p>
                     </div>
                     <div className="feature-item">
-                        <ArrowRightCircle className="feature-icon" size={24} />
-                        <p>Awarded on a merit-cum-means basis to meritorious students</p>
+                        <CheckCircle className="feature-icon" size={24} />
+                        <p>Awarded on a merit-cum-means basis to ensure aid reaches those who excel and need it most.</p>
                     </div>
                     <div className="feature-item">
-                        <ArrowRightCircle className="feature-icon" size={24} />
-                        <p>Up to 5,000 undergraduate scholars will be selected</p>
+                        <CheckCircle className="feature-icon" size={24} />
+                        <p>More than 5,000 scholars are selected annually based on performance.</p>
                     </div>
                     <div className="feature-item">
-                        <ArrowRightCircle className="feature-icon" size={24} />
-                        <p>The total amount of scholarship available over the duration of the degree programme, will be up to Rs/INR 2 Lakhs</p>
+                        <CheckCircle className="feature-icon" size={24} />
+                        <p>Maximum scholarship amount of up to ₹2,00,000 spread over the course duration.</p>
                     </div>
                     <div className="feature-item">
-                        <ArrowRightCircle className="feature-icon" size={24} />
-                        <p>Scholarship will go beyond financial support, with students automatically gaining networking opportunities</p>
+                        <CheckCircle className="feature-icon" size={24} />
+                        <p>Exclusive access to mentorship and networking opportunities beyond financial aid.</p>
                     </div>
                 </div>
             </Section>
@@ -227,51 +227,30 @@ const ScholarshipPortal = () => {
             </Section>
 
             <Section className="landing-section">
-                <h2>Application and Selection Process</h2>
-                <div className="process-roadmap">
-                    <div className="process-step-card">
-                        <div className="step-header">
-                            <div className="step-icon-bg"><FileText size={20} /></div>
-                            <h4>Application Form</h4>
-                        </div>
-                        <div className="step-body">
-                            <p>Students will start the application process by clicking on the link given below.</p>
-                            <ul className="step-components">
-                                <li>Personal and Contact Info</li>
-                                <li>Academic Info</li>
-                                <li>Achievements and awards</li>
-                                <li>Supporting Documents</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="process-step-card">
-                        <div className="step-header">
-                            <div className="step-icon-bg"><Brain size={20} /></div>
-                            <h4>Aptitude Test</h4>
-                        </div>
-                        <div className="step-body">
-                            <p>The online Aptitude test is mandatory for all applicants.</p>
-                            <p>Test duration will be 60 mins and will contain 60 Multiple Choice Questions.</p>
-                        </div>
-                    </div>
-                    <div className="process-step-card">
-                        <div className="step-header">
-                            <div className="step-icon-bg"><Search size={20} /></div>
-                            <h4>Initial Selection</h4>
-                        </div>
-                        <div className="step-body">
-                            <p>First Level Selection based on aptitude test score, academic and personal information.</p>
-                        </div>
-                    </div>
-                    <div className="process-step-card">
-                        <div className="step-header">
-                            <div className="step-icon-bg"><Megaphone size={20} /></div>
-                            <h4>Announcement</h4>
-                        </div>
-                        <div className="step-body">
-                            <p>Announcement of Scholars - Up to 5,000 scholars will be evaluated on the basis of merit cum means.</p>
-                        </div>
-                    </div>
+                <h2>Eligibility Criteria</h2>
+                <div className="eligibility-container">
+                    <ul className="eligibility-list">
+                        <li className="eligibility-item">
+                            <span className="eligibility-badge">Nationality</span>
+                            <span className="eligibility-text">Applicant must be a citizen of India.</span>
+                        </li>
+                        <li className="eligibility-item">
+                            <span className="eligibility-badge">Academics</span>
+                            <span className="eligibility-text">Minimum 60% marks or equivalent CGPA in the previous academic year.</span>
+                        </li>
+                        <li className="eligibility-item">
+                            <span className="eligibility-badge">Status</span>
+                            <span className="eligibility-text">Must be a regular student in a recognized School or College/University.</span>
+                        </li>
+                        <li className="eligibility-item">
+                            <span className="eligibility-badge">Income</span>
+                            <span className="eligibility-text">Family annual income from all sources should not exceed ₹3,00,000.</span>
+                        </li>
+                        <li className="eligibility-item">
+                            <span className="eligibility-badge">Verification</span>
+                            <span className="eligibility-text">Valid Aadhaar card and identity proof are mandatory for all applicants.</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <div className="landing-cta">
