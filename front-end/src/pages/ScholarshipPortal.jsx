@@ -4,7 +4,7 @@ import {
     User, BookOpen, GraduationCap, IndianRupee, FileText, CheckCircle, 
     ChevronRight, ChevronLeft, Upload, AlertCircle, Loader2, 
     ArrowRightCircle, Award, Target, Shield, Users, Zap, Search, ClipboardCheck, Megaphone,
-    ArrowRight, Info, Brain
+    ArrowRight, Info, Brain, UserCheck, Wallet, ShieldCheck, School
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Section from '../components/Section';
@@ -228,29 +228,32 @@ const ScholarshipPortal = () => {
 
             <Section className="landing-section">
                 <h2>Eligibility Criteria</h2>
-                <div className="eligibility-container">
-                    <ul className="eligibility-list">
-                        <li className="eligibility-item">
-                            <span className="eligibility-badge">Nationality</span>
-                            <span className="eligibility-text">Applicant must be a citizen of India.</span>
-                        </li>
-                        <li className="eligibility-item">
-                            <span className="eligibility-badge">Academics</span>
-                            <span className="eligibility-text">Minimum 60% marks or equivalent CGPA in the previous academic year.</span>
-                        </li>
-                        <li className="eligibility-item">
-                            <span className="eligibility-badge">Status</span>
-                            <span className="eligibility-text">Must be a regular student in a recognized School or College/University.</span>
-                        </li>
-                        <li className="eligibility-item">
-                            <span className="eligibility-badge">Income</span>
-                            <span className="eligibility-text">Family annual income from all sources should not exceed ₹3,00,000.</span>
-                        </li>
-                        <li className="eligibility-item">
-                            <span className="eligibility-badge">Verification</span>
-                            <span className="eligibility-text">Valid Aadhaar card and identity proof are mandatory for all applicants.</span>
-                        </li>
-                    </ul>
+                <div className="eligibility-grid">
+                    <div className="eligibility-card">
+                        <div className="eligibility-icon-box"><UserCheck size={24} /></div>
+                        <h4>Nationality</h4>
+                        <p>Applicant must be a citizen of India residing within the country.</p>
+                    </div>
+                    <div className="eligibility-card">
+                        <div className="eligibility-icon-box"><GraduationCap size={24} /></div>
+                        <h4>Academics</h4>
+                        <p>Minimum 60% marks or equivalent CGPA in the previous academic year.</p>
+                    </div>
+                    <div className="eligibility-card">
+                        <div className="eligibility-icon-box"><School size={24} /></div>
+                        <h4>Current Status</h4>
+                        <p>Must be a regular student in a recognized School or College/University.</p>
+                    </div>
+                    <div className="eligibility-card">
+                        <div className="eligibility-icon-box"><Wallet size={24} /></div>
+                        <h4>Family Income</h4>
+                        <p>Family annual income from all sources should not exceed ₹3,00,000.</p>
+                    </div>
+                    <div className="eligibility-card">
+                        <div className="eligibility-icon-box"><ShieldCheck size={24} /></div>
+                        <h4>Verification</h4>
+                        <p>Valid Aadhaar card and identity proof are mandatory for all applicants.</p>
+                    </div>
                 </div>
 
                 <div className="landing-cta">

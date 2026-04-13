@@ -385,48 +385,66 @@
     box-shadow: 0 8px 16px rgba(221, 192, 141, 0.2);
 }
 
-/* Eligibility List */
-.eligibility-container {
-    max-width: 900px;
+/* Elegant Eligibility Grid */
+.eligibility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.eligibility-card {
     background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+    padding: 35px;
+    border-radius: 16px;
     border: 1px solid #f1f5f9;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-.eligibility-list {
-    list-style: none;
-    padding: 0;
+.eligibility-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(81, 39, 49, 0.05);
+    border-color: rgba(81, 39, 49, 0.1);
 }
 
-.eligibility-item {
+.eligibility-icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(81, 39, 49, 0.05);
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.eligibility-item:last-child {
-    border-bottom: none;
-}
-
-.eligibility-badge {
-    padding: 8px 16px;
-    background: rgba(81, 39, 49, 0.1);
+    justify-content: center;
     color: #512731;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    white-space: nowrap;
 }
 
-.eligibility-text {
-    color: #475569;
-    font-size: 1.1rem;
-    line-height: 1.5;
+.eligibility-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.eligibility-card p {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .eligibility-grid {
+        grid-template-columns: 1fr;
+    }
+    .eligibility-card {
+        padding: 25px;
+    }
 }
 
 .value-content h4 {
