@@ -1,0 +1,268 @@
+/* 
+  MOBILE.CSS - Strict Override File
+  This file ONLY contains media queries to optimize mobile layouts 
+  WITHOUT touching or breaking desktop structures. 
+*/
+
+/* =========================================================
+   LARGE MOBILE & TABLETS (max-width: 1024px)
+   ========================================================= */
+@media (max-width: 1024px) {
+    /* Base Container Adjustments */
+    .container {
+        padding: 0 2rem !important;
+    }
+
+    /* Navbar Overrides */
+    .nav-links {
+        display: none !important; /* Hide desktop links */
+    }
+    .nav-actions {
+        display: none !important; /* Hide desktop CTA */
+    }
+    
+    /* Ensure hamburger toggle is visible */
+    .mobile-toggle {
+        display: flex !important;
+        cursor: pointer;
+    }
+
+    /* Hero Section Overrides */
+    .hero-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 3rem !important;
+        padding-top: 100px !important;
+    }
+    
+    .hero-content {
+        max-width: 100% !important;
+    }
+    
+    .hero-actions {
+        justify-content: center !important;
+    }
+
+    /* Stats Strip Overrides */
+    .stats-container-strip {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+
+    /* Programs Grid Overrides */
+    .program-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+    
+    /* Programs Page Overrides */
+    .program-row, .program-row.reverse {
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 2.5rem !important;
+    }
+    
+    .prog-objectives {
+        text-align: left !important;
+    }
+
+    /* About Us Overrides */
+    .mv-feature-row,
+    .mv-feature-row.reverse {
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+        gap: 3rem !important;
+    }
+    
+    .history-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 3rem !important;
+    }
+
+    /* Skills Grid Overrides */
+    .skills-card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Global Section Spacing */
+    .section, section {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
+    }
+}
+
+/* =========================================================
+   MEDIUM DEVICES & TABLET VERTICAL (max-width: 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Hero Adjustments */
+    .hero-section h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-section p {
+        font-size: 1.1rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .hero-actions {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .hero-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        min-height: 48px !important; /* Touch friendly */
+    }
+
+    .hero-image-grid {
+        height: 400px !important;
+        max-width: 100% !important;
+    }
+
+    /* Programs Override */
+    .program-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+
+    /* Celebrations & Awards */
+    .celebrations-row, .awards-flex {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 3rem !important;
+    }
+
+    .celebration-highlights {
+        justify-content: center !important;
+    }
+    
+    /* Causes Grid Override */
+    .causes-grid {
+        grid-template-columns: 1fr !important; /* Stack causes vertically */
+    }
+
+    /* About Us Intro Override - Shrink h2 */
+    .about-intro-section h2 {
+        font-size: 1.75rem !important; 
+    }
+
+    /* Skills Details Cards Overrides */
+    .program-details-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Footer Adjustments */
+    .footer-content {
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+
+    .footer-main {
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: center !important;
+    }
+
+    .footer-brand {
+        margin: 0 auto !important;
+    }
+
+    .footer-social {
+        justify-content: center !important;
+    }
+
+    .footer-nav {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 30px !important;
+    }
+    
+    .footer-contact-info ul li {
+        justify-content: center !important;
+    }
+    
+    .footer-cta-content {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .footer-bottom-inner {
+        flex-direction: column-reverse !important;
+        text-align: center !important;
+        gap: 1rem !important;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE PHONES (max-width: 480px)
+   ========================================================= */
+@media (max-width: 480px) {
+    /* General Typography & Spacing */
+    .container {
+        padding: 0 1.25rem !important;
+    }
+
+    .section, section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    /* Hero Overrides */
+    .hero-section h1 {
+        font-size: 2rem !important;
+    }
+
+    .hero-image-grid {
+        height: 300px !important;
+    }
+
+    /* Stats Strip Stacked */
+    .stats-container-strip {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .stat-box-strip {
+        text-align: center !important;
+        padding: 1.5rem !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px !important;
+    }
+
+    /* Ensure forms are touch-friendly */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevent iOS zoom */
+        min-height: 48px !important;
+    }
+
+    /* Make sure buttons are easily tappable */
+    .btn {
+        min-height: 48px !important;
+        font-size: 1rem !important;
+        padding: 12px 20px !important;
+    }
+    
+    /* Disable complex hover animations that stutter on low-end mobile */
+    .btn:hover, .cause-card:hover, .program-detail-card:hover, .skill-image-card:hover {
+        transform: none !important;
+        box-shadow: inherit !important;
+    }
+    
+    /* Extreme shrink for About Us Header */
+    .about-intro-section h2 {
+        font-size: 1.4rem !important; 
+    }
+    
+    /* Stack Skills Overview Cards to single column */
+    .skills-card-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

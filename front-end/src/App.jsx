@@ -64,6 +64,9 @@ import CSR from './pages/CSR';
 import Admin from './pages/Admin';
 import ScholarshipPortal from './pages/ScholarshipPortal';
 
+// STRICT OVERRIDE IMPORT - MUST RUN LAST TO ENSURE CASCADE PRECEDENCE
+import './styles/mobile.css';
+
 // const Team = () => <div className="section container"><h1>Team</h1></div>;
 // const Partners = () => <div className="section container"><h1>Partners</h1></div>;
 // const Testimonials = () => <div className="section container"><h1>Testimonials</h1></div>;
