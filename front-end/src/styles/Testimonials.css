@@ -1,6 +1,7 @@
 /* Testimonials.css */
 .testimonials-section-scroll {
     position: relative;
+    z-index: 5; /* Ensure it stays above preceding sections if they have offsets */
     background-color: #fdfdfd;
     font-family: 'Outfit', sans-serif;
     height: 350vh; /* Controlled here for responsiveness */
@@ -191,6 +192,7 @@
         flex-direction: column;
         justify-content: center;
         padding: 1rem 0;
+        z-index: 5;
     }
 
     .testimonials-layout {
@@ -205,7 +207,7 @@
 
     .t-col-header {
         text-align: center;
-        padding-right: 0;
+        padding: 1rem 0 0.5rem; /* Added top padding to ensure first words are not tucked away */
         margin-bottom: 0.5rem;
         width: 100%;
     }
