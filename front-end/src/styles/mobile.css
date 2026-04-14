@@ -102,15 +102,70 @@
         gap: 1.5rem !important;
         padding: 0 !important;
     }
+    /* Voices of Impact (Testimonials) Premium Layout Override */
+    .testimonials-sticky-wrapper {
+        height: 100svh !important; /* Use safe viewport height to prevent iOS address bar clipping */
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .testimonials-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1rem !important;
+        padding: 0 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
     .t-col-header {
         text-align: center !important;
         padding-right: 0 !important;
+        margin-bottom: -0.5rem !important;
+    }
+    .quote-mark-large {
+        font-size: 3.5rem !important;
+        margin-bottom: -5px !important;
+    }
+    .t-heading-bold {
+        font-size: 1.8rem !important;
+        line-height: 1.1 !important;
     }
     .t-col-nav {
-        display: none !important; /* Hide navigation tick markers to save space */
+        width: 100% !important;
+        margin: 0 !important;
     }
-    .testimonials-sticky-wrapper {
-        align-items: center !important;
+    .t-nav-list {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+    .t-nav-item {
+        padding: 0 !important;
+    }
+    .t-nav-number {
+        font-size: 1.1rem !important;
+    }
+    .t-nav-divider {
+        display: none !important;
+    }
+    .t-author-image-wrapper {
+        margin: 0 auto 0.5rem !important; /* Center the image */
+    }
+    .t-author-img {
+        width: 65px !important;
+        height: 65px !important;
+        border-radius: 50% !important;
+    }
+    .t-quote-text {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .t-author-name {
+        font-size: 1.1rem !important;
+    }
+    .t-rating {
+        justify-content: center !important; /* Center the star ratings */
     }
 }
 
@@ -191,17 +246,43 @@
         box-sizing: border-box !important;
     }
 
-    .footer-newsletter-section, .newsletter-form-premium, .input-field {
+    .footer-newsletter-section, .newsletter-form-premium {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        flex-direction: column !important; /* Stack input and button */
-        gap: 10px !important;
     }
     
-    .input-field input, .input-field button {
+    .newsletter-form-premium .input-field {
+        display: flex !important;
+        flex-direction: row !important; /* Form inline pill */
+        align-items: center !important;
         width: 100% !important;
-        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        padding: 5px !important;
+        border-radius: 99px !important; /* Pill shape */
+        gap: 0 !important;
+    }
+    
+    .input-field input {
+        flex: 1 !important;
+        min-width: 0 !important; /* Prevent flex box blowout */
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        padding-left: 1rem !important;
+    }
+
+    .input-field button {
+        width: 44px !important;
+        height: 44px !important;
+        flex-shrink: 0 !important;
+        border-radius: 50% !important; /* Circular premium button */
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .footer-main {
