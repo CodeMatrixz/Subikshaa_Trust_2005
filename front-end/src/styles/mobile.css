@@ -8,164 +8,178 @@
    LARGE MOBILE & TABLETS (max-width: 1024px)
    ========================================================= */
 @media (max-width: 1024px) {
+
     /* Base Container Adjustments */
-    .container {
-        padding: 0 2rem !important;
+    #root .container {
+        padding: 0 2rem;
     }
 
     /* Navbar Overrides */
-    .nav-links {
-        display: none !important; /* Hide desktop links */
+    #root .nav-links {
+        display: none;
+        /* Hide desktop links */
     }
-    .nav-actions {
-        display: none !important; /* Hide desktop CTA */
+
+    #root .nav-actions {
+        display: none;
+        /* Hide desktop CTA */
     }
-    
+
     /* Ensure hamburger toggle is visible */
-    .mobile-toggle {
-        display: flex !important;
+    #root .mobile-toggle {
+        display: flex;
         cursor: pointer;
     }
 
     /* Hero Section Overrides */
-    .hero-container {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 3rem !important;
-        padding-top: 100px !important;
+    #root .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding-top: 100px;
     }
-    
-    .hero-content {
-        max-width: 100% !important;
+
+    #root .hero-content {
+        max-width: 100%;
     }
-    
-    .hero-actions {
-        justify-content: center !important;
+
+    #root .hero-actions {
+        justify-content: center;
     }
 
     /* Stats Strip Overrides */
-    .stats-container-strip {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 2rem !important;
+    #root .stats-container-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
     /* Programs Grid Overrides */
-    .program-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 2rem !important;
+    #root .program-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
-    
+
     /* Programs Page Overrides */
-    .program-row, .program-row.reverse {
-        grid-template-columns: 1fr !important;
-        display: flex !important;
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 2.5rem !important;
+    #root .program-row,
+    #root .program-row.reverse {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
     }
-    
-    .prog-objectives {
-        text-align: left !important;
+
+    #root .prog-objectives {
+        text-align: left;
     }
 
     /* About Us Overrides */
-    .mv-feature-row,
-    .mv-feature-row.reverse {
-        flex-direction: column !important;
-        grid-template-columns: 1fr !important;
-        text-align: center !important;
-        gap: 3rem !important;
+    #root .mv-feature-row,
+    #root .mv-feature-row.reverse {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
     }
-    
-    .history-container {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 3rem !important;
+
+    #root .history-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
     }
 
     /* Skills Grid Overrides */
-    .skills-card-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+    #root .skills-card-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     /* Global Section Spacing */
-    .section, section {
-        padding-top: 5rem !important;
-        padding-bottom: 5rem !important;
+    #root .section,
+    #root section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 
-    /* Voices of Impact (Testimonials) Layout Override */
-    .testimonials-layout {
-        display: flex !important;
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 1.5rem !important;
-        padding: 0 !important;
-    }
     /* Voices of Impact (Testimonials) Premium Layout Override */
-    .testimonials-sticky-wrapper {
-        height: 100svh !important; /* Use safe viewport height to prevent iOS address bar clipping */
-        align-items: center !important;
-        justify-content: center !important;
+    #root .testimonials-sticky-wrapper {
+        height: 100vh;
+        /* Use safe viewport height to prevent iOS address bar clipping */
+        align-items: center;
+        justify-content: center;
     }
-    .testimonials-layout {
-        display: flex !important;
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 1rem !important;
-        padding: 0 1rem !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+
+    #root .testimonials-layout {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
-    .t-col-header {
-        text-align: center !important;
-        padding-right: 0 !important;
-        margin-bottom: -0.5rem !important;
+
+    #root .t-col-header {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: -0.5rem;
     }
-    .quote-mark-large {
-        font-size: 3.5rem !important;
-        margin-bottom: -5px !important;
+
+    #root .quote-mark-large {
+        font-size: 3.5rem;
+        margin-bottom: -5px;
     }
-    .t-heading-bold {
-        font-size: 1.8rem !important;
-        line-height: 1.1 !important;
+
+    #root .t-heading-bold {
+        font-size: 1.8rem;
+        line-height: 1.1;
     }
-    .t-col-nav {
-        width: 100% !important;
-        margin: 0 !important;
+
+    #root .t-col-nav {
+        width: 100%;
+        margin: 0;
     }
-    .t-nav-list {
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 1rem !important;
+
+    #root .t-nav-list {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
     }
-    .t-nav-item {
-        padding: 0 !important;
+
+    #root .t-nav-item {
+        padding: 0;
     }
-    .t-nav-number {
-        font-size: 1.1rem !important;
+
+    #root .t-nav-number {
+        font-size: 1.1rem;
     }
-    .t-nav-divider {
-        display: none !important;
+
+    #root .t-nav-divider {
+        display: none;
     }
-    .t-author-image-wrapper {
-        margin: 0 auto 0.5rem !important; /* Center the image */
+
+    #root .t-author-image-wrapper {
+        margin: 0 auto 0.5rem;
+        /* Center the image */
     }
-    .t-author-img {
-        width: 65px !important;
-        height: 65px !important;
-        border-radius: 50% !important;
+
+    #root .t-author-img {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
     }
-    .t-quote-text {
-        font-size: 1rem !important;
-        line-height: 1.5 !important;
-        margin-bottom: 0.5rem !important;
+
+    #root .t-quote-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
     }
-    .t-author-name {
-        font-size: 1.1rem !important;
+
+    #root .t-author-name {
+        font-size: 1.1rem;
     }
-    .t-rating {
-        justify-content: center !important; /* Center the star ratings */
+
+    #root .t-rating {
+        justify-content: center;
+        /* Center the star ratings */
     }
 }
 
@@ -173,151 +187,215 @@
    MEDIUM DEVICES & TABLET VERTICAL (max-width: 768px)
    ========================================================= */
 @media (max-width: 768px) {
+
+    #root .cause-card,
+    #root .program-detail-card,
+    #root .btn,
+    #root .skill-image-card,
+    #root .stat-box-strip {
+        /* Force hardware acceleration for smoother mobile transitions */
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+
     /* Hero Adjustments */
-    .hero-section h1 {
-        font-size: 2.5rem !important;
-        line-height: 1.2 !important;
-    }
-    
-    .hero-section p {
-        font-size: 1.1rem !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+    #root .hero-section h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
     }
 
-    .hero-actions {
-        flex-direction: column !important;
-        gap: 1rem !important;
+    #root .hero-section p {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .hero-actions .btn {
-        width: 100% !important;
-        justify-content: center !important;
-        min-height: 48px !important; /* Touch friendly */
+    #root .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .hero-image-grid {
-        height: 400px !important;
-        max-width: 100% !important;
+    #root .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        /* Touch friendly */
+    }
+
+    #root .hero-image-grid {
+        height: 400px;
+        max-width: 100%;
     }
 
     /* Programs Override */
-    .program-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
+    #root .program-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 
-    /* Celebrations & Awards */
-    .celebrations-row, .awards-flex {
+    /* Celebrations & Awards - Fixed Selectors */
+    /* Kept !important as these override hardcoded JSX inline styles */
+    .celebrations-home-section .row,
+    .awards-home-section .container > div:first-child {
         flex-direction: column !important;
         text-align: center !important;
         gap: 3rem !important;
     }
 
-    .celebration-highlights {
-        justify-content: center !important;
+    #root .celebration-highlights {
+        justify-content: center;
     }
-    
+
+    /* Override Home.jsx inline styles causing desktop dimensions on mobile */
+    /* Kept !important to override inline heights */
+    .celebrations-image-wrapper {
+        min-width: 100% !important;
+        height: 350px !important;
+        margin-top: 2rem !important;
+    }
+
+    .celebrations-image-wrapper > img:nth-of-type(1) {
+        height: 250px !important;
+        width: 80% !important;
+    }
+
+    .celebrations-image-wrapper > img:nth-of-type(2) {
+        height: 200px !important;
+        width: 65% !important;
+        bottom: 0 !important;
+    }
+
     /* Causes Grid Override */
-    .causes-grid {
-        grid-template-columns: 1fr !important; /* Stack causes vertically */
+    #root .causes-grid {
+        grid-template-columns: 1fr;
+        /* Stack causes vertically */
     }
 
     /* About Us Intro Override - Shrink h2 */
-    .about-intro-section h2 {
-        font-size: 1.75rem !important; 
+    #root .about-intro-section h2 {
+        font-size: 1.75rem;
     }
 
     /* Skills Details Cards Overrides */
-    .program-details-container {
-        grid-template-columns: 1fr !important;
+    #root .program-details-container {
+        grid-template-columns: 1fr;
     }
 
     /* Footer Adjustments */
-    .footer-content {
-        flex-direction: column !important;
-        gap: 40px !important;
-        width: 100% !important;
-        overflow: hidden !important;
+    #root .footer {
+        padding-top: 50px;
     }
 
-    .footer-main, .footer-aside {
-        width: 100% !important;
-        box-sizing: border-box !important;
+    #root .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        overflow: hidden;
     }
 
-    .footer-newsletter-section, .newsletter-form-premium {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    
-    .newsletter-form-premium .input-field {
-        display: flex !important;
-        flex-direction: row !important; /* Form inline pill */
-        align-items: center !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255,255,255,0.1) !important;
-        padding: 5px !important;
-        border-radius: 99px !important; /* Pill shape */
-        gap: 0 !important;
-    }
-    
-    .input-field input {
-        flex: 1 !important;
-        min-width: 0 !important; /* Prevent flex box blowout */
-        background: transparent !important;
-        border: none !important;
-        outline: none !important;
-        padding-left: 1rem !important;
+    #root .footer-main,
+    #root .footer-aside {
+        width: 100%;
+        box-sizing: border-box;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        /* Crucial to override the row layout in 1200px */
     }
 
-    .input-field button {
-        width: 44px !important;
-        height: 44px !important;
-        flex-shrink: 0 !important;
-        border-radius: 50% !important; /* Circular premium button */
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+    #root .footer-newsletter-section,
+    #root .newsletter-form-premium {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
-    .footer-main {
-        flex-direction: column !important;
-        gap: 30px !important;
-        text-align: center !important;
+    #root .newsletter-form-premium .input-field {
+        display: flex;
+        flex-direction: row;
+        /* Form inline pill */
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(81, 39, 49, 0.2);
+        /* Darker border for visibility */
+        padding: 5px;
+        border-radius: 99px;
+        /* Pill shape */
+        gap: 0;
     }
 
-    .footer-brand {
-        margin: 0 auto !important;
+    #root .input-field input {
+        flex: 1;
+        min-width: 0;
+        /* Prevent flex box blowout */
+        background: transparent;
+        border: none;
+        outline: none;
+        padding-left: 1rem;
+        font-size: 16px;
+        /* Prevent zoom */
     }
 
-    .footer-social {
-        justify-content: center !important;
+    #root .input-field button {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        /* Circular premium button */
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .footer-nav {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 30px !important;
+    #root .footer-main {
+        gap: 30px;
     }
-    
-    .footer-contact-info ul li {
-        justify-content: center !important;
+
+    #root .footer-brand {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .footer-cta-content {
-        flex-direction: column !important;
-        text-align: center !important;
+
+    /* Ensure footer logo doesn't misalign natively */
+    #root .footer-brand > div {
+        justify-content: center;
     }
-    
-    .footer-bottom-inner {
-        flex-direction: column-reverse !important;
-        text-align: center !important;
-        gap: 1rem !important;
+
+    #root .footer-social {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    #root .footer-nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    #root .footer-contact-info ul li {
+        justify-content: center;
+    }
+
+    #root .footer-cta-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    #root .footer-bottom-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 1rem;
+        padding-bottom: 2rem;
+        /* Extra padding for bottom bar space */
     }
 }
 
@@ -325,64 +403,111 @@
    SMALL MOBILE PHONES (max-width: 480px)
    ========================================================= */
 @media (max-width: 480px) {
+
     /* General Typography & Spacing */
-    .container {
-        padding: 0 1.25rem !important;
+    #root .container {
+        padding: 0 1.25rem;
     }
 
-    .section, section {
-        padding-top: 3.5rem !important;
-        padding-bottom: 3.5rem !important;
+    #root .section,
+    #root section {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
     }
 
     /* Hero Overrides */
-    .hero-section h1 {
-        font-size: 2rem !important;
+    #root .hero-section h1 {
+        font-size: 2rem;
     }
 
-    .hero-image-grid {
-        height: 300px !important;
+    #root .hero-image-grid {
+        height: 300px;
     }
 
     /* Stats Strip Stacked */
-    .stats-container-strip {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
+    #root .stats-container-strip {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .stat-box-strip {
-        text-align: center !important;
-        padding: 1.5rem !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 12px !important;
+    #root .stat-box-strip {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
     }
 
     /* Ensure forms are touch-friendly */
-    input, select, textarea {
-        font-size: 16px !important; /* Prevent iOS zoom */
-        min-height: 48px !important;
+    #root input,
+    #root select,
+    #root textarea {
+        font-size: 16px;
+        /* Prevent iOS zoom */
+        min-height: 48px;
     }
 
     /* Make sure buttons are easily tappable */
-    .btn {
-        min-height: 48px !important;
-        font-size: 1rem !important;
-        padding: 12px 20px !important;
+    #root .btn {
+        min-height: 48px;
+        font-size: 1rem;
+        padding: 12px 20px;
     }
-    
-    /* Disable complex hover animations that stutter on low-end mobile */
-    .btn:hover, .cause-card:hover, .program-detail-card:hover, .skill-image-card:hover {
-        transform: none !important;
-        box-shadow: inherit !important;
+
+    /* Active states for smooth touch feedback instead of broken hover */
+    #root .btn:active,
+    #root .cause-card:active,
+    #root .program-detail-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
     }
-    
+
     /* Extreme shrink for About Us Header */
-    .about-intro-section h2 {
-        font-size: 1.4rem !important; 
+    #root .about-intro-section h2 {
+        font-size: 1.4rem;
     }
-    
+
     /* Stack Skills Overview Cards to single column */
-    .skills-card-grid {
-        grid-template-columns: 1fr !important;
+    #root .skills-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Extra Footer Optimization for small phones */
+    #root .footer-cta-text h2 {
+        font-size: 1.5rem;
+    }
+
+    #root .footer-cta-text p {
+        font-size: 0.95rem;
+    }
+
+    #root .footer-nav {
+        gap: 20px;
+        /* Tighter navigation spacing */
+    }
+
+    #root .footer-nav-col h3,
+    #root .footer-contact-info h3,
+    #root .footer-newsletter-section h3 {
+        margin-bottom: 12px;
+    }
+
+    #root .footer-logo img {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+/* =========================================================
+   GLOBAL TOUCH FRIENDLY FIXES
+   ========================================================= */
+@media (hover: none) {
+
+    /* Prevent sticky hovers on touch devices */
+    #root .btn:hover,
+    #root .cause-card:hover,
+    #root .program-detail-card:hover,
+    #root .skill-image-card:hover {
+        transform: none;
+        box-shadow: none;
     }
 }
