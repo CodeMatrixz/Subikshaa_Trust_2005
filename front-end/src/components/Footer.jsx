@@ -9,20 +9,21 @@ import {
     MapPin,
     ArrowRight
 } from 'lucide-react';
-import '../styles/Footer.css';
+import '../styles/FooterRefined.css';
 
 const Footer = () => {
     return (
         <footer className="footer">
-
             <div className="container footer-content">
                 <div className="footer-main">
                     <div className="footer-brand">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', marginTop: '-0.5rem' }}>
-                            <Link to="/" className="footer-logo" style={{ marginBottom: 0, flexShrink: 0 }}>
+                        <div className="footer-brand-header">
+                            <Link to="/" className="footer-logo">
                                 <img src="/images/assets/logo_v2.jpg" alt="Subikshaa Trust Logo" />
                             </Link>
-                            <p style={{ fontSize: '0.85rem', color: 'var(--color-primary)', opacity: 0.8, fontWeight: 700, lineHeight: 1.3, margin: 0 }}>A Trust For Socio Economic<br />Development</p>
+                            <p className="footer-brand-text">
+                                A Trust For Socio Economic<br />Development
+                            </p>
                         </div>
                         <p className="footer-description">
                             Empowering communities and changing lives through dedicated action since 2005.

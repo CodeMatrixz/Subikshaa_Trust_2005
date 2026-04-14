@@ -3,7 +3,7 @@ import { motion, useInView, useScroll } from 'framer-motion';
 import { ArrowRight, Heart, Users, Globe, HeartPulse, Star, Calendar, Gift, Smile, Trophy } from 'lucide-react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
-import '../styles/Home.css';
+import '../styles/HomeRefined.css';
 import MembershipForm from '../components/MembershipForm';
 import TrustedPartners from '../components/TrustedPartners';
 import Testimonials from './Testimonials';
@@ -298,32 +298,32 @@ const Home = () => {
             </Section>
 
             {/* Celebrations Preview Section */}
-            <Section className="celebrations-home-section" style={{ background: 'var(--surface-sunken)', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
+            {/* Celebrations Preview Section */}
+            <Section className="celebrations-home-section">
                 <div className="container">
-                    <div className="row align-items-center" style={{ display: 'flex', flexDirection: 'row', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div className="row align-items-center celebrations-row">
                         <motion.div
                             className="celebrations-text"
-                            style={{ flex: 1, minWidth: '300px' }}
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
                             <span className="sub-heading"><Star size={16} style={{ marginBottom: '-2px', marginRight: '6px' }} /> Festivals & Traditions</span>
-                            <h2 style={{ marginBottom: '1.5rem', fontSize: '3.5rem', lineHeight: '1.2' }}>Celebrating Cultures & Lives</h2>
-                            <p style={{ marginBottom: '2rem', fontSize: '1.1rem', color: 'var(--text-light)' }}>
+                            <h2>Celebrating Cultures & Lives</h2>
+                            <p>
                                 We honor the vibrant tapestry of cultures and traditions that bring our community together.
                                 From festive celebrations to cultural gatherings, every moment is a testament to the diversity and joy we share.
                             </p>
 
-                            <div className="celebration-highlights" style={{ display: 'flex', gap: '2rem', marginBottom: '2.5rem' }}>
+                            <div className="celebration-highlights">
                                 <div>
-                                    <h3 style={{ fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' }}>25+</h3>
-                                    <span style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>Festivals Celebrated</span>
+                                    <h3 className="highlight-number">25+</h3>
+                                    <span className="highlight-label">Festivals Celebrated</span>
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' }}>15+</h3>
-                                    <span style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>Cultures United</span>
+                                    <h3 className="highlight-number">15+</h3>
+                                    <span className="highlight-label">Cultures United</span>
                                 </div>
                             </div>
 
@@ -334,7 +334,6 @@ const Home = () => {
 
                         <motion.div
                             className="celebrations-image-wrapper"
-                            style={{ flex: 1, minWidth: '300px', position: 'relative', height: '500px' }}
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -344,144 +343,71 @@ const Home = () => {
                             <img
                                 src="/images/assets/unsplash_71.jpg"
                                 alt="Celebration Main"
-                                style={{
-                                    width: '70%',
-                                    height: '350px',
-                                    objectFit: 'cover',
-                                    borderRadius: '24px',
-                                    position: 'absolute',
-                                    top: '0',
-                                    right: '0',
-                                    boxShadow: 'var(--shadow-lg)',
-                                    zIndex: 1
-                                }}
+                                className="celebration-main-img"
                             />
 
                             {/* Secondary Image Overlapping */}
                             <img
                                 src="/images/assets/unsplash_70.jpg"
                                 alt="Celebration Secondary"
-                                style={{
-                                    width: '55%',
-                                    height: '280px',
-                                    objectFit: 'cover',
-                                    borderRadius: '24px',
-                                    position: 'absolute',
-                                    bottom: '20px',
-                                    left: '0',
-                                    boxShadow: 'var(--shadow-xl)',
-                                    border: '8px solid var(--color-bg)',
-                                    zIndex: 2
-                                }}
+                                className="celebration-sec-img"
                             />
 
                             {/* Floating Professional Icon Card 1 */}
                             <motion.div
-                                style={{
-                                    position: 'absolute',
-                                    top: '40px',
-                                    left: '10px',
-                                    background: 'var(--color-white)',
-                                    padding: '1rem',
-                                    borderRadius: '16px',
-                                    boxShadow: 'var(--shadow-lg)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.8rem',
-                                    zIndex: 3
-                                }}
+                                className="floating-card-1"
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                             >
-                                <div style={{ background: 'var(--color-primary)', padding: '0.5rem', borderRadius: '50%', color: 'white' }}>
+                                <div className="floating-icon">
                                     <Gift size={20} />
                                 </div>
-                                <div>
-                                    <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>Joy of Giving</span>
-                                    <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-light)' }}>Spreading Smiles</span>
+                                <div className="floating-text">
+                                    <span className="floating-title">Joy of Giving</span>
+                                    <span className="floating-subtitle">Spreading Smiles</span>
                                 </div>
                             </motion.div>
 
                             {/* Floating Professional Icon Card 2 */}
                             <motion.div
-                                style={{
-                                    position: 'absolute',
-                                    bottom: '80px',
-                                    right: '-20px',
-                                    background: 'var(--color-white)',
-                                    padding: '1rem',
-                                    borderRadius: '16px',
-                                    boxShadow: 'var(--shadow-lg)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.8rem',
-                                    zIndex: 3
-                                }}
+                                className="floating-card-2"
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                             >
-                                <div style={{ background: 'var(--color-primary)', padding: '0.5rem', borderRadius: '50%', color: 'white' }}>
+                                <div className="floating-icon">
                                     <Smile size={20} />
                                 </div>
-                                <div>
-                                    <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>Community</span>
-                                    <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-light)' }}>Togetherness</span>
+                                <div className="floating-text">
+                                    <span className="floating-title">Community</span>
+                                    <span className="floating-subtitle">Togetherness</span>
                                 </div>
                             </motion.div>
 
                         </motion.div>
                     </div>
                 </div>
-
-
             </Section>
 
-
-
             {/* Awards Highlight Section */}
-            <Section className="awards-home-section" style={{ background: 'var(--color-primary)', color: 'white', padding: '5rem 0', position: 'relative', zIndex: 10 }}>
+            <Section className="awards-home-section">
                 <div className="container">
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        gap: '4rem',
-                        flexWrap: 'wrap'
-                    }}>
+                    <div className="awards-row">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            style={{ flex: 1, minWidth: '300px' }}
+                            className="awards-text-side"
                         >
-                            <div style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '0.8rem',
-                                background: 'rgba(255,255,255,0.1)',
-                                padding: '0.5rem 1rem',
-                                borderRadius: '50px',
-                                marginBottom: '1.5rem',
-                                border: '1px solid rgba(255,255,255,0.2)'
-                            }}>
+                            <div className="awards-badge">
                                 <Trophy size={18} color="#FFD700" />
-                                <span style={{ fontSize: '0.9rem', fontWeight: '600', color: '#FFD700' }}>Excellence in Service</span>
+                                <span>Excellence in Service</span>
                             </div>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: 'white' }}>Best Skill Initiative 2024</h2>
-                            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: '1.6', marginBottom: '2rem', maxWidth: '500px' }}>
+                            <h2>Best Skill Initiative 2024</h2>
+                            <p>
                                 We are honored to be recognized by the <strong>National Social Welfare Board</strong> for our impactful rural women skill development program, creating sustainable livelihoods for over 500 women.
                             </p>
-                            <a href="/awards" className="btn" style={{
-                                background: 'white',
-                                color: 'var(--color-primary)',
-                                fontWeight: 'bold',
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '0.5rem',
-                                padding: '1rem 2rem',
-                                borderRadius: '50px'
-                            }}>
+                            <a href="/awards" className="btn btn-award">
                                 View All Awards <ArrowRight size={18} />
                             </a>
                         </motion.div>
@@ -491,39 +417,16 @@ const Home = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            style={{ flex: 1, minWidth: '300px', display: 'flex', justifyContent: 'center' }}
+                            className="awards-visual-side"
                         >
-                            <div style={{
-                                position: 'relative',
-                                background: 'rgba(255,255,255,0.05)',
-                                padding: '3rem',
-                                borderRadius: '50%',
-                                border: '1px solid rgba(255,255,255,0.1)'
-                            }}>
-                                <div style={{
-                                    background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                    borderRadius: '50%',
-                                    width: '200px',
-                                    height: '200px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
-                                }}>
+                            <div className="award-trophy-container">
+                                <div className="award-trophy-bg">
                                     <Trophy size={80} color="white" />
                                 </div>
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                    style={{
-                                        position: 'absolute',
-                                        top: '0',
-                                        left: '0',
-                                        width: '100%',
-                                        height: '100%',
-                                        borderRadius: '50%',
-                                        border: '2px dashed rgba(255,255,255,0.2)'
-                                    }}
+                                    className="award-rotate-border"
                                 />
                             </div>
                         </motion.div>
