@@ -2,8 +2,9 @@
 .testimonials-section-scroll {
     position: relative;
     background-color: #fdfdfd;
+    /* Light off-white background */
     font-family: 'Outfit', sans-serif;
-    height: 350vh; /* Controlled here for responsiveness */
+    /* Height is set inline in JSX (e.g., 350vh) to control scroll length */
 }
 
 .testimonials-sticky-wrapper {
@@ -177,57 +178,42 @@
 
 /* Responsive Design */
 @media (max-width: 992px) {
+
+    /* Disable sticky scroll effect on mobile for better UX */
     .testimonials-section-scroll {
-        /* Longer track for more deliberate transitions on mobile */
-        height: 400vh; 
-        background-color: #fdfdfd;
+        height: auto !important;
+        padding: 4rem 0;
     }
 
     .testimonials-sticky-wrapper {
-        position: sticky;
-        top: 140px; /* Deeper clearance to ensure title is never obscured by mobile browser UI */
-        height: calc(100vh - 140px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1rem 0;
+        position: static;
+        height: auto;
+        display: block;
     }
 
     .testimonials-layout {
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: none;
-        gap: 3.5rem; /* Increased gap to separate header from content clearly */
-        padding: 0 1.5rem;
-        align-items: center;
-        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 2rem;
     }
 
     .t-col-header {
         text-align: center;
         padding-right: 0;
-        margin-bottom: 0.5rem;
-        width: 100%;
-    }
-
-    /* Fluid typography for heading */
-    .t-heading-bold {
-        font-size: clamp(1.75rem, 8vw, 2.25rem);
-        line-height: 1.1;
+        margin-bottom: 1rem;
     }
 
     .quote-mark-large {
         display: none;
+        /* Hide large quote on mobile to save space */
     }
 
     .t-col-nav {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
         width: 100%;
-        height: auto;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 1.5rem;
     }
 
     .t-nav-divider {
@@ -236,52 +222,29 @@
 
     .t-nav-list {
         flex-direction: row;
-        gap: 1.5rem;
+        gap: 2rem;
         padding-right: 0;
-        align-items: center;
     }
 
     .t-nav-item {
         padding-right: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .t-nav-number {
-        font-size: 1rem;
-        color: #94a3b8;
+        font-size: 1.2rem;
     }
 
     .t-nav-item.active .t-nav-number {
-        font-size: 1.25rem;
-        color: var(--color-primary);
-        font-weight: 800;
-        transform: scale(1.1);
+        font-size: 1.5rem;
     }
 
     .t-col-content {
         padding-left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        text-align: center;
     }
 
     .t-content-card {
         align-items: center;
-        text-align: center;
-        background: white;
-        padding: 2rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        width: 100%;
-        max-width: 450px;
-    }
-
-    .t-author-image-wrapper {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 1rem;
     }
 
     .t-text-content {
@@ -289,8 +252,6 @@
     }
 
     .t-quote-text {
-        font-size: clamp(1rem, 4vw, 1.15rem);
-        margin: 0 auto 1.5rem auto;
-        line-height: 1.6;
+        margin: 0 auto 2rem auto;
     }
 }

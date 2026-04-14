@@ -106,16 +106,6 @@
     transition: color 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    .progress-item span {
-        display: none;
-    }
-    
-    .portal-progress {
-        padding: 20px 30px;
-    }
-}
-
 .progress-item.active .icon-wrapper {
     background: #512731; /* Site Maroon */
     color: white;
@@ -543,7 +533,7 @@
 }
 
 .step-components li::before {
-    content: 'â€¢';
+    content: 'GÇó';
     position: absolute;
     left: -15px;
     color: #10b981;

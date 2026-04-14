@@ -69,7 +69,7 @@ const Testimonials = () => {
     });
 
     return (
-        <section ref={containerRef} className="testimonials-section-scroll">
+        <section ref={containerRef} className="testimonials-section-scroll" style={{ height: "350vh" }}>
             <div className="testimonials-sticky-wrapper">
                 <div className="container">
                     <motion.div

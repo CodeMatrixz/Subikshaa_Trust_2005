@@ -17,12 +17,12 @@
 
   --surface-sunken: #F3F4F6;
 
+
   --font-heading: 'Lora', serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   --spacing-container: 1200px;
-  --spacing-section: clamp(3rem, 10vw, 6rem);
-  --spacing-mobile: 1.25rem;
+  --spacing-section: 5rem;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -30,29 +30,18 @@
 
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
   --radius-full: 9999px;
 
   --text-main: var(--color-primary);
   --text-light: #6b7280;
-
-  /* Fluid Typography */
-  --h1: clamp(2.25rem, 5vw + 1rem, 4rem);
-  --h2: clamp(1.75rem, 4vw + 1rem, 3rem);
-  --h3: clamp(1.5rem, 3vw + 1rem, 2.25rem);
-  --h4: clamp(1.25rem, 2vw + 1rem, 1.75rem);
-  --body-lg: clamp(1.1rem, 1vw + 0.8rem, 1.25rem);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -61,16 +50,14 @@ body {
   color: var(--color-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  width: 100%;
 }
 
-h1 { font-size: var(--h1); }
-h2 { font-size: var(--h2); }
-h3 { font-size: var(--h3); }
-h4 { font-size: var(--h4); }
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -78,7 +65,6 @@ h1, h2, h3, h4, h5, h6 {
 
 img {
   max-width: 100%;
-  height: auto;
   display: block;
 }
 
@@ -96,7 +82,7 @@ ul {
 .container {
   max-width: var(--spacing-container);
   margin: 0 auto;
-  padding: 0 var(--spacing-mobile);
+  padding: 0 1.5rem;
 }
 
 .section {
@@ -106,31 +92,32 @@ ul {
 .btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.75rem;
-  min-height: 3.25rem; /* ~52px for perfect touch accessibility */
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius-full);
   font-weight: 600;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
   cursor: pointer;
   border: 1px solid transparent;
-  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
-  box-shadow: 0 4px 14px rgba(81, 39, 49, 0.15);
 }
 
 .btn-primary:hover {
+  opacity: 0.88;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(81, 39, 49, 0.25);
+  box-shadow: 0 6px 18px rgba(81, 39, 49, 0.22);
 }
 
 .btn-primary:active {
-  transform: scale(0.97);
+  transform: translateY(0) scale(0.98);
+  opacity: 1;
+  box-shadow: 0 2px 6px rgba(81, 39, 49, 0.15);
 }
 
 .btn-outline {
@@ -143,14 +130,29 @@ ul {
   background-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(81, 39, 49, 0.22);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-section: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-section: 2.5rem;
+  }
 }
 
 /* Global Page Header Styles */
 .page-header {
   position: relative;
   background-color: var(--color-primary);
+  /* Fallback */
   color: white;
-  padding: clamp(4rem, 15vh, 8rem) 0 clamp(3rem, 10vh, 5rem);
+  padding: 6rem 0 4rem;
+  /* Taller padding for hero feel */
   text-align: center;
   background-size: cover;
   background-position: center;
@@ -158,6 +160,7 @@ ul {
   margin-bottom: 2rem;
 }
 
+/* Dark Gradient Overlay */
 .page-header::before {
   content: '';
   position: absolute;
@@ -169,31 +172,43 @@ ul {
   z-index: 1;
 }
 
-.page-header > .container {
+.page-header>.container {
   position: relative;
   z-index: 2;
 }
 
+.page-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  /* Ensure heading is white */
+}
+
 .page-header .sub-heading {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8) !important;
+  /* Lighter white for subheading */
+  margin-bottom: 0.5rem;
 }
 
 .page-header p {
-  font-size: var(--body-lg);
-  max-width: 650px;
+  font-size: 1.25rem;
+  max-width: 600px;
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .page-header p {
-    padding: 0 1rem;
+  .page-header {
+    padding: 4rem 0 3rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
   }
 }
