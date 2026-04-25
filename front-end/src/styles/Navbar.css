@@ -88,6 +88,11 @@
         box-shadow: var(--shadow-md);
         gap: 1.5rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+        /* Strict safe bounds for all devices */
+        max-height: 75vh;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .mobile-actions {

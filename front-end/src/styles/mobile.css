@@ -9,6 +9,12 @@
    ========================================================= */
 @media (max-width: 1024px) {
 
+    /* Navbar / Header Alignments */
+    #root .navbar .container {
+        padding: 1rem 1.25rem !important;
+        /* Increase padding on mobile to match logo size */
+    }
+
     /* Base Container Adjustments */
     #root .container {
         padding: 0 2rem;
@@ -100,11 +106,20 @@
     }
 
     /* Voices of Impact (Testimonials) Premium Layout Override */
+    #root .testimonials-section-scroll {
+        height: 350vh !important; /* Restore the scroll track length to enable framer-motion */
+        padding: 0 !important;
+    }
+
     #root .testimonials-sticky-wrapper {
+        position: sticky !important;
+        top: 0 !important;
         height: 100vh;
         /* Use safe viewport height to prevent iOS address bar clipping */
-        align-items: center;
-        justify-content: center;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
     }
 
     #root .testimonials-layout {
@@ -250,19 +265,39 @@
     /* Kept !important to override inline heights */
     .celebrations-image-wrapper {
         min-width: 100% !important;
-        height: 350px !important;
+        height: auto !important;
+        min-height: 280px !important;
         margin-top: 2rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
     }
 
     .celebrations-image-wrapper > img:nth-of-type(1) {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
         height: 250px !important;
-        width: 80% !important;
+        border-radius: 20px !important;
+        object-fit: cover !important;
     }
 
     .celebrations-image-wrapper > img:nth-of-type(2) {
-        height: 200px !important;
-        width: 65% !important;
-        bottom: 0 !important;
+        display: none !important; /* Hide secondary image on small mobile for sanity */
+    }
+
+    .celebrations-image-wrapper > div:nth-of-type(1) {
+        top: -15px !important;
+        left: -10px !important;
+        transform: scale(0.85) !important;
+    }
+
+    .celebrations-image-wrapper > div:nth-of-type(2) {
+        bottom: -15px !important;
+        right: -10px !important;
+        transform: scale(0.85) !important;
     }
 
     /* Causes Grid Override */
@@ -366,7 +401,11 @@
 
     /* Ensure footer logo doesn't misalign natively */
     #root .footer-brand > div {
-        justify-content: center;
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+        margin-top: 0 !important;
     }
 
     #root .footer-social {
@@ -381,7 +420,15 @@
     }
 
     #root .footer-contact-info ul li {
-        justify-content: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    #root .footer-contact-info ul li svg {
+        flex-shrink: 0;
+        margin-top: 4px;
+        margin-right: 8px;
     }
 
     #root .footer-cta-content {
@@ -435,6 +482,17 @@
         padding: 1.5rem;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
+    }
+
+    /* Fixed Contribution Section Grid Overflow */
+    #root .amount-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        padding: 1.5rem 1rem 0 !important;
+        gap: 0.75rem !important;
+    }
+    
+    #root .payment-details {
+        padding: 1.5rem 1rem 0 !important;
     }
 
     /* Ensure forms are touch-friendly */
@@ -492,8 +550,9 @@
     }
 
     #root .footer-logo img {
-        height: 60px;
-        width: 60px;
+        height: 80px;
+        width: 80px;
+        object-fit: contain !important;
     }
 }
 
