@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sendEmail = require('../utils/emailService');
+const { verifyAdmin } = require('./adminRoutes');
 
 // In-memory fallback store when DB is not connected
 const mockRegistrations = [];
@@ -66,7 +67,7 @@ router.post('/', async (req, res) => {
 });
 
 // GET /api/event-registrations  (admin view)
-router.get('/', async (req, res) => {
+router.get('/', verifyAdmin, async (req, res) => {
     try {
         const registrations = await EventRegistration.find().sort({ createdAt: -1 });
         return res.json({ success: true, data: registrations });
@@ -76,7 +77,7 @@ router.get('/', async (req, res) => {
 });
 
 // DELETE /api/event-registrations/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyAdmin, async (req, res) => {
     try {
         await EventRegistration.findByIdAndDelete(req.params.id);
         res.json({ success: true, message: 'Registration deleted successfully' });

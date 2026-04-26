@@ -4,6 +4,9 @@ const connectDB = require('./config/db');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require('express-rate-limit');
 
 dotenv.config({ path: path.join(__dirname, '.env') });
 
@@ -11,11 +14,19 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
-
-
-
+app.use(helmet());
+app.use(cors({
+    origin: [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'].filter(Boolean)
+}));
 app.use(express.json());
+app.use(mongoSanitize());
+
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, 
+    max: 200, 
+    message: { success: false, message: 'Too many requests from this IP, please try again later.' }
+});
+app.use('/api/', apiLimiter);
 
 // Global database connection middleware for serverless reliability
 app.use(async (req, res, next) => {

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Donation = require('../models/Donation');
 const sendEmail = require('../utils/emailService');
+const { verifyAdmin } = require('./adminRoutes');
 
 // POST /api/donations - Create a new donation intent
 router.post('/', async (req, res) => {
@@ -41,7 +42,7 @@ router.post('/', async (req, res) => {
 });
 
 // GET /api/donations - Get all donations (optional, for admin)
-router.get('/', async (req, res) => {
+router.get('/', verifyAdmin, async (req, res) => {
     try {
         const donations = await Donation.find().sort({ createdAt: -1 });
         res.json({ success: true, data: donations });

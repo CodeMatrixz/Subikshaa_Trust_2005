@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sendEmail = require('../utils/emailService');
+const { verifyAdmin } = require('./adminRoutes');
 
 let ContactMessage;
 try {
@@ -46,7 +47,7 @@ router.post('/', async (req, res) => {
 });
 
 // GET /api/contacts (Admin)
-router.get('/', async (req, res) => {
+router.get('/', verifyAdmin, async (req, res) => {
     try {
         const messages = await ContactMessage.find().sort({ createdAt: -1 });
         return res.json({ success: true, data: messages });
@@ -56,7 +57,7 @@ router.get('/', async (req, res) => {
 });
 
 // DELETE /api/contacts/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyAdmin, async (req, res) => {
     try {
         await ContactMessage.findByIdAndDelete(req.params.id);
         res.json({ success: true, message: 'Message deleted successfully' });

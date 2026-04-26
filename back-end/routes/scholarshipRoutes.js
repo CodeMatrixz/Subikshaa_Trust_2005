@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const ScholarshipApplication = require('../models/ScholarshipApplication');
 const sendEmail = require('../utils/emailService');
+const { verifyAdmin } = require('./adminRoutes');
 
 // Configure Local Mutler Storage
 const storage = multer.diskStorage({
@@ -121,7 +122,7 @@ router.post('/:id/upload', upload.fields([
 });
 
 // 4. GET /api/scholarships - Admin View
-router.get('/', async (req, res) => {
+router.get('/', verifyAdmin, async (req, res) => {
     try {
         const apps = await ScholarshipApplication.find().sort({ createdAt: -1 });
         res.json({ success: true, data: apps });

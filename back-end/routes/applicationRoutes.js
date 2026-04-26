@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const Application = require('../models/Application');
 const sendEmail = require('../utils/emailService');
+const { verifyAdmin } = require('./adminRoutes');
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -77,7 +78,7 @@ router.post('/', upload.single('photo'), async (req, res) => {
 });
 
 // GET /api/applications - List applications (optional)
-router.get('/', async (req, res) => {
+router.get('/', verifyAdmin, async (req, res) => {
     try {
         const applications = await Application.find().sort({ createdAt: -1 });
         res.json({ success: true, data: applications });
@@ -87,7 +88,7 @@ router.get('/', async (req, res) => {
 });
 
 // DELETE /api/applications/:id - Delete an application
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyAdmin, async (req, res) => {
     try {
         await Application.findByIdAndDelete(req.params.id);
         res.json({ success: true, message: 'Application deleted successfully' });

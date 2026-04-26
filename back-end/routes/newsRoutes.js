@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const News = require('../models/News');
+const { verifyAdmin } = require('./adminRoutes');
 
 // Mock data for fallback
 const mockNews = [
@@ -62,7 +63,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST /api/news - Add news item
-router.post('/', async (req, res) => {
+router.post('/', verifyAdmin, async (req, res) => {
     const news = new News({
         title: req.body.title,
         description: req.body.description,
@@ -79,7 +80,7 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE /api/news/:id - Remove news item
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verifyAdmin, async (req, res) => {
     try {
         const news = await News.findById(req.params.id);
         if (!news) return res.status(404).json({ message: 'News not found' });
