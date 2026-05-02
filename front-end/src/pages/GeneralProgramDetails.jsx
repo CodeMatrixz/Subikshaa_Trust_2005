@@ -105,12 +105,12 @@ const programsData = {
             {
                 title: "Career Counseling",
                 desc: "Guiding youth towards right paths.",
-                image: "/images/assets/unsplash_103.jpg"
+                image: "/images/assets/career_counseling.png"
             },
             {
                 title: "Mental Wellness",
                 desc: "Support groups and therapy sessions.",
-                image: "/images/assets/unsplash_104.jpg"
+                image: "/images/assets/mental_wellness.jpg"
             },
             {
                 title: "Leadership Skills",
@@ -190,7 +190,7 @@ const programsData = {
             {
                 title: "Infrastructure",
                 desc: "Roads, water, and sanitation.",
-                image: "/images/assets/unsplash_114.jpg"
+                image: "/images/assets/infrastructure.jpg"
             },
             {
                 title: "Civic Awareness",
@@ -200,7 +200,7 @@ const programsData = {
             {
                 title: "Cultural Events",
                 desc: "Celebrating diversity.",
-                image: "/images/assets/unsplash_116.jpg"
+                image: "/images/assets/cultural_events.jpg"
             }
         ]
     }

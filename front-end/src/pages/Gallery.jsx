@@ -18,23 +18,7 @@ const Gallery = () => {
         offset: ["start end", "end start"]
     });
 
-    const [activeCause, setActiveCause] = useState(0);
 
-    // Map scroll progress to active index
-    React.useEffect(() => {
-        const unsubscribe = scrollYProgress.on("change", (latest) => {
-            // Map 0-1 to 0-(length-1)
-            // We want the effect to happen mostly when the element is in the middle of the viewport
-            // Let's adjust the range slightly so it cycles as it passes through
-            const length = focusAreas.length;
-            const index = Math.floor(latest * length * 1.5) - 2; // Offset to start slightly later
-
-            // Clamp index
-            const safeIndex = Math.max(0, Math.min(length - 1, index));
-            setActiveCause(safeIndex);
-        });
-        return () => unsubscribe();
-    }, [scrollYProgress]);
 
 
     // ... (other albums remain same, I will use ReplaceChunk to avoid deleting them if possible, but the instruction asks for block replacement. 
@@ -64,38 +48,32 @@ const Gallery = () => {
 
     // Flattened Image Data
     const allImages = [
-        { src: "/images/assets/unsplash_72.jpg", category: "Education" },
-        { src: "/images/assets/unsplash_73.jpg", category: "Education" },
-        { src: "/images/assets/unsplash_5.jpg", category: "Community" },
-        { src: "/images/assets/unsplash_7.jpg", category: "Education" },
-        { src: "/images/assets/unsplash_6.jpg", category: "Water" },
-        { src: "/images/assets/unsplash_41.jpg", category: "Water" },
-        { src: "/images/assets/unsplash_74.jpg", category: "Water" },
-        { src: "/images/assets/unsplash_75.jpg", category: "Community" },
-        { src: "/images/assets/unsplash_4.jpg", category: "Medical" },
-        { src: "/images/assets/unsplash_10.jpg", category: "Community" },
-        { src: "/images/assets/unsplash_9.jpg", category: "Medical" },
-        { src: "/images/assets/unsplash_76.jpg", category: "Medical" },
-        { src: "/images/assets/unsplash_77.jpg", category: "Medical" },
-        { src: "/images/assets/unsplash_78.jpg", category: "Environment" },
-        { src: "/images/assets/unsplash_79.jpg", category: "Environment" },
-        { src: "/images/assets/unsplash_80.jpg", category: "Environment" },
-        { src: "/images/assets/unsplash_81.jpg", category: "Animals" },
-        { src: "/images/assets/unsplash_82.jpg", category: "Animals" },
-        { src: "/images/assets/unsplash_83.jpg", category: "Animals" }
+        { src: "/images/assets/gallery_1.jpg", category: "Education" },
+        { src: "/images/assets/gallery_2.jpg", category: "Education" },
+        { src: "/images/assets/gallery_3.jpg", category: "Education" },
+        { src: "/images/assets/gallery_4.png", category: "Education" },
+        { src: "/images/assets/gallery_5.png", category: "Water" },
+        { src: "/images/assets/gallery_6.jpg", category: "Water" },
+        { src: "/images/assets/gallery_7.jpg", category: "Water" },
+        { src: "/images/assets/gallery_8.png", category: "Community" },
+        { src: "/images/assets/gallery_9.jpg", category: "Community" },
+        { src: "/images/assets/gallery_10.jpg", category: "Community" },
+        { src: "/images/assets/gallery_11.jpg", category: "Community" },
+        { src: "/images/assets/gallery_12.jpg", category: "Medical" },
+        { src: "/images/assets/gallery_13.png", category: "Medical" },
+        { src: "/images/assets/gallery_14.jpg", category: "Medical" },
+        { src: "/images/assets/gallery_15.jpg", category: "Environment" },
+        { src: "/images/assets/gallery_16.png", category: "Environment" },
+        { src: "/images/assets/gallery_17.png", category: "Environment" },
+        { src: "/images/assets/gallery_18.jpg", category: "Environment" },
+        { src: "/images/assets/gallery_19.png", category: "Animals" },
+        { src: "/images/assets/gallery_20.jpg", category: "Animals" },
+        { src: "/images/assets/gallery_21.jpg", category: "Animals" }
     ];
 
     const categories = ["All", "Education", "Water", "Community", "Medical", "Environment", "Animals"];
 
-    const focusAreas = [
-        { title: "Medical Aid", icon: <Stethoscope size={32} />, imgUrl: "/images/assets/unsplash_84.jpg" },
-        { title: "Education Aid", icon: <GraduationCap size={32} />, imgUrl: "/images/assets/unsplash_85.jpg" },
-        { title: "Food Support", icon: <Utensils size={32} />, imgUrl: "/images/assets/unsplash_86.jpg" },
-        { title: "Skill Development", icon: <TrendingUp size={32} />, imgUrl: "/images/assets/unsplash_87.jpg" },
-        { title: "Support Poor People", icon: <HeartHandshake size={32} />, imgUrl: "/images/assets/unsplash_88.jpg" },
-        { title: "Elderly Care", icon: <Heart size={32} />, imgUrl: "/images/assets/unsplash_89.jpg" },
-        { title: "Support Military Families", icon: <Shield size={32} />, imgUrl: "/images/assets/unsplash_90.jpg" }
-    ];
+
 
     // Filter Logic
     const filteredImages = activeFilter === 'All'

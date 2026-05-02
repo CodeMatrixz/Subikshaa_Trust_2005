@@ -13,7 +13,7 @@ const coursesData = {
         title: "Aari Work & Embroidery",
         subtitle: "Master the intricate art of Aari embroidery.",
         description: "Aari work is a traditional form of embroidery that is highly valued for its detailed and refined finish. In this course, you will learn the fundamental stitches, beadwork, and complex designs used in bridal blouses and high-end garments. This skill is in high demand for boutique businesses.",
-        heroImage: "/images/assets/unsplash_11.jpg",
+        heroImage: "/images/assets/aari_work_2.jpg",
         duration: "3 Months",
         level: "Beginner to Advanced",
         certification: "Certificate of Completion",
@@ -32,9 +32,9 @@ const coursesData = {
             "Creative satisfaction and financial independence"
         ],
         gallery: [
-            "/images/aari-work.png",
-            "/images/assets/unsplash_12.jpg",
-            "/images/assets/unsplash_13.jpg"
+            "/images/assets/aari_work_1.jpg",
+            "/images/assets/aari_work_2_new.png",
+            "/images/assets/aari_work_3.jpg"
         ]
     },
     'beautician': {
@@ -60,16 +60,16 @@ const coursesData = {
             "High earning potential during wedding seasons"
         ],
         gallery: [
-            "/images/assets/unsplash_15.jpg",
+            "/images/assets/beautician_1.jpg",
             "/images/assets/unsplash_16.jpg",
-            "/images/assets/unsplash_17.jpg"
+            "/images/assets/beautician_3.png"
         ]
     },
     'doll-making': {
         title: "Doll Making",
         subtitle: "Create beautiful handcrafted dolls.",
         description: "Learn the art of making soft toys and decorative dolls. This course is perfect for those who enjoy crafting and want to create unique gifts or sell their creations online and in local markets.",
-        heroImage: "/images/assets/unsplash_18.jpg",
+        heroImage: "/images/assets/doll_making_1.jpg",
         duration: "1 Month",
         level: "Beginner",
         certification: "Workshop Certificate",
@@ -82,25 +82,25 @@ const coursesData = {
         ],
         benefits: ["Low investment business", "Good potential for gift market", "Relaxing and creative hobby"],
         gallery: [
-            "/images/assets/unsplash_19.jpg",
-            "/images/assets/unsplash_20.jpg",
-            "/images/assets/unsplash_21.jpg"
+            "/images/assets/doll_making_1.jpg",
+            "/images/assets/doll_making_2.png",
+            "/images/assets/doll_making_3.jpg"
         ]
     },
-    'fabric-painting': {
-        title: "Fabric Painting",
-        subtitle: "Transform plain fabrics into works of art.",
-        description: "Discover the techniques of fabric painting to customize clothes, home decor, and accessories. Learn about color mixing, brush strokes, and fixing colors to create lasting designs.",
-        heroImage: "/images/assets/unsplash_22.jpg",
-        duration: "1 Month",
-        level: "Beginner",
+    'tailoring': {
+        title: "Tailoring",
+        subtitle: "Master the art of garment construction.",
+        description: "Learn essential tailoring skills from basic stitching to advanced garment construction. This comprehensive course prepares you to design, cut, and stitch custom clothing for various occasions.",
+        heroImage: "/images/assets/tailoring_1.jpg",
+        duration: "3 Months",
+        level: "Beginner to Advanced",
         certification: "Certificate of Completion",
-        syllabus: ["Color Theory", "Freehand Painting", "Stencil Painting", "Block Painting", "3D Outlining"],
-        benefits: ["Customizing own wardrobe", "Starting an online boutique", "Low startup cost"],
+        syllabus: ["Measurement and Cutting", "Basic Stitching Techniques", "Pattern Making", "Garment Construction", "Finishing and Alterations"],
+        benefits: ["Start a tailoring boutique", "Custom clothing creation", "High local demand"],
         gallery: [
-            "/images/assets/unsplash_23.jpg",
-            "/images/assets/unsplash_24.jpg",
-            "/images/assets/unsplash_25.jpg"
+            "/images/assets/tailoring_1.jpg",
+            "/images/assets/tailoring_2.png",
+            "/images/assets/tailoring_3.png"
         ]
     },
     'jewellery-making': {
@@ -114,9 +114,9 @@ const coursesData = {
         syllabus: ["Silk Thread Jewellery", "Terracotta Jewellery making and baking", "Bead work", "Earring and Necklace assembly"],
         benefits: ["High profit margin", "Creative expression", "Can be done from home"],
         gallery: [
-            "/images/assets/unsplash_27.jpg",
-            "/images/assets/unsplash_28.jpg",
-            "/images/assets/unsplash_29.jpg"
+            "/images/assets/jewellery_1.png",
+            "/images/assets/jewellery_2.jpg",
+            "/images/assets/jewellery_3.png"
         ]
     },
     'mehandi': {
@@ -130,9 +130,9 @@ const coursesData = {
         syllabus: ["Cone making", "Basic lines and shapes", "Arabic Designs", "Indian Bridal Designs", "Figure work"],
         benefits: ["High demand during weddings", "Freelance opportunities", "Cultural significance"],
         gallery: [
-            "/images/assets/unsplash_31.jpg",
-            "/images/assets/unsplash_32.jpg",
-            "/images/assets/unsplash_33.jpg"
+            "/images/assets/mehandi_1.png",
+            "/images/assets/mehandi_2.jpg",
+            "/images/assets/mehandi_3.jpg"
         ]
     },
     'hand-embroidery': {
@@ -146,9 +146,8 @@ const coursesData = {
         syllabus: ["Running stitch, Back stitch", "French Knots", "Satin Stitch", "Lazy Daisy", "Pattern transfer"],
         benefits: ["Enhance garment value", "Relaxing hobby", "Boutique value-add"],
         gallery: [
-            "/images/assets/unsplash_35.jpg",
-            "/images/assets/unsplash_36.jpg",
-            "/images/assets/unsplash_37.jpg"
+            "/images/assets/hand_embroidery_1.png",
+            "/images/assets/hand_embroidery_2.jpg"
         ]
     },
     'terry-cotton': {
@@ -162,25 +161,24 @@ const coursesData = {
         syllabus: ["Fabric handling", "Cutting techniques", "Stitching patterns", "Finishing"],
         benefits: ["Create household utility items", "Small business potential", "Skill development"],
         gallery: [
-            "/images/assets/unsplash_39.jpg",
-            "/images/assets/unsplash_40.jpg",
-            "/images/assets/unsplash_41.jpg"
+            "/images/assets/terry_cotton_1.png",
+            "/images/assets/terry_cotton_2.png",
+            "/images/assets/terry_cotton_3.jpg"
         ]
     },
     'paper-bag': {
         title: "Paper Bag Making",
         subtitle: "Eco-friendly craftsmanship for a sustainable future.",
         description: "Learn to create durable and attractive paper bags from recycled materials. This course covers size calculation, folding techniques, and handle attachment, preparing you for the growing market of eco-friendly packaging.",
-        heroImage: "/images/assets/unsplash_42.jpg",
+        heroImage: "/images/assets/paper_bag_2.png",
         duration: "2 Weeks",
         level: "Beginner",
         certification: "Workshop Certificate",
         syllabus: ["Material Selection", "Measuring and Cutting", "Folding Techniques", "Base Formation", "Handle Fixing", "Decoration"],
         benefits: ["Eco-friendly business", "Low investment", "High volume demand"],
         gallery: [
-            "/images/assets/unsplash_43.jpg",
-            "/images/assets/unsplash_44.jpg",
-            "/images/assets/unsplash_45.jpg"
+            "/images/assets/paper_bag_1.jpg",
+            "/images/assets/paper_bag_2.png"
         ]
     },
     'painting': {
@@ -194,9 +192,9 @@ const coursesData = {
         syllabus: ["Color Theory", "Brush Techniques", "Watercolors", "Acrylic Painting", "Canvas Preparation", "Composition"],
         benefits: ["Stress relief", "Sell works online", "Exhibition opportunities"],
         gallery: [
-            "/images/assets/unsplash_47.jpg",
-            "/images/assets/unsplash_48.jpg",
-            "/images/assets/unsplash_49.jpg"
+            "/images/assets/painting_1.jpg",
+            "/images/assets/painting_2.png",
+            "/images/assets/painting_3.jpg"
         ]
     },
     'pot-painting': {
@@ -211,13 +209,13 @@ const coursesData = {
         benefits: ["Garden decor business", "Creative hobby", "Gift making"],
         gallery: [
             "/images/assets/unsplash_51.jpg",
-            "/images/assets/unsplash_52.jpg",
-            "/images/assets/unsplash_53.jpg"
+            "/images/assets/pot_painting_2.jpg",
+            "/images/assets/pot_painting_3.jpg"
         ]
     },
     'bridal-flower': {
         title: "Bridal Flower Making",
-        subtitle: "Crafting floral elegance for special occasions.",
+        subtitle: "Learn the art of bridal flower decoration.",
         description: "Master the art of creating bridal flower accessories, garlands, and venis using fresh and artificial flowers. A high-demand skill for the wedding industry.",
         heroImage: "/images/assets/unsplash_54.jpg",
         duration: "2 Weeks",
@@ -226,9 +224,9 @@ const coursesData = {
         syllabus: ["Flower Selection", "Garland Making", "Veni Making", "Bridal Hair Accessories", "Bouquet Arrangement"],
         benefits: ["Wedding industry opportunities", "High profit margins", "Freelance work"],
         gallery: [
-            "/images/assets/unsplash_55.jpg",
-            "/images/assets/unsplash_56.jpg",
-            "/images/assets/unsplash_57.jpg"
+            "/images/assets/bridal_flower_1.jpg",
+            "/images/assets/bridal_flower_2.png",
+            "/images/assets/bridal_flower_3.jpg"
         ]
     },
     'baking': {
@@ -242,9 +240,9 @@ const coursesData = {
         syllabus: ["Ingredients & Tools", "Breads & Bun", "Sponge Cakes", "Icings & Decoration", "Cookies & Biscuits"],
         benefits: ["Start home bakery", "Healthy homemade options", "creative satisfaction"],
         gallery: [
-            "/images/assets/unsplash_59.jpg",
-            "/images/assets/unsplash_60.jpg",
-            "/images/assets/unsplash_61.jpg"
+            "/images/assets/baking_1.png",
+            "/images/assets/baking_2.png",
+            "/images/assets/baking_3.png"
         ]
     },
     'saree-folding': {
@@ -258,8 +256,8 @@ const coursesData = {
         syllabus: ["Fabric Types", "Ironing Techniques", "Pre-pleating", "Box Folding", "Travel Packing"],
         benefits: ["Add-on service for beauticians", "Bridal service", "Wardrobe management"],
         gallery: [
-            "/images/assets/unsplash_63.jpg",
-            "/images/assets/unsplash_64.jpg",
+            "/images/assets/saree_folding_1.png",
+            "/images/assets/saree_folding_2.png",
             "/images/assets/unsplash_65.jpg"
         ]
     },
@@ -275,8 +273,8 @@ const coursesData = {
         benefits: ["Salon employment", "Freelance nail artist", "High demand service"],
         gallery: [
             "/images/assets/unsplash_67.jpg",
-            "/images/assets/unsplash_68.jpg",
-            "/images/assets/unsplash_69.jpg"
+            "/images/assets/nail_art_2.png",
+            "/images/assets/nail_art_3.jpg"
         ]
     },
 };

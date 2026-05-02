@@ -65,18 +65,18 @@ const Awards = () => {
     ];
 
     const achievementImages = [
-        "/images/assets/unsplash_134.jpg", // Beautician
-        "/images/assets/unsplash_135.jpg", // Doll making
-        "/images/assets/unsplash_139.jpg", // Embroidery
-        "/images/assets/unsplash_144.jpg", // Bridal Flower
-        "/images/assets/unsplash_5.jpg",   // Group photo potentially
-        "/images/assets/unsplash_7.jpg",    // Classroom
-        "/images/assets/unsplash_10.jpg",
-        "/images/assets/unsplash_50.jpg",
-        "/images/assets/unsplash_60.jpg",
-        "/images/assets/unsplash_75.jpg",
-        "/images/assets/unsplash_80.jpg",
-        "/images/assets/unsplash_95.jpg"
+        "/images/assets/award_1.jpg",
+        "/images/assets/award_2.png",
+        "/images/assets/award_3.jpg",
+        "/images/assets/award_4.jpg",
+        "/images/assets/award_5.jpg",
+        "/images/assets/award_6.jpg",
+        "/images/assets/award_7.jpg",
+        "/images/assets/award_8.jpg",
+        "/images/assets/award_9.jpg",
+        "/images/assets/award_10.jpg",
+        "/images/assets/award_11.jpg",
+        "/images/assets/award_12.jpg"
     ];
 
     return (
@@ -87,7 +87,7 @@ const Awards = () => {
             />
 
             <div className="page-header" style={{
-                background: 'linear-gradient(rgba(81, 39, 49, 0.8), rgba(81, 39, 49, 0.8)), url(/images/assets/unsplash_5.jpg) center/cover',
+                background: 'linear-gradient(rgba(81, 39, 49, 0.8), rgba(81, 39, 49, 0.8)), url(/images/assets/award_12.jpg) center/cover',
                 height: '50vh',
                 display: 'flex',
                 alignItems: 'center',

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
-import { Target, Eye, Heart, History, Award, Users, CheckCircle } from 'lucide-react';
+import { Target, Eye, Heart, History, Award, Users, CheckCircle, Globe, Zap } from 'lucide-react';
 import '../styles/About_Classic.css';
 import Team from './Team';
 import StaggeredHeading from '../components/StaggeredHeading';
@@ -187,7 +187,9 @@ const About = () => {
                         { icon: <Heart />, title: "Compassion", desc: "We lead with empathy and kindness in everything we do." },
                         { icon: <Users />, title: "Community", desc: "We believe in the power of working together." },
                         { icon: <Award />, title: "Integrity", desc: "We are transparent, honest and accountable." },
-                        { icon: <History />, title: "Dedication", desc: "We are committed to long-term impact." }
+                        { icon: <History />, title: "Dedication", desc: "We are committed to long-term impact." },
+                        { icon: <Zap />, title: "Empowerment", desc: "We enable individuals to build better futures for themselves." },
+                        { icon: <Globe />, title: "Inclusivity", desc: "We embrace diversity and provide equal opportunities for all." }
                     ].map((val, i) => (
                         <motion.div
                             key={i}

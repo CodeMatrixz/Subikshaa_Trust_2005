@@ -13,7 +13,7 @@ const WomenSkillDev = () => {
         {
             id: 'aari-work',
             title: "Aari Work",
-            image: "/images/aari-work.png"
+            image: "/images/assets/aari_work_authentic.jpg"
         },
         {
             id: 'beautician',
@@ -26,9 +26,9 @@ const WomenSkillDev = () => {
             image: "/images/assets/unsplash_135.jpg"
         },
         {
-            id: 'fabric-painting',
-            title: "Fabric Painting",
-            image: "/images/assets/unsplash_136.jpg"
+            id: 'tailoring',
+            title: "Tailoring",
+            image: "/images/assets/tailoring_1.jpg"
         },
         {
             id: 'jewellery-making',
