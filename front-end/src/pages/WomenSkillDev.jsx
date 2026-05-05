@@ -18,7 +18,7 @@ const WomenSkillDev = () => {
         {
             id: 'beautician',
             title: "Beautician",
-            image: "/images/assets/unsplash_134.jpg"
+            image: "/images/assets/beautician_cover_new.jpg"
         },
         {
             id: 'doll-making',
@@ -38,22 +38,22 @@ const WomenSkillDev = () => {
         {
             id: 'mehandi',
             title: "Mehandi",
-            image: "/images/assets/unsplash_138.jpg"
+            image: "/images/assets/mehandi_cover.jpg"
         },
         {
             id: 'hand-embroidery',
             title: "Hand Embroidery",
-            image: "/images/assets/unsplash_139.jpg"
+            image: "/images/assets/hand_embroidery_cover.png"
         },
         {
             id: 'terry-cotton',
             title: "Terry Cotton",
-            image: "/images/assets/unsplash_140.jpg"
+            image: "/images/assets/terry_cotton_cover.png"
         },
         {
             id: 'paper-bag',
             title: "Paper Bag Making",
-            image: "/images/assets/unsplash_141.jpg"
+            image: "/images/assets/paper_bag_cover_new.png"
         },
         {
             id: 'painting',
@@ -78,7 +78,7 @@ const WomenSkillDev = () => {
         {
             id: 'saree-folding',
             title: "Saree Folding",
-            image: "/images/assets/unsplash_146.jpg"
+            image: "/images/assets/saree_folding_cover.jpg"
         },
         {
             id: 'nail-art',
