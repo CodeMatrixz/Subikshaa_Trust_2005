@@ -49,12 +49,29 @@ const Gallery = () => {
     // Flattened Image Data
     const allImages = [
         { src: "/images/assets/gallery_1.jpg", category: "Education" },
+        { src: "/images/assets/gallery_21.jpg", category: "Environment" },
+        { src: "/images/assets/cert_gallery_new_1.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_new_2.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_new_3.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_new_4.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_new_5.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest_1.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest_2.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest_3.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest_4.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest_5.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest2_1.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest2_2.jpg", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest2_3.jpg", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest2_4.png", category: "Certificates" },
+        { src: "/images/assets/cert_gallery_latest2_5.png", category: "Certificates" },
         { src: "/images/assets/gallery_2.jpg", category: "Education" },
         { src: "/images/assets/gallery_3.jpg", category: "Education" },
         { src: "/images/assets/gallery_4.png", category: "Education" },
-        { src: "/images/assets/gallery_5.png", category: "Water" },
-        { src: "/images/assets/gallery_6.jpg", category: "Water" },
-        { src: "/images/assets/gallery_7.jpg", category: "Water" },
+        { src: "/images/assets/gallery_5.png", category: "Food" },
+        { src: "/images/assets/gallery_6.jpg", category: "Food" },
+        { src: "/images/assets/gallery_7.jpg", category: "Food" },
+        { src: "/images/assets/gallery_new_group.jpg", category: "Community" },
         { src: "/images/assets/gallery_8.png", category: "Community" },
         { src: "/images/assets/gallery_9.jpg", category: "Community" },
         { src: "/images/assets/gallery_10.jpg", category: "Community" },
@@ -62,16 +79,14 @@ const Gallery = () => {
         { src: "/images/assets/gallery_12.jpg", category: "Medical" },
         { src: "/images/assets/gallery_13.png", category: "Medical" },
         { src: "/images/assets/gallery_14.jpg", category: "Medical" },
-        { src: "/images/assets/gallery_15.jpg", category: "Environment" },
         { src: "/images/assets/gallery_16.png", category: "Environment" },
         { src: "/images/assets/gallery_17.png", category: "Environment" },
         { src: "/images/assets/gallery_18.jpg", category: "Environment" },
-        { src: "/images/assets/gallery_19.png", category: "Animals" },
-        { src: "/images/assets/gallery_20.jpg", category: "Animals" },
-        { src: "/images/assets/gallery_21.jpg", category: "Animals" }
+        { src: "/images/assets/gallery_19.png", category: "Environment" },
+        { src: "/images/assets/gallery_20.jpg", category: "Environment" }
     ];
 
-    const categories = ["All", "Education", "Water", "Community", "Medical", "Environment", "Animals"];
+    const categories = ["All", "Certificates", "Education", "Food", "Community", "Medical", "Environment"];
 
 
 

@@ -15,9 +15,9 @@ const Celebrations = () => {
             date: "Nov 12, 2025",
             location: "Community Center",
             images: [
-                "https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?w=800&q=80",
-                "https://images.unsplash.com/photo-1609519107664-4f3d9e4b1e8d?w=800&q=80",
-                "https://images.unsplash.com/photo-1636197294777-e2c8f2d0b6b7?w=800&q=80"
+                "/images/assets/diwali_1.jpg",
+                "/images/assets/diwali_2.jpg",
+                "/images/assets/diwali_3.jpg"
             ],
             description: "Celebrated the triumph of light over darkness with traditional diyas, rangoli, and cultural performances. A beautiful evening of unity and joy.",
             status: "Completed",
@@ -28,34 +28,16 @@ const Celebrations = () => {
                 pattern: "✨"
             }
         },
-        {
-            id: 2,
-            title: "Holi - Festival of Colors",
-            date: "Mar 25, 2025",
-            location: "Open Grounds",
-            images: [
-                "/images/assets/unsplash_70.jpg",
-                "https://images.unsplash.com/photo-1551972251-12070d63502a?w=800&q=80",
-                "https://images.unsplash.com/photo-1582659841945-5a4b6d0f6c0e?w=800&q=80"
-            ],
-            description: "A vibrant celebration of spring where our community came together to play with colors, dance, and share traditional sweets.",
-            status: "Completed",
-            theme: {
-                primary: "#FF1493",
-                secondary: "#FFD700",
-                gradient: "linear-gradient(135deg, #FF1493 0%, #FFD700 50%, #00CED1 100%)",
-                pattern: "🎨"
-            }
-        },
+
         {
             id: 3,
             title: "Pongal - Harvest Festival",
             date: "Jan 15, 2025",
             location: "Village Square",
             images: [
-                "https://images.unsplash.com/photo-1591604021695-0c69b7c05981?w=800&q=80",
-                "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
-                "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80"
+                "/images/assets/pongal_1.jpg",
+                "/images/assets/pongal_2.jpg",
+                "/images/assets/pongal_3.jpg"
             ],
             description: "Honored the harvest season with traditional Pongal cooking, kolam designs, and cultural dances celebrating abundance and gratitude.",
             status: "Completed",
@@ -72,9 +54,9 @@ const Celebrations = () => {
             date: "Apr 10, 2026",
             location: "Community Hall",
             images: [
-                "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
-                "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=800&q=80",
-                "https://images.unsplash.com/photo-1585128903994-0c8e6d6e3d8a?w=800&q=80"
+                "/images/assets/eid_1.jpg",
+                "/images/assets/eid_2.jpg",
+                "/images/assets/eid_3.jpg"
             ],
             description: "Upcoming: Join us in celebrating the end of Ramadan with prayers, traditional feast, and community bonding.",
             status: "Upcoming",
@@ -91,9 +73,9 @@ const Celebrations = () => {
             date: "Dec 25, 2026",
             location: "Hope Community Center",
             images: [
-                "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80",
-                "https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=800&q=80",
-                "https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?w=800&q=80"
+                "/images/assets/christmas_1.jpg",
+                "/images/assets/christmas_2.jpg",
+                "/images/assets/christmas_3.jpg"
             ],
             description: "Celebrate the spirit of Christmas with carol singing, gift exchanges, and spreading joy to underprivileged children.",
             status: "Upcoming",
@@ -110,9 +92,9 @@ const Celebrations = () => {
             date: "Sep 08, 2026",
             location: "Cultural Center",
             images: [
-                "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
-                "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
-                "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80"
+                "/images/assets/onam_1.jpg",
+                "/images/assets/onam_2.jpg",
+                "/images/assets/onam_3.jpg"
             ],
             description: "Experience the grandeur of Onam with traditional Pookalam, Onasadya feast, and Kathakali performances.",
             status: "Upcoming",
@@ -129,9 +111,9 @@ const Celebrations = () => {
             date: "Oct 03, 2026",
             location: "Festival Grounds",
             images: [
-                "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80",
-                "https://images.unsplash.com/photo-1610296669228-602fa827fc1f?w=800&q=80",
-                "https://images.unsplash.com/photo-1609519107664-4f3d9e4b1e8d?w=800&q=80"
+                "/images/assets/navratri_1.jpg",
+                "/images/assets/navratri_2.jpg",
+                "/images/assets/navratri_3.jpg"
             ],
             description: "Nine nights of traditional Garba and Dandiya, celebrating the divine feminine with music, dance, and colorful attire.",
             status: "Upcoming",
@@ -142,25 +124,7 @@ const Celebrations = () => {
                 pattern: "💃"
             }
         },
-        {
-            id: 8,
-            title: "Cultural Unity Day",
-            date: "Aug 15, 2026",
-            location: "City Park",
-            images: [
-                "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
-                "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80",
-                "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80"
-            ],
-            description: "A day celebrating all cultures coming together - showcasing diverse traditions, cuisines, music, and art from around the world.",
-            status: "Upcoming",
-            theme: {
-                primary: "#FF6B6B",
-                secondary: "#4ECDC4",
-                gradient: "linear-gradient(135deg, #FF6B6B 0%, #FFD93D 25%, #6BCF7F 50%, #4ECDC4 75%, #9B59B6 100%)",
-                pattern: "🌍"
-            }
-        }
+
     ];
 
     // Participant Stories Data

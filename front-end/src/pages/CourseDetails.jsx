@@ -166,19 +166,20 @@ const coursesData = {
             "/images/assets/terry_cotton_3.jpg"
         ]
     },
-    'paper-bag': {
-        title: "Paper Bag Making",
+    'jute-bag': {
+        title: "Jute Bag Making",
         subtitle: "Eco-friendly craftsmanship for a sustainable future.",
-        description: "Learn to create durable and attractive paper bags from recycled materials. This course covers size calculation, folding techniques, and handle attachment, preparing you for the growing market of eco-friendly packaging.",
+        description: "Learn to create durable and attractive jute bags from sustainable materials. This course covers pattern cutting, stitching techniques, and handle attachment, preparing you for the growing market of eco-friendly bags.",
         heroImage: "/images/assets/paper_bag_cover_new.png",
         duration: "2 Weeks",
         level: "Beginner",
         certification: "Workshop Certificate",
-        syllabus: ["Material Selection", "Measuring and Cutting", "Folding Techniques", "Base Formation", "Handle Fixing", "Decoration"],
+        syllabus: ["Material Selection", "Measuring and Cutting", "Stitching Techniques", "Base Formation", "Handle Fixing", "Decoration"],
         benefits: ["Eco-friendly business", "Low investment", "High volume demand"],
         gallery: [
+            "/images/assets/paper_bag_cover_latest.jpg",
             "/images/assets/paper_bag_1.jpg",
-            "/images/assets/paper_bag_2.png"
+            "/images/assets/paper_bag_new_2.jpg"
         ]
     },
     'painting': {

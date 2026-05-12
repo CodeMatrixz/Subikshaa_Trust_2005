@@ -51,8 +51,8 @@ const WomenSkillDev = () => {
             image: "/images/assets/terry_cotton_cover.png"
         },
         {
-            id: 'paper-bag',
-            title: "Paper Bag Making",
+            id: 'jute-bag',
+            title: "Jute Bag Making",
             image: "/images/assets/paper_bag_cover_new.png"
         },
         {
