@@ -182,12 +182,7 @@ const WomenSkillDev = () => {
                     {/* Program Details Grid - Matching Skills Layout */}
                     <div className="program-details-block" style={{ marginTop: '5rem', width: '100%', paddingBottom: '3rem' }}>
                         <div className="container" style={{ maxWidth: '1200px' }}>
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, 1fr)',
-                                gap: '2rem',
-                                alignItems: 'stretch'
-                            }}>
+                            <div className="program-details-grid">
                                 {/* Card 1 */}
                                 <div style={{
                                     backgroundColor: '#fff',

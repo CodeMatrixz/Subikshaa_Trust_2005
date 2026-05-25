@@ -634,3 +634,5 @@
         padding: 40px 20px;
     }
 }
+
+@media (max-width: 768px) { .portal-form-content { padding: 30px 20px; } .portal-card { border-radius: 12px; } .input-grid { grid-template-columns: 1fr; } }

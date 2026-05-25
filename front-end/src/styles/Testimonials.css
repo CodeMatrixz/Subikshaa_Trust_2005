@@ -179,22 +179,10 @@
 /* Responsive Design */
 @media (max-width: 992px) {
 
-    /* Disable sticky scroll effect on mobile for better UX */
-    .testimonials-section-scroll {
-        height: auto !important;
-        padding: 4rem 0;
-    }
-
-    .testimonials-sticky-wrapper {
-        position: static;
-        height: auto;
-        display: block;
-    }
-
     .testimonials-layout {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 0 2rem;
+        gap: 2rem;
+        padding: 0 1.5rem;
     }
 
     .t-col-header {

@@ -513,7 +513,8 @@ const ScholarshipPortal = () => {
                             
                             <div className="portal-form-content">
                                 <div className="mandatory-note">
-                                    <AlertCircle size={16} /> All fields marked with <span className="required-star">*</span> are strictly mandatory to be filled/uploaded.
+                                    <AlertCircle size={16} style={{ flexShrink: 0, marginTop: '2px' }} />
+                                    <span>All fields marked with <span className="required-star">*</span> are strictly mandatory to be filled/uploaded.</span>
                                 </div>
 
                                 {message.text && (

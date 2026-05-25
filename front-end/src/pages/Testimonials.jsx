@@ -46,21 +46,18 @@ const Testimonials = () => {
     const containerRef = React.useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"]
+        offset: ["start start", "end end"]
     });
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Map scroll progress to index
-    // We want the changes to happen while the element is in the viewport (approx 0.2 to 0.8 range)
+    // Progress goes from 0 to 1 while the section is sticky
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        // We divide the scroll range into segments for each testimonial
         const numberOfSlides = testimonials.length;
-        const segmentSize = 0.6 / numberOfSlides; // Use middle 60% of screen for transitions
-        const startOffset = 0.2; // Start changing at 20% visibility
-
-        // Calculate index based on progress
-        const rawIndex = (latest - startOffset) / segmentSize;
+        // Use the full 0 to 1 range
+        const segmentSize = 1 / numberOfSlides; 
+        const rawIndex = latest / segmentSize;
         const index = Math.min(Math.max(Math.floor(rawIndex), 0), numberOfSlides - 1);
 
         if (index !== currentIndex) {
@@ -69,7 +66,7 @@ const Testimonials = () => {
     });
 
     return (
-        <section ref={containerRef} className="testimonials-section-scroll" style={{ height: "350vh" }}>
+        <section ref={containerRef} className="testimonials-section-scroll" style={{ height: "300vh" }}>
             <div className="testimonials-sticky-wrapper">
                 <div className="container">
                     <motion.div

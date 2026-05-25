@@ -249,3 +249,17 @@
     transform: translateX(-5px);
     color: var(--color-accent-gold);
 }
+
+/* Program Details Grid */
+.program-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+@media (max-width: 992px) {
+    .program-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
