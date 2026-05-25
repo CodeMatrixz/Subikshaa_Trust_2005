@@ -21,18 +21,27 @@ const loginLimiter = rateLimit({
 router.post('/login', loginLimiter, async (req, res) => {
     const { username, password } = req.body;
     
-    // Convert the known password to a secure hash in memory so we can compare the incoming password cryptographically safely.
-    const expectedHash = await bcrypt.hash(ADMIN_PASSWORD, 10);
+    const inputUser = (username || '').trim();
+    const envUser = (ADMIN_USERNAME || '').trim();
+    const inputPass = (password || '').trim();
+    const envPass = (ADMIN_PASSWORD || '').trim();
     
-    if (username === ADMIN_USERNAME) {
-        const isMatch = await bcrypt.compare(password, expectedHash);
+    // Convert the known password to a secure hash in memory so we can compare the incoming password cryptographically safely.
+    const expectedHash = await bcrypt.hash(envPass, 10);
+    
+    if (inputUser === envUser) {
+        const isMatch = await bcrypt.compare(inputPass, expectedHash);
         if (isMatch) {
             const token = jwt.sign({ role: 'admin' }, JWT_SECRET, { expiresIn: '8h' });
             return res.json({ success: true, token });
         }
     }
     
-    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+    // Return detailed error for debugging since it fails on live
+    return res.status(401).json({ 
+        success: false, 
+        message: `Invalid credentials. Debug: user='${inputUser}' env='${envUser}' passMatch=${inputPass === envPass}` 
+    });
 });
 
 // Middleware to verify admin token
