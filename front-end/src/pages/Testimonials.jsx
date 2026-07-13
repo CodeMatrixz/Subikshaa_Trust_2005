@@ -8,21 +8,21 @@ const Testimonials = () => {
     const testimonials = [
         {
             text: "Volunteering with Subikshaa Trust has been a life-changing experience. Seeing the smiles on the children's faces when we delivered the school supplies was absolutely priceless.",
-            author: "Kavitha",
+            author: "Nandhini",
             role: "Community Volunteer",
             image: "/images/assets/unsplash_128.jpg",
             rating: 5
         },
         {
             text: "I've been donating for three years, and I appreciate the transparency. I know exactly how my contributions are helping provide clean water to remote villages.",
-            author: "Sumathi",
+            author: "Sangeetha",
             role: "Regular Donor",
             image: "/images/assets/unsplash_129.jpg",
             rating: 5
         },
         {
             text: "The medical camp organized by the team saved my husband's life. We are forever grateful for the compassionate care and support we received during our hardest times.",
-            author: "Prema",
+            author: "Sathya",
             role: "Beneficiary",
             image: "/images/assets/unsplash_130.jpg",
             rating: 5
@@ -36,7 +36,7 @@ const Testimonials = () => {
         },
         {
             text: "As a corporate partner, we are proud to support such an impactful organization. Their dedication to sustainable development matches our company values perfectly.",
-            author: "Karthikeyan",
+            author: "Kumar",
             role: "Corporate Partner",
             image: "/images/assets/unsplash_132.jpg",
             rating: 5
