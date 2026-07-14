@@ -286,6 +286,23 @@
     opacity: 0.4;
 }
 
+.powered-by {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    opacity: 0.6;
+}
+
+.powered-by a {
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.powered-by a:hover {
+    opacity: 0.8;
+}
+
 .footer-legal-links {
     display: flex;
     gap: 32px;

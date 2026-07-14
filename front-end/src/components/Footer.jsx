@@ -119,6 +119,11 @@ const Footer = () => {
             <div className="footer-bottom-premium">
                 <div className="container footer-bottom-inner">
                     <p className="copyright">&copy; {new Date().getFullYear()} Subikshaa Trust. All rights reserved.</p>
+                    
+                    <div className="powered-by">
+                        Powered By <a href="https://www.codematrixz.com/" target="_blank" rel="noopener noreferrer">CodeMatrixz</a>
+                    </div>
+
                     <div className="footer-legal-links">
                         <Link to="/terms">Terms</Link>
                         <Link to="/privacy">Privacy</Link>
