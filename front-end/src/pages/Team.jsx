@@ -15,7 +15,7 @@ const Team = () => {
     {
         name: "Karuna Sagar",
         role: "Trustee – Finance & Compliance",
-        image: "https://ui-avatars.com/api/?name=Michael+Chen&size=300&background=00bcd4&color=fff&bold=true",
+        image: "",
         bio: "Karuna Sagar serves as Trustee for Finance and Compliance, responsible for financial oversight, transparency and regulatory adherence. He ensures prudent resource management and accountability in alignment with statutory requirements and the Trust’s objectives."
     },
     {
