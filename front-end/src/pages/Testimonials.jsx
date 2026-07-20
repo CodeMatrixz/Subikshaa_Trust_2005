@@ -31,7 +31,7 @@ const Testimonials = () => {
             text: "Subikshaa Trust's scholarship program allowed me to pursue my dream of becoming a nurse. I am now able to give back to my community and help others.",
             author: "Amirtha",
             role: "Scholarship Recipient",
-            image: "/images/assets/unsplash_131.jpg",
+            image: "https://ui-avatars.com/api/?name=A&size=300&background=9c27b0&color=fff&bold=true",
             rating: 5
         },
         {
