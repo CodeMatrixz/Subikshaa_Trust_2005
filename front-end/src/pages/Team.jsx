@@ -9,7 +9,7 @@ const Team = () => {
     {
         name: "Meena G",
         role: "Founder & Managing Trustee",
-        image: "https://ui-avatars.com/api/?name=Meena&size=300&background=1a237e&color=fff&bold=true",
+        image: "https://ui-avatars.com/api/?name=M&size=300&background=1a237e&color=fff&bold=true",
         bio: "Meena G is the Founder and Managing Trustee of the Trust, providing strategic direction and overall governance. With an academic background in History and Community Development, she leads the organization’s mission to promote social equity through sustainable and community-driven initiatives."
     },
     {
