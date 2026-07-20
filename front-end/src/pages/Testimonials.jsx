@@ -24,7 +24,7 @@ const Testimonials = () => {
             text: "The medical camp organized by the team saved my husband's life. We are forever grateful for the compassionate care and support we received during our hardest times.",
             author: "Sathya",
             role: "Beneficiary",
-            image: "/images/assets/unsplash_130.jpg",
+            image: "https://ui-avatars.com/api/?name=S&size=300&background=4caf50&color=fff&bold=true",
             rating: 5
         },
         {
