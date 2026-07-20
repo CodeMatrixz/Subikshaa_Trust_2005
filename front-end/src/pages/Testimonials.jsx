@@ -17,7 +17,7 @@ const Testimonials = () => {
             text: "I've been donating for three years, and I appreciate the transparency. I know exactly how my contributions are helping provide clean water to remote villages.",
             author: "Ganesh",
             role: "Regular Donor",
-            image: "/images/assets/unsplash_129.jpg",
+            image: "https://ui-avatars.com/api/?name=G&size=300&background=ff6f00&color=fff&bold=true",
             rating: 5
         },
         {
