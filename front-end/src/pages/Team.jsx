@@ -21,19 +21,19 @@ const Team = () => {
     {
         name: "Bharathi",
         role: "Trustee – Programs & Implementation",
-        image: "https://ui-avatars.com/api/?name=Bharathi&size=300&background=ff6f00&color=fff&bold=true",
+        image: "https://ui-avatars.com/api/?name=B&size=300&background=ff6f00&color=fff&bold=true",
         bio: "Bharathi serves as Trustee for Programs and Implementation, overseeing the planning and execution of the Trust’s initiatives. With a background in healthcare, she ensures that all programs are delivered effectively, with a strong focus on community welfare and impact."
     },
     {
         name: "Anbazhagan",
         role: "Legal Advisor",
-        image: "https://ui-avatars.com/api/?name=Anbazhagan&size=300&background=4caf50&color=fff&bold=true",
+        image: "https://ui-avatars.com/api/?name=A&size=300&background=4caf50&color=fff&bold=true",
         bio: "Anbazhagan acts as Legal Advisor to the Trust, providing guidance on legal, regulatory and governance matters. He supports the organization in maintaining compliance with applicable laws while advancing its commitment to social justice and public service."
     },
     {
         name: "Karthikeya",
         role: "Trustee – Community Outreach & Partnerships",
-        image: "https://ui-avatars.com/api/?name=Karthikeya&size=300&background=9c27b0&color=fff&bold=true",
+        image: "https://ui-avatars.com/api/?name=K&size=300&background=9c27b0&color=fff&bold=true",
         bio: "Karthikeya serves as Trustee for Community Outreach and Partnerships, leading stakeholder engagement and collaborative initiatives. She works to strengthen networks and mobilize resources that enhance the Trust’s reach and effectiveness in serving communities."
     }
 ];
