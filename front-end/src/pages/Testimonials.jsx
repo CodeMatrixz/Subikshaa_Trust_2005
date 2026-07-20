@@ -15,7 +15,7 @@ const Testimonials = () => {
         },
         {
             text: "I've been donating for three years, and I appreciate the transparency. I know exactly how my contributions are helping provide clean water to remote villages.",
-            author: "Sangeetha",
+            author: "Ganesh",
             role: "Regular Donor",
             image: "/images/assets/unsplash_129.jpg",
             rating: 5
