@@ -10,7 +10,7 @@ const Testimonials = () => {
             text: "Volunteering with Subikshaa Trust has been a life-changing experience. Seeing the smiles on the children's faces when we delivered the school supplies was absolutely priceless.",
             author: "Nandhini",
             role: "Community Volunteer",
-            image: "/images/assets/unsplash_128.jpg",
+            image: "https://ui-avatars.com/api/?name=N&size=300&background=1a237e&color=fff&bold=true",
             rating: 5
         },
         {
