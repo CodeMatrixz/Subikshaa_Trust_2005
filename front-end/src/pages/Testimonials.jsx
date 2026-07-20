@@ -38,7 +38,7 @@ const Testimonials = () => {
             text: "As a corporate partner, we are proud to support such an impactful organization. Their dedication to sustainable development matches our company values perfectly.",
             author: "Kumar",
             role: "Corporate Partner",
-            image: "/images/assets/unsplash_132.jpg",
+            image: "https://ui-avatars.com/api/?name=K&size=300&background=1a237e&color=fff&bold=true",
             rating: 5
         }
     ];
